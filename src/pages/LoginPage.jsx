@@ -10,19 +10,19 @@ import Button from '../components/common/Button';
 
 
 
+
 export default function LoginPage() {
+
   const handleLogin = () => {
     console.log("Login clicked");
   };
 
 
-
-
   return (
     <AuthLayout img={img}>
       <div className="w-screen flex h-screen items-center justify-center">
-        <div className="w-[35.4%] p-10 rounded-[30px] shadow-lg bg-white mx-auto z-10 absolute">
-          <div className="w-full flex flex-col justify-start h-full bottom-1">
+        <div className="w-[35.4%] p-6 rounded-[30px] shadow-lg bg-white mx-auto z-10 absolute">
+          <div className="w-full flex flex-col justify-start h-full bottom-1 gap-4">
             <AutoHeading title="Login" />
             <Email />
             <Password />

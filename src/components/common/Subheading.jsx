@@ -4,7 +4,7 @@ export default function Subheading({text}) {
   return (
    <>
     <div>
-      <h2 className="text-md  text-start  font-normal font-inter text-gray-800">{text}</h2>
+      <h2 className="text-base text-start  font-normal  font-inter text-gray-500 mt-[-20px]">{text}</h2>
     </div>
       
     </>
