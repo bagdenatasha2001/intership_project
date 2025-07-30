@@ -1,30 +1,19 @@
 import React from 'react';
-import img1 from '../../assets/images/login_bg.png';
-import LoginForm from '../common/LoginForm';
+import Logo from '../logo/Logo';
 
-export default function AuthLayout() {
+export default function AuthLayout({ img, children }) {
   return (
-  <>
-    <div className="w-screen h-screen bg-cover bg-center flex items-center justify-center  relative  "
-      style={{ backgroundImage: `url(${img1})` }}
-
-      
+    <div
+      className="w-screen h-screen bg-cover bg-center flex relative"
+      style={{ backgroundImage: `url(${img})` }}
     >
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
-<div className="absolute inset-0 bg-black bg-opacity-30"></div>
-      
-<div className="z-10 w-full flex justify-center mx-auto">
-  <div className="w-[90%] max-w-[520px]">
-    <LoginForm />
-  </div>
-</div>
-     
-
-    
-   
-
+      <div className="z-10 w-full h-full">
+        <Logo />
+        {children}
+      </div>
     </div>
-    </>
   );
 }
 
@@ -47,14 +36,6 @@ export default function AuthLayout() {
 
 
 
-
-
-
-
-
-
-
-   
 
  
         

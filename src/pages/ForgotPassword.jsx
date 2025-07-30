@@ -2,9 +2,8 @@ import React from 'react'
 
 export default function ForgotPassword() {
   return (
-    <div className='bg-slate-600'>
-        <h1 className='text-center  font-semibold text-xl text-white '>This is forgot Password page.</h1>
-      
+    <div>
+      <h1 className=' text-xl font-black'>This is forgot password page.  </h1>
     </div>
   )
 }
