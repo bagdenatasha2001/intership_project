@@ -13,9 +13,9 @@ function App() {
     <>
      <Routes>
       <Route path='/' element={<LoginPage/>}/>
-      <Route path='/forgot' element={<ForgotPassword/>}/>
-      <Route path='/Confirm' element={<CreateNewPassword/>}/>
-      <Route path='/updated' element={<PasswordUpdated/>}/>
+     <Route path='/forgot' element={<ForgotPassword/>}/> 
+     <Route path='/Confirm' element={<CreateNewPassword/>}/>
+      <Route path='/updated' element={<PasswordUpdated/>}/> 
 
 
     </Routes> 
