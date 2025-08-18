@@ -13,33 +13,29 @@ export default function LoginPage() {
     password: '',
   });
 
- 
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   // const handleEmailChange = (event) => {
   //   let val = event.target.value;
   //   let key = event.target.name;
   //   setFormData({ ...formData, [key]:val });
   //   setEmailError(''); 
+  
 
-   const handleEmailChange = (event) => {
+
+  const handleEmailChange = (event) => {
     setFormData({ ...formData, email: event.target.value });
     setEmailError('');
   };
 
-  
   const handlePasswordChange = (event) => {
     setFormData({ ...formData, password: event.target.value });
     setPasswordError('');
   };
 
-
-  const [emailError, setEmailError] = useState('');
-
-  const [passwordError, setPasswordError] = useState('');
- 
   const handleLogin = (event) => {
     event.preventDefault();
-  
-
     let hasError = false;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -47,11 +43,10 @@ export default function LoginPage() {
     if (!formData.email) {
       setEmailError('Email is required');
       hasError = true;
-    }else if (!emailRegex.test(formData.email)) {
+    } else if (!emailRegex.test(formData.email)) {
       setEmailError('Enter a valid email address');
       hasError = true;
-     }
-     
+    }
 
     if (!formData.password) {
       setPasswordError('Password is required');
@@ -59,48 +54,48 @@ export default function LoginPage() {
     }
 
     if (!hasError) {
-      console.log('Login Data:',formData);
+      console.log('Login Data:', formData);
     }
   };
 
   return (
-    <>
     <AuthLayout img={img}>
-      <div className="w-screen flex h-screen items-center justify-center">
-        <div className="w-[35.4%] p-5 rounded-[30px] shadow-lg bg-white mx-auto z-10 absolute">
-          <form onSubmit={handleLogin} noValidate className="w-full flex flex-col justify-start h-full bottom-1 gap-3">
-            <Heading heading1="Login" />
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full sm:w-[90%] max-w-[565px] h-full  max-h-[445px] rounded-[30px] shadow-lg bg-white z-10 flex flex-col p-[26px] mt-16">
+          <form onSubmit={handleLogin} noValidate className="flex flex-col justify-between h-full ">
+            <div>
+              <Heading heading1="Login" />
 
-            <Email
-              value={formData.email}
-              onChange={handleEmailChange}
-              error={emailError}
-              placeholder="Enter your email"
-              label="Email Address"
-              name="email"
-              type="email"
-            />
+              <Email
+                value={formData.email}
+                onChange={handleEmailChange}
+                error={emailError}
+                placeholder="Enter your email"
+                label="Email Address"
+                name="email"
+                type="email"
+              />
 
-            <PasswordField
-              value={formData.password}
-              onChange={handlePasswordChange}
-              error={passwordError}
-              placeholder="Enter your password"
-              label="Password"
-              name="password"
-            />
+              <PasswordField
+                value={formData.password}
+                onChange={handlePasswordChange}
+                error={passwordError}
+                placeholder="Enter your password"
+                label="Password"
+                name="password"
+              />
 
-            <div className="text-right mb-4 mt-[-28px]">
-              <Link to="/forgot" className="text-black text-sm font-bold font-inter">
-                Forgot password?
-              </Link>
+              <div className="text-right mt-4">
+                <Link to="/forgot" className="text-black text-base font-bold font-inter">
+                  Forgot password?
+                </Link>
+              </div>
             </div>
 
-            <Button text="Login" type="submit" />
+            <Button text="Login" type="submit" className="mt-[50px]" />
           </form>
         </div>
       </div>
     </AuthLayout>
-    </>
-  )
-  }
+  );
+}
