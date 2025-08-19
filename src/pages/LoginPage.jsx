@@ -64,7 +64,7 @@ export default function LoginPage() {
         <div className="w-full sm:w-[90%] max-w-[565px] h-full  max-h-[445px] rounded-[30px] shadow-lg bg-white z-10 flex flex-col p-[26px] mt-16">
           <form onSubmit={handleLogin} noValidate className="flex flex-col justify-between h-full ">
             <div>
-              <Heading heading1="Login" />
+              <Heading heading1="Login" className="text-[32px]" />
 
               <Email
                 value={formData.email}

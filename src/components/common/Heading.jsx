@@ -8,7 +8,7 @@ export default function Heading({ heading1, heading2 }) {
       )}
 
       {heading2 && (
-        <p className="text-base  font-normal font-inter text-gray-500 mt-[-12px]">
+        <p className="text-[20px] font-normal font-inter text-[rgba(87,85,85,0.8)]  mt-[-12px] leading-[28px]">
           {heading2}
         </p>
       )}

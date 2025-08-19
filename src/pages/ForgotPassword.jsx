@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthLayout from '../components/layouts/AuthLayout';
-import img2 from '../assets/images/Forgot_bg.png';
+// import img2 from '../assets/images/Forgot_bg.png';
+import img from '../assets/images/login_bg.png';
 import Heading from '../components/common/Heading';
 import Email from '../components/inputs/Email';
 import Button from '../components/common/Button';
@@ -45,16 +46,20 @@ export default function ForgotPassword() {
   };
 
   return (
-    <AuthLayout img={img2}>
+    <AuthLayout img={img} >
       <div className="w-screen flex h-screen items-center justify-center">
-        <div className="w-[35.4%] p-6 rounded-[30px] shadow-lg bg-white mx-auto z-10 absolute">
-          <form
-            onSubmit={handleReset}  noValidate
-            className="w-full flex flex-col justify-start h-full bottom-1 space-y-6"
-          >
+        <div className="w-full sm:w-[90%] max-w-[568px] h-full  max-h-[365px] rounded-[30px] shadow-lg bg-white z-10 flex flex-col p-[24px] mt-[30px] ">
+          <form className="w-full flex flex-col justify-start h-full ">
+              
+             
+              <div className=' w-full max-w-[520px] h-full max-h-[314px] flex flex-col justify-star '>
+
+              <div className='w-full max-w-[520px] h-[99px]  mb-[30px]  '>
             <Heading heading1="Forgot Password" />
             <Heading heading2="Enter your email address and we will share a link on your email address." />
+            </div>
 
+         <div className='w-full max-w-[520px] h-[85px]  mb-[50px]'>
             <Email
               name="email"
               label="Email Address"
@@ -62,10 +67,11 @@ export default function ForgotPassword() {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleEmailChange}
-              error={emailError}
-            />
+              error={emailError}/>
+             </div>
 
-            <Button text=" Reset Password Link sent" type="submit" />
+            <Button text=" Reset Password Link sent" type="submit"   />
+            </div>
           </form>
         </div>
       </div>

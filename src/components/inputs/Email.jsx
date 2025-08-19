@@ -4,7 +4,7 @@ export default function Email({ name, label, type, placeholder, value, onChange,
   return (
     <div className="mb-9 w-full max-w-[520px] h-[85px]">
    
-      <label htmlFor={name} className="block text-base font-medium text-gray-700  mb-3 font-inter">
+      <label htmlFor={name} className="block text-base font-medium text-black  mb-3 font-inter">
         {label} <span className="text-red-600 ">*</span>
       </label>
 
