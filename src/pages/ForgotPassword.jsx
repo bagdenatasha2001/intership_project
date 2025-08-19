@@ -54,7 +54,7 @@ export default function ForgotPassword() {
              
               <div className=' w-full max-w-[520px] h-full max-h-[314px] flex flex-col justify-star '>
 
-              <div className='w-full max-w-[520px] h-[99px]  mb-[30px]  '>
+              <div className='w-full max-w-[520px] h-[99px]  mb-[30px] '>
             <Heading heading1="Forgot Password" />
             <Heading heading2="Enter your email address and we will share a link on your email address." />
             </div>

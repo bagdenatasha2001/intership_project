@@ -7,10 +7,11 @@ export default function AuthLayout({ img, children }) {
       className="w-screen h-screen bg-cover bg-center bg-no-repeat flex relative"
       style={{ backgroundImage: `url(${img})` }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-60">
+        <Logo/>
+      </div>
 
       <div className="z-10 w-full h-full">
-        <Logo />
         {children}
       </div>
     </div>

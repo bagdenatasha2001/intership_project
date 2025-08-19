@@ -12,10 +12,10 @@ function App() {
   return (
     <>
      <Routes>
-      <Route path='/login' element={<LoginPage/>}/>
-     <Route path='/forgot' element={<ForgotPassword/>}/> 
-     <Route path='/Confirm' element={<CreateNewPassword/>}/>
-      <Route path='/updated' element={<PasswordUpdated/>}/> 
+      <Route path='/' element={<LoginPage/>}/>
+     <Route path='/forgot-password' element={<ForgotPassword/>}/> 
+     <Route path='/reset-password' element={<CreateNewPassword/>}/>
+      <Route path='/password-updated' element={<PasswordUpdated/>}/> 
 
 
     </Routes> 

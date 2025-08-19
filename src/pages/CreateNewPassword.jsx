@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AuthLayout from '../components/layouts/AuthLayout';
-import img2 from '../assets/images/Forgot_bg.png';
+// import img2 from '../assets/images/Forgot_bg.png';
+import img from '../assets/images/login_bg.png';
 import Heading from '../components/common/Heading';
 import PasswordField from '../components/inputs/PasswordField';
 import Button from '../components/common/Button';
@@ -58,36 +59,44 @@ export default function CreateNewPassword() {
   };
 
   return (
-    <AuthLayout img={img2}>
-      <div className="w-screen flex h-screen items-center justify-center">
-        <div className="w-[35.4%] p-6 rounded-[30px] shadow-lg bg-white mx-auto z-10 absolute">
-          <form
-            onSubmit={handleSubmit} noValidate
-            className="w-full flex flex-col justify-start h-full bottom-1 space-y-6"
-          >
-            <Heading heading1="Create New Password" />
-            <Heading heading2="Set a strong password to keep your account secure." />
+    <AuthLayout img={img}>
+       <div className="w-screen flex h-screen items-center justify-center">
+        <div className="w-full sm:w-[90%] max-w-[568px] h-full  max-h-[447px] rounded-[30px] shadow-lg bg-white z-10 flex flex-col p-[24px] mt-[30px] ">
+          <form   onSubmit={handleSubmit} noValidate   >
 
+             <div className='w-full max-w-[520px] h-full max-h-[399px] flex flex-col justify-start'>
+
+              <div className='w-full max-w-[520px] h-[79px]  mb-[30px]'>
+            <Heading heading1="Create New Password" />
+            <Heading heading2="Set a strong password to keep your account secure."/>
+            </div>
+
+            <div className="max-w-[520px] h-[85px] mb-[20px] ">
             <PasswordField
               name="newPassword"
-              label="New Password"
+              label="Password"
               placeholder="Enter new password"
               value={formData.newPassword}
               onChange={handleNewPasswordChange}
-              error={newPasswordError}
-            />
+              error={newPasswordError} />
+              </div>
 
-            <PasswordField
+              <div className="max-w-[520px] h-[85px] mb-[50px]">
+                <PasswordField
               name="confirmPassword"
-              label="Confirm Password"
+              label="Confirm New Password"
               placeholder="Re-enter new password"
               value={formData.confirmPassword}
               onChange={handleConfirmPasswordChange}
-              error={confirmPasswordError}
-            />
+              error={confirmPasswordError}/>
+              </div>
+
+            
 
             <Button text="Send Reset Password Link" type="submit" />
+            </div>
           </form>
+
         </div>
       </div>
     </AuthLayout>
