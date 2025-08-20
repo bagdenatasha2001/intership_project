@@ -1,6 +1,5 @@
 import React from 'react';
 import AuthLayout from '../components/layouts/AuthLayout';
-// import img2 from '../assets/images/forgot_bg.png';
 import img from '../assets/images/login_bg.png';
 import SuccessTick from '../assets/images/Success_img.png';
 import Heading from '../components/common/Heading';
