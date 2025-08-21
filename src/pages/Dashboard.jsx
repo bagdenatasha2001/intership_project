@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Components/Header/header';
+import Header from '../components/Header/header';
 import Sideheader from '../components/sideheade/Sideheader';
 import Kpi_Container from '../components/KPI_Cards/Kpi_Container';
 import ChartContainer from '../components/charts/ChartContainer';
