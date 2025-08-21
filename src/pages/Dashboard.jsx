@@ -24,7 +24,7 @@ export default function Dashboard() {
 
         
         <div
-          className="overflow-y-auto"
+          className="overflow-y-auto "
           style={{ maxHeight: 'calc(100vh - 53px)' }} 
         >
           <Kpi_Container />

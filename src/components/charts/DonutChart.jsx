@@ -58,7 +58,7 @@ export default function DonutChart(){
 
   return (
     <>
-      <div  className='h-100 ml-15' >
+      <div  className='h-100 ml-15 ' >
        <Doughnut data ={data}
        options={options}/>
       

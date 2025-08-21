@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   return (
     <AuthLayout img={img}>
-      <div className="w-full sm:w-[90%] max-w-[565px] rounded-[30px] shadow-lg bg-white p-[26px]">
+      <div className="w-full sm:w-[90%] max-w-[565px] rounded-[30px] shadow-lg bg-white p-[26px] ">
         <form onSubmit={handleLogin} noValidate className="flex flex-col justify-between h-full">
           <div>
             <Heading heading1="Login" className="text-[32px]" />
@@ -62,8 +62,7 @@ export default function LoginPage() {
               placeholder="Enter your email"
               label="Email Address"
               name="email"
-              type="email"
-            />
+              type="email"/>
 
             <PasswordField
               value={formData.password}
@@ -71,17 +70,19 @@ export default function LoginPage() {
               error={passwordError}
               placeholder="Enter your password"
               label="Password"
-              name="password"
-            />
+              name="password"/>
 
-            <div className="text-right mt-4">
-              <Link to="/forgot-password" className="text-black text-base font-bold font-inter">
+            <div className="text-right mt-2">
+              <Link to="/forgot-password" className="text-black text-base font-bold font-inter ">
                 Forgot password?
               </Link>
             </div>
           </div>
-
-          <Button text="Login" type="submit" className="mt-[50px]" />
+         
+         <div className='mt-4'>
+            <Button text="Login" type="submit"/>
+         </div>
+        
         </form>
       </div>
     </AuthLayout>

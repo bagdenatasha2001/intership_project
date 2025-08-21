@@ -5,10 +5,10 @@ import { IoIosArrowDown } from "react-icons/io";
 
 export default function Header() {
   return (
-    <div className="sticky top-0 z-50 bg-white shadow-md">
+    <div className="sticky top-0 z-50 bg-white  ">
  
-      <div className='w-[98%] mx-auto h-[53px] flex justify-between p-3 items-center'>
-        <div className='text-black mx-2'>
+      <div className='w-[98%] mx-auto h-[53px] flex justify-between p-3  items-center mt-4'>
+        <div className='text-black mx-2 '>
           <span className='text-[20px]'>Dashboard Overview</span>
           <p className='text-[14px] text-gray-500 font-normal'>Tue, 14 Nov, 2022, 11.30 AM</p>
         </div>
@@ -31,7 +31,7 @@ export default function Header() {
       </div>
 
      
-      <div className="w-full border-b border-gray-300 mt-6"></div>
+      <div className="w-full border-b border-gray-33 mt-6"></div>
     </div>
   );
 }
