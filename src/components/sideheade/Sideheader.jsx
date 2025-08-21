@@ -4,7 +4,7 @@ import logo from '../../assets/Images/logo.svg'
 import { RxDashboard } from "react-icons/rx";
 import { LuGraduationCap } from "react-icons/lu";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import logout from '../../assets/Images/logout.png'
+import logout from '../../assets/images/logout.png'
 import { HiLogout } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
 
