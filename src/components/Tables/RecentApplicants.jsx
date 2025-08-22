@@ -11,7 +11,7 @@ import img7 from '../../assets/images/t-7.svg';
 export default function RecentApplicants() {
 
   const internships = [
-    { img: img1, name: "Sabeena Farooq", internshipType: "UI/UX Design Intern", AppliedDate: "12 July 2025", Action: <FiEye size={20}  /> },
+    { img: img1, name: "Sabeena Farooq", internshipType: "UI/UX Design Intern", AppliedDate: "12 July 2025", Action: <FiEye size={20} /> },
     { img: img2, name: "Ayeza Khan", internshipType: "Product Manager", AppliedDate: "12 July 2025", Action: <FiEye size={20} /> },
     { img: img3, name: "Ameer Gilani", internshipType: "Frontend Developer", AppliedDate: "12 July 2025", Action: <FiEye size={20} /> },
     { img: img4, name: "Hamza Ali Abbasi", internshipType: "Backend Developer", AppliedDate: "12 July 2025", Action: <FiEye size={20} /> },
@@ -22,18 +22,13 @@ export default function RecentApplicants() {
 
   return (
     <div className="bg-white p-3  shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
-      
-   
       <div className="flex justify-between items-center mb-4 px-3">
         <h2 className="text-md font-semibold">Recent Applied Date</h2>
-          <button className="bg-gray-100 text-[#0F172A] text-[14px] font-medium px-3 py-1 rounded-full mr-6">128 New Applicants</button>
-
+        <button className="bg-gray-100 text-[#0F172A] text-[14px] font-medium px-3 py-1 rounded-full mr-6">128 New Applicants</button>
         <a href="#" className="text-blue-500 text-sm hover:underline">
           View All
         </a>
       </div>
-
-     
       <div className="overflow-x-auto overflow-y-auto flex-1 min-h-0">
         <table className="text-sm text-left w-full">
           <thead>
@@ -47,21 +42,13 @@ export default function RecentApplicants() {
           <tbody>
             {internships.map((item, index) => (
               <tr key={index} className="border-b border-gray-200 gap-2">
-                
-               
                 <td className="py-4 px-3 flex items-center gap-2">
                   <img src={item.img} alt={item.name} className="h-[40px] w-[40px] rounded-full" />
                   <p className="font-normal text-[12px]">{item.name}</p>
                 </td>
-
-             
                 <td className="py-4 px-3 text-[12px]">{item.internshipType}</td>
-
-               
                 <td className="py-4 px-3 text-[12px]">{item.AppliedDate}</td>
-
                 <td className="py-4 px-7 font-bold ">{item.Action}</td>
-
               </tr>
             ))}
           </tbody>

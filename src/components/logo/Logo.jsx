@@ -9,8 +9,7 @@ export default function Logo() {
   return (
     <div
       className="flex items-center mt-[41px] ml-[51px] w-[191px] h-[53px] cursor-pointer"
-      onClick={goToLogin}
-    >
+      onClick={goToLogin} >
       <img src={logo1} alt="GoGrand Logo" />
     </div>
   );

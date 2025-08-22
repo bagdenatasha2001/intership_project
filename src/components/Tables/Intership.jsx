@@ -15,18 +15,14 @@ export default function Intership() {
 
   return (
     <div className="bg-white p-3  shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
-
       <div className="flex justify-between items-center mb-4 px-3">
         <h2 className="text-lg font-semibold">Internships</h2>
         <a href="#" className="text-blue-500 text-sm hover:underline">
           View All
         </a>
       </div>
-
-    
      <div className="overflow-x-auto overflow-y-auto flex-1 min-h-0">
         <table className=" text-base text-left w-full">
-
           <thead>
             <tr className="text-gray-400 border-b text-[12px]">
               <th className="py-3 px-3">Internship</th>
@@ -36,14 +32,10 @@ export default function Intership() {
               <th className="py-3 px-3">Status</th>
             </tr>
           </thead>
-
           <tbody>
-            
             {internships.map((item, index) => (
               <tr key={index} className="border-b border-gray-200 ">
-              
                 <td className="py-3 px-1 flex items-center text-[14px] font-normal gap-3 justify-center">
-                 
                   <div>
                      <p className="font-normal ">{item.title}</p>
                     <p className="text-gray-400 text-[12px] flex mt-2  ">
@@ -52,19 +44,12 @@ export default function Intership() {
                     </p>
                   </div>
                 </td>
-
-              
                 <td className="py-3 px-3 text-[12px] ">{item.openings}</td>
-
-              
                 <td className="py-3 px-3 text-[12px]">{item.applicants}</td>
-
-               
                 <td className="py-3 px-3 text-blue-400 font-medium text-[12px]">
                   {item.selected}
                 </td>
 
-               
                 <td className="py-3 px-3">
                   <span className="flex items-center gap-2 text-green-600 bg-green-100 px-3 py-1 rounded-full text-[12px]">
                     <span className="w-2 h-2 rounded-full bg-[#12B76A]"></span>

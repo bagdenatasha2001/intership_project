@@ -47,14 +47,14 @@ const values = [
 ];
 
 const colorScale = [
-  "#e0f3f8", 
-  "#c7e7e5", 
-  "#8ec3c8", 
-  "#62a7b4", 
-  "#4a90b2", 
-  "#357ca1", 
-  "#2b6f94", 
-  "#1f5c7f" 
+  "#e0f3f8",
+  "#c7e7e5",
+  "#8ec3c8",
+  "#62a7b4",
+  "#4a90b2",
+  "#357ca1",
+  "#2b6f94",
+  "#1f5c7f"
 ];
 
 export default function Heatmap() {
@@ -139,8 +139,7 @@ export default function Heatmap() {
         <select
           className='border px-3 py-1 rounded'
           value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
-        >
+          onChange={(e) => setSelectedCity(e.target.value)}>
           <option value="">Select City</option>
           {cities.map((city) => (
             <option key={city} value={city}>{city}</option>

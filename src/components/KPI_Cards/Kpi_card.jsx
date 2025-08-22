@@ -7,7 +7,6 @@ export default function Kpi_card({ title, value, icon: Icon }) {
         <p className="text-[12px] font-medium text-gray-600 leading-4 ">{title}</p>
         <h2 className="text-2xl font-semibold text-[#006666] mt-3">{value}</h2>
       </div>
-
       <div className="bg-[#F2F2F2] flex rounded-lg h-[50px] w-[65px] items-center justify-center">
         <Icon size={28} className="text-black font-medium" />
       </div>

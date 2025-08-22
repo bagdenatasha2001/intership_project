@@ -1,29 +1,10 @@
-import { Routes,Route } from 'react-router-dom'
-import LoginPage from './pages/LoginPage'
-import ForgotPassword from './pages/ForgotPassword'
-import CreateNewPassword from './pages/CreateNewPassword'
-import PasswordUpdated from './pages/PasswordUpdated'
-import Dashboard from './pages/Dashboard'
+import React from 'react'
+import AppRoutes from './routes/AppRoutes'
 
-
-
-
-function App() {
- 
+export default function App() {
   return (
     <>
-     <Routes>
-      <Route path='/' element={<LoginPage/>}/>
-      <Route path="/dashboard" element={<Dashboard />} />  
-     <Route path='/forgot-password' element={<ForgotPassword/>}/> 
-     <Route path='/reset-password' element={<CreateNewPassword/>}/>
-      <Route path='/password-updated' element={<PasswordUpdated/>}/> 
-
-
-    </Routes> 
-
+      <AppRoutes />
     </>
   )
 }
-
-export default App

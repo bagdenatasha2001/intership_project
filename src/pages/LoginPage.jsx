@@ -54,7 +54,6 @@ export default function LoginPage() {
         <form onSubmit={handleLogin} noValidate className="flex flex-col justify-between h-full">
           <div>
             <Heading heading1="Login" className="text-[32px]" />
-
             <Email
               value={formData.email}
               onChange={handleEmailChange}
@@ -62,27 +61,23 @@ export default function LoginPage() {
               placeholder="Enter your email"
               label="Email Address"
               name="email"
-              type="email"/>
-
+              type="email" />
             <PasswordField
               value={formData.password}
               onChange={handlePasswordChange}
               error={passwordError}
               placeholder="Enter your password"
               label="Password"
-              name="password"/>
-
+              name="password" />
             <div className="text-right mt-2">
               <Link to="/forgot-password" className="text-black text-base font-bold font-inter ">
                 Forgot password?
               </Link>
             </div>
           </div>
-         
-         <div className='mt-4'>
-            <Button text="Login" type="submit"/>
-         </div>
-        
+          <div className='mt-4'>
+            <Button text="Login" type="submit" />
+          </div>
         </form>
       </div>
     </AuthLayout>
