@@ -6,12 +6,12 @@ import ChartHeader from './ChartHeader'
 export default function ChartContainer() {
   return (
     <>
-      <div className='w-full flex flex-col lg:flex-row h-auto lg:h-[550px] justify-center items-center lg:justify-around lg:items-stretch p-3 lg:space-x-5 space-y-5 lg:space-y-0 mt-[-15px]'>
+      <div className='w-full flex flex-col lg:flex-row h-auto lg:h-[550px] justify-center items-center lg:justify-around lg:items-stretch p-3 lg:space-x-5 space-y-5 lg:space-y-0 ]'>
         <div className='w-full lg:w-[50%] flex flex-col'>
           <ChartHeader
             title="Applicant Analytics"
             buttonText="More Information"
-            onButtonClick={() => console.log("first button clicked!")}/>
+            onButtonClick={() => console.log("first button clicked!")} />
 
           <div className='w-full h-full max-h-[480px] flex flex-col items-center bg-[#FBFBFB] p-3 justify-center rounded-2xl border border-gray-33'>
             <DonutChart />
@@ -26,7 +26,7 @@ export default function ChartContainer() {
           <ChartHeader
             title="Internship"
             buttonText="More Information"
-            onButtonClick={() => console.log("second button clicked!")}/>
+            onButtonClick={() => console.log("second button clicked!")} />
 
           <div className='w-full h-full max-h-[480px] flex flex-col items-center bg-[#FBFBFB] p-3 justify-center rounded-2xl border border-gray-33'>
             <Donut_2 />

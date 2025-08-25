@@ -33,12 +33,11 @@ export default function Sideheader({ open }) {
           </div>
         </div>
         <div className=" w-full mt-[300px] h-[48px]  ">
-          <button 
+          <button
             onClick={goToLogin}
             className="flex items-center justify-center w-full py-3  border border-[#006666] hover:bg-[#006666] group rounded-xl">
             <span className="mr-2 font-bold group-hover:text-white">Logout</span>
             <img src={logout} alt="arrow" className="w-5 filter group-hover:invert transition" />
-            
           </button>
         </div>
       </div>

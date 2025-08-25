@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Heading({ heading1, heading2,  heading3,heading4}) {
+export default function Heading({ heading1, heading2, heading3, heading4 }) {
   return (
     <div >
       {heading1 && (
