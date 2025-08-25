@@ -9,7 +9,7 @@ export default function ChartContainer() {
       <div className='w-full flex flex-col lg:flex-row h-auto lg:h-[550px] justify-center items-center lg:justify-around lg:items-stretch p-3 lg:space-x-5 space-y-5 lg:space-y-0 mt-[-15px]'>
         <div className='w-full lg:w-[50%] flex flex-col'>
           <ChartHeader
-            title="Internship Listing Analytics"
+            title="Applicant Analytics"
             buttonText="More Information"
             onButtonClick={() => console.log("first button clicked!")}/>
 
