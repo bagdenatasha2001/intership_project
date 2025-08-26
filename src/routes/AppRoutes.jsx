@@ -7,6 +7,9 @@ import PasswordUpdated from "../pages/PasswordUpdated";
 import PrivateLayout from '../layouts/PrivateLayout';
 import Dashboard from "../pages/Dashboard";
 
+import IntershipForm from '../pages/InternshipForm';
+
+
 export default function AppRoutes() {
     return (
         <Routes>
@@ -16,8 +19,9 @@ export default function AppRoutes() {
             <Route path="/password-updated" element={<PasswordUpdated />} />
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/internshipform" element={<IntershipForm/>} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
-}
+} 
