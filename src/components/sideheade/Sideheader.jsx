@@ -11,7 +11,7 @@ export default function Sideheader({ open }) {
       className={`flex flex-col font-inter mx-auto transition-all duration-300 bg-[#D1DDDD]
       ${open ? 'w-64 md:w-48' : 'w-0'} md:w-48 overflow-hidden relative h-full`}>
 
-      <div className="flex flex-col w-full gap-5 mt-4">
+      <div className="flex flex-col w-full gap-5 mt-4 ">
         <a href="/" className="cursor-pointer py-2">
           <img src={logo} alt="GoGrand Logo" className="w-[161px] h-[44px]" />
         </a>
