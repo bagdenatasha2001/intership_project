@@ -23,7 +23,7 @@ export default function RecentApplicants() {
   return (
     <div className="bg-white p-3  shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
       <div className="flex justify-between items-center mb-4 px-3">
-        <h2 className="text-md font-semibold">Recent Applied Date</h2>
+        <h2 className="text-md font-semibold">Recent Applicants</h2>
         <button className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-3 py-1 rounded-full mr-6">128 New Applicants</button>
         <a href="#" className="text-blue-500 text-sm hover:underline">
           View All
