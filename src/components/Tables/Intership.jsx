@@ -21,7 +21,8 @@ export default function Intership() {
           View All
         </a>
       </div>
-      <div className="overflow-x-auto overflow-y-auto flex-1 min-h-0">
+      <div className="overflow-y-auto flex-1 min-h-0"
+        style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}>
         <table className=" text-base text-left w-full">
           <thead>
             <tr className="text-gray-400 border-b text-[12px]">
@@ -39,17 +40,15 @@ export default function Intership() {
                   <div>
                     <p className="font-normal ">{item.title}</p>
                     <p className="text-gray-400 text-[12px] flex mt-2  ">
-                      <BsCalendar3 className="text-black  mr-2 font-bold mt-[2px]" />
+                      <BsCalendar3 className="text-black  mr-1 font-bold mt-[2px]" />
                       25 May - July 04
                     </p>
                   </div>
                 </td>
-                <td className="py-3 px-3 text-[12px] ">{item.openings}</td>
-                <td className="py-3 px-3 text-[12px]">{item.applicants}</td>
-                <td className="py-3 px-3 text-blue-400 font-medium text-[12px]">
-                  {item.selected}
-                </td>
-                <td className="py-3 px-3">
+                <td className=" text-[12px] px-6 py-1 ">{item.openings}</td>
+                <td className="text-[12px] px-6 py-1 ">{item.applicants}</td>
+                <td className=" text-[#667085] font-medium text-[12px] px-6 py-1">  {item.selected}</td>
+                <td className="py-3 px-2 w-[60px]">
                   <span className="flex items-center gap-2 text-green-600 bg-green-100 px-3 py-1 rounded-full text-[12px]">
                     <span className="w-2 h-2 rounded-full bg-[#12B76A]"></span>
                     Open

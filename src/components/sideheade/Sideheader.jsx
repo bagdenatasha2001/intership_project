@@ -3,43 +3,37 @@ import logo from '../../assets/images/logo.svg';
 import { RxDashboard } from "react-icons/rx";
 import { LuGraduationCap } from "react-icons/lu";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import logout from '../../assets/images/Logout.png'
-import { useNavigate } from 'react-router-dom';
-export default function Sideheader({ open }) {
-  const navigate = useNavigate();
-  const goToLogin = () => navigate('/');
+import logout from '../../assets/images/Logout.png';
 
+export default function Sideheader({ open }) {
   return (
     <div
-      className={`flex flex-col font-inter items-center mx-auto
-      transition-all duration-300
-      ${open ? 'w-64' : 'w-0'} md:w-48 overflow-hidden`}>
-      <div className="flex flex-col items-center w-full h-screen ">
-        <div className='w-[192px] h-[60px] mt-[24px] cursor-pointer'>
-          <img src={logo} alt="GoGrand Logo" onClick={goToLogin} />
+      className={`flex flex-col font-inter mx-auto transition-all duration-300 bg-[#D1DDDD]
+      ${open ? 'w-64 md:w-48' : 'w-0'} md:w-48 overflow-hidden relative h-full`}>
+
+      <div className="flex flex-col w-full gap-5 mt-4">
+        <a href="/" className="cursor-pointer py-2">
+          <img src={logo} alt="GoGrand Logo" className="w-[161px] h-[44px]" />
+        </a>
+        <div className="flex items-center hover:bg-[#006666] rounded-md group space-x-3 w-[192px] h-[48px] p-3">
+          <RxDashboard size={22} className="text-gray-800 group-hover:text-white" />
+          <a href="dashboard" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer" > Dashboard </a>
         </div>
-        <div className="space-y-5 mt-6 w-full">
-          <div className="flex items-center px-4 py-3 hover:bg-[#006666] rounded-md group">
-            <RxDashboard size={22} className="text-gray-800 group-hover:text-white" />
-            <span className="ml-3 text-base font-medium text-gray-600 group-hover:text-white">Dashboard</span>
-          </div>
-          <div className="flex items-center px-4 py-3 hover:bg-[#006666] rounded-md group">
-            <LuGraduationCap size={22} className="text-gray-800 group-hover:text-white" />
-            <span className="ml-3 text-base font-medium text-gray-600 group-hover:text-white">Internship</span>
-          </div>
-          <div className="flex items-center px-4 py-3 hover:bg-[#006666] rounded-md group">
-            <HiOutlineUserGroup size={22} className="text-gray-800 group-hover:text-white" />
-            <span className="ml-3 text-base font-medium text-gray-600 group-hover:text-white">Applicants</span>
-          </div>
+        <div className="flex items-center hover:bg-[#006666] rounded-md group space-x-3 w-[192px] h-[48px] p-3">
+          <LuGraduationCap size={22} className="text-gray-800 group-hover:text-white" />
+          <a href="internshipform" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer" >  Internship</a>
         </div>
-        <div className=" w-full mt-[300px] h-[48px]  ">
-          <button
-            onClick={goToLogin}
-            className="flex items-center justify-center w-full py-3  border border-[#006666] hover:bg-[#006666] group rounded-xl">
-            <span className="mr-2 font-bold group-hover:text-white">Logout</span>
-            <img src={logout} alt="arrow" className="w-5 filter group-hover:invert transition" />
-          </button>
+        <div className="flex items-center hover:bg-[#006666] rounded-md group space-x-3 w-[192px] h-[48px] p-3">
+          <HiOutlineUserGroup size={22} className="text-gray-800 group-hover:text-white" />
+          <a href="" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer">  Applicants</a>
         </div>
+      </div>
+      <div className="absolute bottom-3 w-full flex justify-center">
+        <button
+          className="flex items-center justify-center border border-[#006666] hover:bg-[#006666] group rounded-xl space-x-3 w-[192px] h-[48px]">
+          <a href="/" className="font-bold group-hover:text-white">Logout</a>
+          <img src={logout} alt="logout" className="w-5 filter group-hover:invert transition" />
+        </button>
       </div>
     </div>
   );
