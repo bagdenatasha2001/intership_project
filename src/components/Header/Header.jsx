@@ -4,7 +4,7 @@ import hr_img from '../../assets/images/hr_img.png';
 import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineMenu } from 'react-icons/hi';
 
-export default function Header({ onToggleSidebar }) {
+export default function Header({ onToggleSidebar,pageTitle }) {
   return (
     <div className="sticky top-0 z-50 bg-white">
       <div className='w-[98%] mx-auto h-[53px] flex justify-between items-center p-3 mt-4'>
@@ -15,7 +15,7 @@ export default function Header({ onToggleSidebar }) {
             <HiOutlineMenu size={25} />
           </button>
           <div>
-            <span className='text-[20px]'>Dashboard Overview</span>
+            <span className='text-[20px]'>{pageTitle}</span>
             <p className='text-[14px] text-gray-500 font-normal'>Tue, 14 Nov, 2022, 11.30 AM</p>
           </div>
         </div>

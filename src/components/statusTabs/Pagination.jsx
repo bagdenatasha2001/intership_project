@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import right from "../../assets/images/right_icon.png";
 import left from "../../assets/images/left_icon.png";
 
-export default function Pagination({ totalPages = 10, onPageChange }) {
+export default function Pagination({ totalPages = 12, onPageChange }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePrevious = () => {

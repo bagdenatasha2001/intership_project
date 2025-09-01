@@ -21,11 +21,11 @@ export default function Sideheader({ open }) {
         </div>
         <div className="flex items-center hover:bg-[#006666] rounded-md group space-x-3 w-[192px] h-[48px] p-3">
           <LuGraduationCap size={22} className="text-gray-800 group-hover:text-white" />
-          <a href="internship" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer" >  Internship</a>
+          <a href="internship-table" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer" >  Internship</a>
         </div>
         <div className="flex items-center hover:bg-[#006666] rounded-md group space-x-3 w-[192px] h-[48px] p-3">
           <HiOutlineUserGroup size={22} className="text-gray-800 group-hover:text-white" />
-          <a href="" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer">  Applicants</a>
+          <a href="application-table" className="text-base font-medium text-gray-600 group-hover:text-white cursor-pointer">  Applicants</a>
         </div>
       </div>
       <div className="absolute bottom-3 w-full flex justify-center">

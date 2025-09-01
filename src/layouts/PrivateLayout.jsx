@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import Header from '../components/Header/Header';
 import Sideheader from '../components/sideheade/Sideheader';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 export default function PrivateLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const location = useLocation();
+
+    let pageTitle = '';
+
+if (location.pathname.startsWith('/dashboard')) {
+    pageTitle = 'Dashboard Overview';
+} else if (location.pathname.startsWith('/internship')) {
+    pageTitle = 'Job Post Creation ';
+} else if (location.pathname.startsWith('/application')) {
+    pageTitle = 'Applications Management';
+} else {
+    pageTitle = 'Page';
+}
+
 
     return (
         <div className="flex w-full h-screen font-['Inter'] overflow-hidden">
@@ -20,9 +34,13 @@ export default function PrivateLayout() {
             </div>
             <div className="flex flex-col flex-1 min-w-0 h-screen">
                 <div className="sticky top-0 z-50">
-                    <Header onToggleSidebar={() => setSidebarOpen(prev => !prev)} />
+                    
+                    <Header
+                        onToggleSidebar={() => setSidebarOpen(prev => !prev)}
+                        pageTitle={pageTitle}
+                    />
                 </div>
-                <div className="flex-1 overflow-y-auto p-2 md:p-2 space-y-4 "
+                <div className="flex-1 overflow-y-auto p-2 md:p-2 space-y-4"
                     style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}>
                     <Outlet />
                 </div>

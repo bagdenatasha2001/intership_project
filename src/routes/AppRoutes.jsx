@@ -6,9 +6,11 @@ import CreateNewPassword from "../pages/CreateNewPassword";
 import PasswordUpdated from "../pages/PasswordUpdated";
 import PrivateLayout from '../layouts/PrivateLayout';
 import Dashboard from "../pages/Dashboard";
-import Intership from '../pages/Internship';
+import InternshipTable from '../pages/internship/InternshipTable';
+import InternshipForm from '../pages/internship/InternshipForm'
+import ApplicationTable from '../pages/application/ApplicationTable';
+import InternshipCriteria from '../pages/internship/InternshipCriteria';
 
-// import IntershipForm from '../pages/InternshipForm';
 
 
 export default function AppRoutes() {
@@ -20,7 +22,11 @@ export default function AppRoutes() {
             <Route path="/password-updated" element={<PasswordUpdated />} />
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/internship" element={<Intership/>} />
+                <Route path="/internship-table" element={<InternshipTable />} />
+                <Route path="/internship-form" element={<InternshipForm />} />
+                <Route path="/internship-criteria" element={<InternshipCriteria />} />
+
+                <Route path="/application-table" element={<ApplicationTable />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>
