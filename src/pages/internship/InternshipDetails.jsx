@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import IntershipTabs from "../../components/statusTabs/IntershipTabs";
 import calender from '../../assets/images/Calender.png';
-import button from '../../components/statusTabs/Button';
 import Button from "../../components/statusTabs/Button";
+import { useNavigate } from "react-router-dom";
 
-export default function IntershipForm() {
+export default function InternshipDetails() {
+
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     internshipName: "",
     location: "",
@@ -55,7 +58,6 @@ export default function IntershipForm() {
               </select>
             </div>
           </div>
-
           <div className="flex w-full  mt-[30px] h-auto p-1 ">
             <div className=" flex gap-[30px] w-full ">
               <div className=" w-1/2 ">
@@ -69,8 +71,6 @@ export default function IntershipForm() {
                   </div>
                 </div>
               </div>
-
-
               <div className=" w-1/2 flex gap-[30px] ">
                 <div className="w-full ">
                   <p className="text-sm font-semibold text-blue-900 mb-[10px]">Duration</p>
@@ -80,7 +80,6 @@ export default function IntershipForm() {
                     <option>12  Months</option>
                   </select>
                 </div>
-
                 <div className="w-full">
                   <p className="text-sm font-semibold text-blue-900 mb-[10px]">Positions</p>
                   <select className=" border py-2 px-4  text-sm rounded-md bg-white h-[56px] w-full text-gray-600 font-medium focus:outline-none focus:border-blue-900">
@@ -132,7 +131,6 @@ export default function IntershipForm() {
                     <img src={calender} className="ml-16" />
                   </div>
                 </div>
-
                 <div className=" w-1/2">
                   <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> End Date</p>
                   <div className="w-full h-[56px] p-4 flex  items-center bg-white text-gray-600  border  text-sm rounded-md">
@@ -143,8 +141,6 @@ export default function IntershipForm() {
               </div>
             </div>
           </div>
-
-
           <div className="flex w-full  mt-[30px] h-auto p-1 ">
             <div className=" w-[300px]   ">
               <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> StInternship Status</p>
@@ -154,12 +150,14 @@ export default function IntershipForm() {
                   <span><option> Closed</option></span></select>
               </div>
             </div>
-
           </div>
-          <div className="mt-40">
-            <Button />
+          <div className="mt-96 p-4">
+            <Button
+              title1="Cancel"
+              title2="Next"
+              onClick1={() => navigate("/internship-table")}
+              onClick2={() => navigate("/internship-criteria")} />
           </div>
-
         </form>
       </div>
     </>

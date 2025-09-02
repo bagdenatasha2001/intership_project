@@ -5,8 +5,11 @@ import pencil from "../../assets/images/pencil_icon.png";
 import trash from "../../assets/images/trash_icon.png";
 import Danger from "../../assets/images/DangerCircle.svg";
 import Pagination from "../../components/statusTabs/Pagination";
+import { useNavigate } from "react-router-dom";
 
 export default function Intership() {
+  const navigate = useNavigate();
+
   const internships = [
     { title: "UI / UX Designer", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "Remote", Status: "Open" },
     { title: "Business Development Executive Intern", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "On-Site", Status: "On Hold" },
@@ -28,19 +31,16 @@ export default function Intership() {
           </div>
 
           <button
-            onClick={() => console.log("Add internship details")}
-            className="bg-[#006666] text-white px-4 py-[10px] rounded-lg hover:bg-[#042424] transition"
-          >
+            onClick={() => navigate("/internship-details")}
+            className="bg-[#006666] text-white px-4 py-[10px] rounded-lg hover:bg-[#042424] transition" >
             Add New Internship
           </button>
         </div>
-
         <div>
           <div className="bg-white p-3 py-3 w-full h-full flex flex-col">
             <div
               className="overflow-y-auto flex-1 min-h-0 space-x-2"
-              style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}
-            >
+              style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }} >
               <table className="text-base text-left w-full">
                 <thead>
                   <tr className="text-gray-400 border-b text-[12px]">
@@ -69,39 +69,35 @@ export default function Intership() {
                       </td>
                       <td>
                         <span
-                          className={`px-3 py-1 rounded-full text-[12px] ${
-                            item.JobType === "Remote"
+                          className={`px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote"
                               ? "bg-blue-100 text-blue-600"
                               : "bg-orange-100 text-orange-600"
-                          }`}
+                            }`}
                         >
                           {item.JobType}
                         </span>
                       </td>
                       <td>
-                     
+
                         <div className="relative flex flex-col group">
                           <span
-                            className={`flex items-center gap-2 px-3 rounded-full text-[12px] w-28 ${
-                              item.Status === "Open"
+                            className={`flex items-center gap-2 px-3 rounded-full text-[12px] w-28 ${item.Status === "Open"
                                 ? "text-green-600 bg-green-100"
                                 : item.Status === "On Hold"
-                                ? "text-yellow-600 bg-yellow-100"
-                                : item.Status === "Closed"
-                                ? "text-red-600 bg-red-100"
-                                : "text-gray-600 bg-gray-100"
-                            }`}
-                          >
+                                  ? "text-yellow-600 bg-yellow-100"
+                                  : item.Status === "Closed"
+                                    ? "text-red-600 bg-red-100"
+                                    : "text-gray-600 bg-gray-100"
+                              }`}>
                             <span
-                              className={`w-2 h-2 rounded-full ${
-                                item.Status === "Open"
+                              className={`w-2 h-2 rounded-full ${item.Status === "Open"
                                   ? "bg-green-500"
                                   : item.Status === "On Hold"
-                                  ? "bg-yellow-500"
-                                  : item.Status === "Closed"
-                                  ? "bg-red-500"
-                                  : "bg-gray-500"
-                              }`}
+                                    ? "bg-yellow-500"
+                                    : item.Status === "Closed"
+                                      ? "bg-red-500"
+                                      : "bg-gray-500"
+                                }`}
                             ></span>
                             {item.Status}
 
@@ -113,11 +109,9 @@ export default function Intership() {
                               />
                             )}
                           </span>
-
-                         
                           {item.Status === "Closed" && (
                             <div className="absolute mt-6 bg-[#EFEFEF] text-black text-sm px-3 py-2 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                              This vacancy has been closed by <br/>the admin.
+                              This vacancy has been closed by <br />the admin.
                             </div>
                           )}
                         </div>

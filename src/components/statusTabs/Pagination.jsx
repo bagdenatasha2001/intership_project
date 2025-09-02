@@ -42,11 +42,10 @@ export default function Pagination({ totalPages = 12, onPageChange }) {
           <button
             key={i}
             onClick={() => handlePageClick(i)}
-            className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium ${
-              currentPage === i
+            className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium ${currentPage === i
                 ? "bg-purple-100 text-purple-700 font-semibold"
                 : "text-gray-600 hover:text-purple-700"
-            }`}
+              }`}
           >
             {i}
           </button>
@@ -81,7 +80,7 @@ export default function Pagination({ totalPages = 12, onPageChange }) {
         disabled={currentPage === totalPages}
         className="flex items-center gap-2 px-4 py-2 border rounded-full text-gray-700 hover:bg-[#006666] hover:text-white ">
         <span>Next</span>
-        <img src={right} alt="Next"  className="hover:text-white"/>
+        <img src={right} alt="Next" className="hover:text-white" />
       </button>
     </div>
   );

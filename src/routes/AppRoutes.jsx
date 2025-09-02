@@ -7,9 +7,12 @@ import PasswordUpdated from "../pages/PasswordUpdated";
 import PrivateLayout from '../layouts/PrivateLayout';
 import Dashboard from "../pages/Dashboard";
 import InternshipTable from '../pages/internship/InternshipTable';
-import InternshipForm from '../pages/internship/InternshipForm'
+import InternshipDetails from '../pages/internship/InternshipDetails'
 import ApplicationTable from '../pages/application/ApplicationTable';
 import InternshipCriteria from '../pages/internship/InternshipCriteria';
+import InternshipRoles from '../pages/internship/InternshipRoles';
+import InternshipExpectations from '../pages/internship/InternshipExpectations';
+import InternshipExpectations_2 from '../pages/internship/InternshipExpectations_2';
 
 
 
@@ -23,8 +26,12 @@ export default function AppRoutes() {
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/internship-table" element={<InternshipTable />} />
-                <Route path="/internship-form" element={<InternshipForm />} />
+                <Route path="/internship-details" element={<InternshipDetails />} />
                 <Route path="/internship-criteria" element={<InternshipCriteria />} />
+                <Route path="/internship-role" element={<InternshipRoles />} />
+                <Route path="/internship-expectation" element={<InternshipExpectations />} />
+                <Route path="/internship-pop-up" element={<InternshipExpectations_2 />} />
+
 
                 <Route path="/application-table" element={<ApplicationTable />} />
             </Route>
