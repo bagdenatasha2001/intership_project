@@ -29,7 +29,7 @@ if (location.pathname.startsWith('/dashboard')) {
             )}
             <div
                 className={`fixed md:static z-50 bg-[#D1DDDD] h-screen transition-all duration-300 
-                ${sidebarOpen ? 'w-64' : 'w-0'} md:w-[280px]`}>
+                ${sidebarOpen ? 'w-60' : 'w-0'} md:w-[280px]`}>
                 <Sideheader open={sidebarOpen} />
             </div>
             <div className="flex flex-col flex-1 min-w-0 h-screen">

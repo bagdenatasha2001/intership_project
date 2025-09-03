@@ -79,18 +79,18 @@ export default function Intership() {
                       </td>
                       <td>
 
-                        <div className="relative flex flex-col group">
+                        <div className="relative inline-block  group ">
                           <span
-                            className={`flex items-center gap-2 px-3 rounded-full text-[12px] w-28 ${item.Status === "Open"
+                            className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center   ${item.Status === "Open"
                                 ? "text-green-600 bg-green-100"
                                 : item.Status === "On Hold"
-                                  ? "text-yellow-600 bg-yellow-100"
+                                  ? "text-yellow-600 bg-yellow-100 "
                                   : item.Status === "Closed"
                                     ? "text-red-600 bg-red-100"
                                     : "text-gray-600 bg-gray-100"
                               }`}>
                             <span
-                              className={`w-2 h-2 rounded-full ${item.Status === "Open"
+                              className={`w-2 h-2 rounded-full  ${item.Status === "Open"
                                   ? "bg-green-500"
                                   : item.Status === "On Hold"
                                     ? "bg-yellow-500"
@@ -104,7 +104,7 @@ export default function Intership() {
                             {item.Status === "Closed" && (
                               <img
                                 src={Danger}
-                                className="ml-1 cursor-pointer"
+                                className="ml-1 cursor-pointer "
                                 alt="danger"
                               />
                             )}

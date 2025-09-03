@@ -48,8 +48,8 @@ export default function Intership() {
                 <td className=" text-[12px] px-6 py-1 ">{item.openings}</td>
                 <td className="text-[12px] px-6 py-1 ">{item.applicants}</td>
                 <td className=" text-[#667085] font-medium text-[12px] px-6 py-1">  {item.selected}</td>
-                <td className="py-3 px-2 w-[60px]">
-                  <span className="flex items-center gap-2 text-green-600 bg-green-100 px-3 py-1 rounded-full text-[12px]">
+                <td className="  py-3 px-2 ">
+                  <span className="inline-flex items-center gap-2 text-green-600 bg-green-100 px-1 rounded-full text-[12px]">
                     <span className="w-2 h-2 rounded-full bg-[#12B76A]"></span>
                     Open
                   </span>

@@ -24,7 +24,7 @@ export default function Header({ onToggleSidebar,pageTitle }) {
         </div>
         <div className='flex w-[184px] items-center justify-between h-[50px] p-1 rounded-[10px] border border-gray-400 mx-2'>
           <div>
-            <img src={hr_img} alt="HR Image" className='w-[40px] h-[40px] rounded-[8px]' />
+            <img src={hr_img} alt="HR Image" className='size-10  rounded-[8px] object- fit  bg-cover' />
           </div>
           <div className='font-semibold text-[14px]'>
             <p>Haya Shaikh <span className='text-gray-500 text-[12px] font-medium'><br />HR Manager</span></p>
