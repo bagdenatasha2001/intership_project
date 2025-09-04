@@ -2,7 +2,7 @@ import React from 'react';
 import Kpi_Container from '../components/KPI_Cards/Kpi_Container';
 import ChartContainer from '../components/charts/ChartContainer';
 import Heatmap from '../components/Heatmap/Heatmap';
-import IntershipTableContainer from '../components/Tables/IntershipTableContainer';
+import InternshipTableContainer from '../components/Tables/InternshipTableContainer';
 
 export default function Dashboard() {
   return (
@@ -10,7 +10,7 @@ export default function Dashboard() {
       <Kpi_Container />
       <ChartContainer />
       <Heatmap />
-      <IntershipTableContainer />
+      <InternshipTableContainer />
     </div>
   );
 }

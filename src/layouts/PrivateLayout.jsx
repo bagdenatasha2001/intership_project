@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header/Header';
-import Sideheader from '../components/sideheade/Sideheader';
+import Sideheader from '../components/sideheader/Sideheader';
 import { Outlet, useLocation } from 'react-router-dom';
 
 export default function PrivateLayout() {

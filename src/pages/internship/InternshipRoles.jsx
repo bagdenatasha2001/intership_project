@@ -1,5 +1,5 @@
 import React from 'react'
-import IntershipTabs from "../../components/statusTabs/IntershipTabs";
+import IntershipTabs from "../../components/statusTabs/InternshipTabs";
 import Button from '../../components/statusTabs/Button';
 import { useNavigate } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IntershipTabs from "../../components/statusTabs/IntershipTabs";
+import IntershipTabs from "../../components/statusTabs/InternshipTabs";
 import MultiSelectDropdown from "../../components/statusTabs/MultiSelectDropdown";
 import QualificationDropdown from "../../components/statusTabs/QualificationDropdown";
 import Button from "../../components/statusTabs/Button";

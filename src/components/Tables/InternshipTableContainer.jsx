@@ -1,6 +1,6 @@
 
 import React from 'react'
-import Intership from './Intership.jsx'
+import Intership from './Internship.jsx'
 import RecentApplicants from './RecentApplicants.jsx'
 
 export default function IntershipTableContainer() {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import IntershipTabs from "../../components/statusTabs/IntershipTabs";
+import IntershipTabs from "../../components/statusTabs/InternshipTabs";
 import Dropdown from "../../components/form_fields/Dropdown";
 import Hours from "../../components/form_fields/Hours";
 import Button from "../../components/statusTabs/Button";
