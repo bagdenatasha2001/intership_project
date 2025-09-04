@@ -1,5 +1,5 @@
 import React from 'react'
-import IntershipTabs from "../../components/statusTabs/InternshipTabs";
+import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import Button from "../../components/statusTabs/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export default function InternshipExpectations() {
         <>
             <div className="text-black p-3 rounded-lg w-full h-auto my-5  mx-auto border border-gray-33">
                 <div>
-                    <IntershipTabs />
+                    <InternshipTabs />
                 </div>
 
                 <form>

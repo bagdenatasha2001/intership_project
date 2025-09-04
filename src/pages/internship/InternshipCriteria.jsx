@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IntershipTabs from "../../components/statusTabs/InternshipTabs";
+import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import MultiSelectDropdown from "../../components/statusTabs/MultiSelectDropdown";
 import QualificationDropdown from "../../components/statusTabs/QualificationDropdown";
 import Button from "../../components/statusTabs/Button";
@@ -32,7 +32,7 @@ export default function InternshipCriteria() {
     <>
       <div className="text-black px-3 rounded-lg w-full h-auto  my-5  mx-auto border border-gray-300">
         <div>
-          <IntershipTabs />
+          <InternshipTabs />
         </div>
         <form>
           <div className="p-[10px] border rounded-md w-full  shadow h-full ">

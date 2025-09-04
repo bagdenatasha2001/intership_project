@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import IntershipTabs from "../../components/statusTabs/InternshipTabs";
+import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import Dropdown from "../../components/form_fields/Dropdown";
 import Hours from "../../components/form_fields/Hours";
 import Button from "../../components/statusTabs/Button";
@@ -91,7 +91,7 @@ export default function InternshipDetails() {
   return (
     <div className="px-3 rounded-lg w-full h-auto py-6 my-5 mx-auto border border-gray-300">
       <div>
-        <IntershipTabs />
+        <InternshipTabs />
       </div>
 
       <form onSubmit={handleSubmit}>

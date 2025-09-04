@@ -1,7 +1,7 @@
 import React from "react";
 import { BsCalendar3 } from "react-icons/bs";
 
-export default function Intership() {
+export default function Internship() {
 
   const internships = [
     { title: "Java", openings: 12, applicants: 12, selected: 3 },

@@ -5,7 +5,7 @@ import LockIcon from "../../assets/images/lock.svg?react";
 import SearchIcon from "../../assets/images/search.svg?react";
 import TargetIcon from "../../assets/images/Target.svg?react";
 
-export default function IntershipTabs() {
+export default function InternshipTabs() {
   const tabs = [
     { icon: UserIcon, label: "Internship Details", path: "/internship-details" },
     { icon: LockIcon, label: "Criteria", path: "/internship-criteria" },
