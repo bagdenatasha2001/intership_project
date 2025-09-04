@@ -91,7 +91,10 @@ export default function InternshipCriteria() {
               title1="Cancel"
               title2="Next"
               onClick1={() => navigate("/internship-details")}
-              onClick2={() => navigate("/internship-role")} />
+              onClick2={() => navigate("/internship-role")} 
+              isSubmit={false} 
+              />
+
 
           </div>
         </form>

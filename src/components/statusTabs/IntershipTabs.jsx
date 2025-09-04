@@ -14,7 +14,7 @@ export default function IntershipTabs() {
   ];
 
   return (
-    <div className="flex gap-10 p-4 border-b border-[#D8DAE5] mb-5">
+    <div className="flex  p-4 border-b border-[#D8DAE5] mb-5">
       {tabs.map((tab, index) => {
         const Icon = tab.icon;
         return (

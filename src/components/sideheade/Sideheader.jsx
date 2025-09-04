@@ -18,7 +18,7 @@ export default function Sideheader({ open }) {
       ${open ? 'w-60 md:w-60' : 'w-0'} md:w-60 overflow-hidden relative h-full`}>
 
       <div className="flex flex-col w-full gap-5 max-w-[192px] h-[272px]">
-        <a href="#" className="cursor-pointer py-2">
+        <a href="/dashboard" className="cursor-pointer py-2">
           <img src={logo} alt="GoGrand Logo" className="w-[161px] h-[44px]" />
         </a>
 

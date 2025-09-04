@@ -40,7 +40,7 @@ if (location.pathname.startsWith('/dashboard')) {
                         pageTitle={pageTitle}
                     />
                 </div>
-                <div className="flex-1 overflow-y-auto p-2 md:p-2 space-y-4"
+                <div className="flex-1 overflow-y-auto p-2 md:p-2 space-y-4 "
                     style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}>
                     <Outlet />
                 </div>

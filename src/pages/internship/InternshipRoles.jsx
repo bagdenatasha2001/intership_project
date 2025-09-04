@@ -28,6 +28,7 @@ export default function InternshipRoles() {
                             title2="Next"
                             onClick1={() => navigate("/internship-criteria")}
                             onClick2={() => navigate("/internship-expectation")}
+                             isSubmit={false} 
                         />
                     </div>
 

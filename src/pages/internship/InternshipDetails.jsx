@@ -1,167 +1,241 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import IntershipTabs from "../../components/statusTabs/IntershipTabs";
-import calender from '../../assets/images/Calender.png';
+import Dropdown from "../../components/form_fields/Dropdown";
+import Hours from "../../components/form_fields/Hours";
 import Button from "../../components/statusTabs/Button";
-import { useNavigate } from "react-router-dom";
 
 export default function InternshipDetails() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     internshipName: "",
     location: "",
-    jobType: "",
     duration: "",
     positions: "",
-    hours: "",
-    hoursUnit: "Week",
-    compensation: "Yes",
+    compensation: "",
     compensationAmount: "",
+    hours: 40,
+    hoursUnit: "Week",
     startDate: "",
     endDate: "",
-    status: "Open",
+    status: "",
+    jobType: "",
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const validateForm = () => {
+    if (
+      !formData.internshipName ||
+      !formData.location ||
+      !formData.duration ||
+      !formData.positions ||
+      !formData.startDate ||
+      !formData.endDate ||
+      !formData.status ||
+      !formData.jobType
+    ) {
+      alert("Please fill the form before proceeding.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    console.log("Form Data:", formData);
+
+    navigate("/internship-criteria");
+  };
+
+  const locationOptions = [
+    { value: "Riyadh", label: "Riyadh" },
+    { value: "Dubai", label: "Dubai" },
+    { value: "Mumbai", label: "Mumbai" },
+  ];
+
+  const durationOptions = [
+    { value: "3 Months", label: "3 Months" },
+    { value: "6 Months", label: "6 Months" },
+    { value: "1 Year", label: "1 Year" },
+  ];
+
+  const positionsOptions = [
+    { value: "2", label: "2" },
+    { value: "4", label: "4" },
+    { value: "6", label: "6" },
+  ];
+
+  const yesNoOptions = [
+    { value: "Yes", label: "Yes" },
+    { value: "No", label: "No" },
+  ];
+
+  const amountOptions = [
+    { value: "100", label: "SAR 100.00" },
+    { value: "200", label: "SAR 200.00" },
+    { value: "300", label: "SAR 300.00" },
+  ];
+
+  const statusOptions = [
+    { value: "Open", label: "Open" },
+    { value: "Closed", label: "Closed" },
+  ];
+
   return (
-    <>
-      <div className="text-black p-3 rounded-lg w-full h-auto my-5  mx-auto border border-gray-33">
-        <div>
-          <IntershipTabs />
+    <div className="px-3 rounded-lg w-full h-auto py-6 my-5 mx-auto border border-gray-300">
+      <div>
+        <IntershipTabs />
+      </div>
+
+      <form onSubmit={handleSubmit}>
+        <div className="flex w-full justify-start gap-5">
+          <div className="flex flex-col w-[728px]">
+            <label className="text-sm font-semibold text-[#051B44] mb-2">
+              Internship Name
+            </label>
+            <input
+              type="text"
+              value={formData.internshipName}
+              onChange={(e) => handleChange("internshipName", e.target.value)}
+              placeholder="Java"
+              className="w-full h-[56px] px-4 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-blue-900"
+            />
+          </div>
+
+          <div className="flex w-[362px] flex-col">
+            <Dropdown
+              label="Location"
+              options={locationOptions}
+              value={formData.location}
+              onChange={(val) => handleChange("location", val)}
+            />
+          </div>
         </div>
 
-        <form>
-          <div className="flex w-full justify-start gap-5">
-            <div className="flex flex-col w-[728px] h-[82px] ">
-              <label className="text-sm font-semibold text-blue-900 mb-2 ">
-                Internship Name
+        <div className="flex w-full mt-[30px] gap-5 justify-between">
+          <div className="flex flex-col w-1/3">
+            <label className="text-sm font-semibold text-[#051B44] mb-2">
+              Job Type
+            </label>
+            <div className="flex items-center gap-6 h-[56px] px-2 border rounded-md bg-white">
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="Remote"
+                  checked={formData.jobType === "Remote"}
+                  onChange={(e) => handleChange("jobType", e.target.value)}
+                />
+                Remote
               </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  value="On-Site"
+                  checked={formData.jobType === "On-Site"}
+                  onChange={(e) => handleChange("jobType", e.target.value)}
+                />
+                On-Site
+              </label>
+            </div>
+          </div>
+
+          <div className="w-1/3">
+            <Dropdown
+              label="Duration"
+              options={durationOptions}
+              value={formData.duration}
+              onChange={(val) => handleChange("duration", val)}
+            />
+          </div>
+
+          <div className="w-1/3">
+            <Dropdown
+              label="Positions"
+              options={positionsOptions}
+              value={formData.positions}
+              onChange={(val) => handleChange("positions", val)}
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-5 gap-5 mt-[30px] p-4 rounded-md">
+          <Hours
+            value={formData.hours}
+            unit={formData.hoursUnit}
+            onChangeHours={(val) => handleChange("hours", val)}
+            onChangeUnit={(val) => handleChange("hoursUnit", val)}
+          />
+
+          <Dropdown
+            label="Compensation"
+            options={yesNoOptions}
+            value={formData.compensation}
+            onChange={(val) => handleChange("compensation", val)}
+          />
+
+          <Dropdown
+            label="Compensation Amount"
+            options={amountOptions}
+            value={formData.compensationAmount}
+            onChange={(val) => handleChange("compensationAmount", val)}
+          />
+
+          <div className="flex flex-col">
+            <label className="text-sm font-semibold text-[#051B44] mb-2">
+              Start Date
+            </label>
+            <div className="flex items-center border rounded-md bg-white h-[56px] px-4">
               <input
-                type="text"
-                defaultValue="Java"
-                className="w-full py-3 px-4 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-blue-900 " />
-            </div>
-
-            <div className="flex  w-[362px] flex-col h-[82px] ">
-              <label className="text-sm font-semibold text-blue-900 mb-2">
-                Location
-              </label>
-              <select className="w-full py-3 px-4 border rounded-md bg-white text-gray-600 font-normal focus:outline-none focus:border-blue-900">
-                <option> Riyadh</option>
-                <option>Jeddah</option>
-                <option>Dammam</option>
-              </select>
-            </div>
-          </div>
-          <div className="flex w-full  mt-[30px] h-auto p-1 ">
-            <div className=" flex gap-[30px] w-full ">
-              <div className=" w-1/2 ">
-                <p className="text-sm font-semibold text-blue-900 mb-[10px] ">Job Type</p>
-                <div className="flex gap-[10px]">
-                  <div className=" w-1/2  h-[56px] flex items-center justify-center rounded-md  border bg-white text-[#63678A] text-sm">
-                    Remote
-                  </div>
-                  <div className=" w-1/2 flex items-center justify-center rounded-md border bg-white text-[#63678A] text-sm">
-                    On-Site
-                  </div>
-                </div>
-              </div>
-              <div className=" w-1/2 flex gap-[30px] ">
-                <div className="w-full ">
-                  <p className="text-sm font-semibold text-blue-900 mb-[10px]">Duration</p>
-                  <select className="border py-2 px-4 text-sm rounded-md bg-white h-[56px] w-full text-gray-600 font-medium focus:outline-none focus:border-blue-900">
-                    <option>6 Months</option>
-                    <option>3 Months </option>
-                    <option>12  Months</option>
-                  </select>
-                </div>
-                <div className="w-full">
-                  <p className="text-sm font-semibold text-blue-900 mb-[10px]">Positions</p>
-                  <select className=" border py-2 px-4  text-sm rounded-md bg-white h-[56px] w-full text-gray-600 font-medium focus:outline-none focus:border-blue-900">
-                    <option>6</option>
-                    <option>3</option>
-                    <option>5</option>
-                    <option>15</option>
-                    <option>10</option>
-                  </select>
-                </div>
-              </div>
+                type="date"
+                value={formData.startDate}
+                onChange={(e) => handleChange("startDate", e.target.value)}
+                className="flex-1 bg-transparent outline-none text-gray-600"
+              />
             </div>
           </div>
 
-          <div className="flex w-full  mt-[30px] h-auto">
-            <div className="flex gap-6  w-full">
-              <div className=" flex gap-6 w-1/2">
-                <div className=" w-[161px]   ">
-                  <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]">Hours (Optional)</p>
-                  <div className="w-full h-[56px] justify-center flex items-center bg-white  border  text-sm rounded-md">
-                    <p className="w-12 justify-center items-center flex">40</p>
-                    <select className=" border-l-2 mr-3 text-sm  w-full h-fit bg-white  text-gray-600 font-medium focus:outline-none focus:border-blue-90 ">
-                      <span><option> Week</option></span></select>
-                  </div>
-                </div>
-                <div className=" w-[161px]   ">
-                  <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> Compensation</p>
-                  <div className="w-full h-[56px] justify-center flex items-center bg-white  border  text-sm rounded-md">
-                    <select className=" text-sm m-3  w-full h-fit bg-white  text-gray-600 font-medium focus:outline-none focus:border-blue-90 ">
-                      <span><option> Yes</option></span>
-                      <span><option> NO</option></span></select>
-                  </div>
-                </div>
-
-                <div className=" w-[161px]   ">
-                  <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> Compensation Amount</p>
-                  <div className="w-full h-[56px] justify-center flex items-center bg-white text-gray-600  border  text-sm rounded-md">
-                    SAR 100.00
-                  </div>
-                </div>
-              </div>
-
-              <div className=" flex gap-6 w-1/2">
-
-                <div className="w-1/2">
-                  <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> Start Date</p>
-                  <div className="w-full h-[56px] p-4 items-center flex  bg-white text-gray-600  border  text-sm rounded-md">
-                    <span >23 May 2025</span>
-                    <img src={calender} className="ml-16" />
-                  </div>
-                </div>
-                <div className=" w-1/2">
-                  <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> End Date</p>
-                  <div className="w-full h-[56px] p-4 flex  items-center bg-white text-gray-600  border  text-sm rounded-md">
-                    <span >23 Sep 2025</span>
-                    <img src={calender} className="ml-16" />
-                  </div>
-                </div>
-              </div>
+          <div className="flex flex-col">
+            <label className="text-sm font-semibold text-[#051B44] mb-2">
+              End Date
+            </label>
+            <div className="flex items-center border rounded-md bg-white h-[56px] px-4">
+              <input
+                type="date"
+                value={formData.endDate}
+                onChange={(e) => handleChange("endDate", e.target.value)}
+                className="flex-1 bg-transparent outline-none text-gray-600"
+              />
             </div>
           </div>
-          <div className="flex w-full  mt-[30px] h-auto p-1 ">
-            <div className=" w-[300px]   ">
-              <p className="text-[12px] font-semibold text-[#1F2A44] mb-[10px]"> StInternship Status</p>
-              <div className="w-full h-[56px] justify-center flex items-center bg-white  border  text-sm rounded-md">
-                <select className=" text-sm m-3  w-full h-fit bg-white  text-gray-600 font-medium focus:outline-none focus:border-blue-90 ">
-                  <span><option>Open</option></span>
-                  <span><option> Closed</option></span></select>
-              </div>
-            </div>
+        </div>
+
+        <div className="flex w-full mt-[30px]">
+          <div className="w-[300px]">
+            <Dropdown
+              label="Internship Status"
+              options={statusOptions}
+              value={formData.status}
+              onChange={(val) => handleChange("status", val)}
+            />
           </div>
-          <div className="mt-96 p-4">
-            <Button
-              title1="Cancel"
-              title2="Next"
-              onClick1={() => navigate("/internship-table")}
-              onClick2={() => navigate("/internship-criteria")} />
-          </div>
-        </form>
-      </div>
-    </>
+        </div>
+
+        <div className="p-5 mt-20">
+          <Button
+            title1="Cancel"
+            title2="Next"
+            onClick1={() => navigate("/internship-table")}
+            isSubmit={true} 
+          />
+        </div>
+      </form>
+    </div>
   );
 }
-
-

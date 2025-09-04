@@ -30,7 +30,8 @@ export default function InternshipExpectations() {
                             title1="Cancel"
                             title2="Next"
                             onClick1={() => navigate("/internship-role")}
-                            onClick2={() => navigate("/internship-pop-up")} />
+                            onClick2={() => navigate("/internship-pop-up")}
+                             isSubmit={false}  />
                     </div>
                 </form>
             </div>

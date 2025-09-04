@@ -7,7 +7,7 @@ import Danger from "../../assets/images/DangerCircle.svg";
 import Pagination from "../../components/statusTabs/Pagination";
 import { useNavigate } from "react-router-dom";
 
-export default function Intership() {
+export default function IntershipTable() {
   const navigate = useNavigate();
 
   const internships = [
@@ -23,7 +23,7 @@ export default function Intership() {
 
   return (
     <>
-      <div className="h-auto my-5 w-full max-w-[1160px]  rounded-xl border border-gray-33 ">
+      <div className="h-auto my-5 w-full  rounded-xl border border-gray-33">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-xl font-bold text-black py-1">Internship</h2>
