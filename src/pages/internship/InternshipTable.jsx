@@ -7,7 +7,7 @@ import Danger from "../../assets/images/DangerCircle.svg";
 import Pagination from "../../components/statusTabs/Pagination";
 import { useNavigate } from "react-router-dom";
 
-export default function IntershipTable() {
+export default function InterngitshipTable() {
   const navigate = useNavigate();
 
   const internships = [
