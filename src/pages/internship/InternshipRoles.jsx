@@ -1,40 +1,71 @@
-import React from 'react'
-import InternshipTabs from "../../components/statusTabs/InternshipTabs";
-import Button from '../../components/statusTabs/Button';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InternshipTabs from "../../components/statusTabs/InternshipTabs";
+import Button from "../../components/statusTabs/Button";
 
 export default function InternshipRoles() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        roleDescription: "",
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const validateForm = () => {
+        if (!formData.roleDescription.trim()) {
+            alert("Please fill the form before proceeding.");
+            return false;
+        }
+        return true;
+    };
+
+
+
+    const handleNext = (e) => {
+        e.preventDefault();
+
+        if (validateForm()) {
+            console.log("Intership role Data:", formData);
+            navigate("/internship-expectation");
+        }
+    };
+
     return (
         <>
-            <div className="text-black p-3 rounded-lg w-full h-auto my-5  mx-auto border border-gray-33">
+            <div className="text-black p-3 rounded-lg w-full h-auto my-5 mx-auto border border-gray-33">
                 <div>
                     <InternshipTabs />
                 </div>
 
                 <form>
-                    <div className="p-2 border border-gray-300 rounded-md mr-10">
-                        <div className="flex flex-col text-sm text-[#696F8C] gap-[10px]  ">
-                            <p>We are looking for a passionate Java Developer to design, develop and maintain enterprise-level applications. You will work alongside senior developers, participate in code reviews, and build scalable backend systems.</p>
-                            <p>Java Developer (Intern / Entry-Level)  </p>
-                            <p>Engineering / Development</p>
-                            <p>3 to 6 months (extendable or PPO based on performance)</p>
-                        </div>
-                    </div>
-
-                    <div className='p-5 mt-96'>
-                        <Button
-                            title1="Cancel"
-                            title2="Next"
-                            onClick1={() => navigate("/internship-criteria")}
-                            onClick2={() => navigate("/internship-expectation")}
-                             isSubmit={false} 
+                    <div className="p-2 border border-gray-300 rounded-md ml-[21px] mr-[39px] flex flex-col gap-4 text-sm text-[#696F8C]">
+                        <textarea
+                            name="roleDescription"
+                            value={formData.roleDescription}
+                            onChange={handleChange}
+                            className="w-full p-3 border-none focus:outline-none h-40 resize-none  max-w-[1084px]"
+                            placeholder="Describe the role.."
                         />
                     </div>
 
+                    <div className="p-5 mt-96">
+                        <Button
+                            title1="Back"
+                            title2="Next"
+                            onClick1={() => navigate("/internship-criteria")}
+                            onClick2={handleNext}
+                            bg2="bg-gray-200"
+                            isSubmit={false}
+                        />
+                    </div>
                 </form>
             </div>
-
         </>
-    )
+    );
 }

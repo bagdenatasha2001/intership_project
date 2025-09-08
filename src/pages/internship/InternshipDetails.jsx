@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import Dropdown from "../../components/form_fields/Dropdown";
 import Hours from "../../components/form_fields/Hours";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 import Button from "../../components/statusTabs/Button";
 
 export default function InternshipDetails() {
@@ -17,8 +20,8 @@ export default function InternshipDetails() {
     compensationAmount: "",
     hours: 40,
     hoursUnit: "Week",
-    startDate: "",
-    endDate: "",
+    startDate: null,
+    endDate: null,
     status: "",
     jobType: "",
   });
@@ -151,8 +154,7 @@ export default function InternshipDetails() {
               label="Duration"
               options={durationOptions}
               value={formData.duration}
-              onChange={(val) => handleChange("duration", val)}
-            />
+              onChange={(val) => handleChange("duration", val)} />
           </div>
 
           <div className="w-1/3">
@@ -160,8 +162,7 @@ export default function InternshipDetails() {
               label="Positions"
               options={positionsOptions}
               value={formData.positions}
-              onChange={(val) => handleChange("positions", val)}
-            />
+              onChange={(val) => handleChange("positions", val)} />
           </div>
         </div>
 
@@ -170,49 +171,40 @@ export default function InternshipDetails() {
             value={formData.hours}
             unit={formData.hoursUnit}
             onChangeHours={(val) => handleChange("hours", val)}
-            onChangeUnit={(val) => handleChange("hoursUnit", val)}
-          />
+            onChangeUnit={(val) => handleChange("hoursUnit", val)} />
 
           <Dropdown
             label="Compensation"
             options={yesNoOptions}
             value={formData.compensation}
-            onChange={(val) => handleChange("compensation", val)}
-          />
+            onChange={(val) => handleChange("compensation", val)} />
 
           <Dropdown
             label="Compensation Amount"
             options={amountOptions}
             value={formData.compensationAmount}
-            onChange={(val) => handleChange("compensationAmount", val)}
-          />
+            onChange={(val) => handleChange("compensationAmount", val)} />
 
           <div className="flex flex-col">
             <label className="text-sm font-semibold text-[#051B44] mb-2">
               Start Date
             </label>
-            <div className="flex items-center border rounded-md bg-white h-[56px] px-4">
-              <input
-                type="date"
-                value={formData.startDate}
-                onChange={(e) => handleChange("startDate", e.target.value)}
-                className="flex-1 bg-transparent outline-none text-gray-600"
-              />
-            </div>
+            <DatePicker
+              selected={formData.startDate}
+              onChange={(date) => handleChange("startDate", date)}
+              className="w-full h-[56px] border rounded-md px-4 text-gray-600"
+              placeholderText="Select" />
           </div>
 
           <div className="flex flex-col">
             <label className="text-sm font-semibold text-[#051B44] mb-2">
               End Date
             </label>
-            <div className="flex items-center border rounded-md bg-white h-[56px] px-4">
-              <input
-                type="date"
-                value={formData.endDate}
-                onChange={(e) => handleChange("endDate", e.target.value)}
-                className="flex-1 bg-transparent outline-none text-gray-600"
-              />
-            </div>
+            <DatePicker
+              selected={formData.endDate}
+              onChange={(date) => handleChange("endDate", date)}
+              className="w-full h-[56px] border rounded-md px-4 text-gray-600"
+              placeholderText="Select " />
           </div>
         </div>
 
@@ -222,8 +214,7 @@ export default function InternshipDetails() {
               label="Internship Status"
               options={statusOptions}
               value={formData.status}
-              onChange={(val) => handleChange("status", val)}
-            />
+              onChange={(val) => handleChange("status", val)} />
           </div>
         </div>
 
@@ -232,8 +223,8 @@ export default function InternshipDetails() {
             title1="Cancel"
             title2="Next"
             onClick1={() => navigate("/internship-table")}
-            isSubmit={true} 
-          />
+            bg2="bg-gray-200"
+            isSubmit={true} />
         </div>
       </form>
     </div>

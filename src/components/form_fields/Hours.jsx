@@ -11,12 +11,11 @@ export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
       <div className="flex border border-gray-300 rounded-md bg-white h-[56px] relative">
         <input
           type="number"
-          min="0"
+          min="1"
           value={value}
           onChange={(e) => onChangeHours(Number(e.target.value))}
           placeholder="40"
-          className="w-20 p-3 focus:outline-none"
-        />
+          className="w-20 p-3 focus:outline-none" />
         <div className="absolute right-0">
           <Dropdown
             value={unit}

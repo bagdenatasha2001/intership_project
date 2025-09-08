@@ -1,104 +1,194 @@
 import React, { useState } from "react";
-import InternshipTabs from "../../components/statusTabs/InternshipTabs";
-import MultiSelectDropdown from "../../components/statusTabs/MultiSelectDropdown";
-import QualificationDropdown from "../../components/statusTabs/QualificationDropdown";
-import Button from "../../components/statusTabs/Button";
 import { useNavigate } from "react-router-dom";
+import InternshipTabs from "../../components/statusTabs/InternshipTabs";
+import Button from "../../components/statusTabs/Button";
+import MultiSelectDropdown from "../../components/statusTabs/MultiSelectDropdown";
 
 export default function InternshipCriteria() {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
+  const [formData, setFormData] = useState({
+    gpa: [],
+    qualification: [],
+    skills: [],
+    description: "",
+  });
+
   const [search, setSearch] = useState("");
 
-  const [selectedSkills, setSelectedSkills] = useState([]);
-
-  const skills = ["Exception Handling", "Exception Handling", "Exception Handling",
-    "Collections Framework", "Collections Framework", "Collections Framework", "Collections Framework",
-    "File Handling", "File Handling", "File Handling", "File Handling"];
-
-  const handleCheckboxChange = (skill) => {
-    if (selectedSkills.includes(skill)) {
-      setSelectedSkills(selectedSkills.filter((item) => item !== skill));
-    } else {
-      setSelectedSkills([...selectedSkills, skill]);
-    }
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const filteredSkills = skills.filter((skill) =>
+
+  const validateForm = () => {
+    if (
+      formData.gpa.length === 0 ||
+      formData.qualification.length === 0 ||
+      formData.skills.length === 0 ||
+      !formData.description.trim()
+    ) {
+      alert("Please fill all fields before proceeding.");
+      return false;
+    }
+    return true;
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    console.log("Criteria Form Data:", formData);
+    navigate("/internship-role");
+  };
+
+  const skillsOptions = [
+    "File Handling",
+    "Exception Handling",
+    "Collections Framework",
+    "Exception Handling",
+    "Collections Framework",
+    "File Handling",
+    "Collections Framework",
+    "File Handling",
+    "Exception Handling",
+    "File Handling",
+    "Collections Framework",
+    "Exception Handling",
+    "React",
+    "Node.js",
+
+  ];
+
+  const gpaOptions = [
+    { value: "90-100%", label: "90 - 100%" },
+    { value: "80-89%", label: "80 - 89%" },
+    { value: "70-79%", label: "70 - 79%" },
+    { value: "60-69%", label: "60 - 69%" },
+    { value: "below-60%", label: "Below 60%" },
+  ];
+
+  const qualificationOptions = [
+    { value: "B.Tech-CSE", label: "B.Tech / B.E. in CSE" },
+    { value: "M.Tech-CSE", label: "M.Tech / M.E. in CSE" },
+    { value: "BSc-CS", label: "B.Sc in Computer Science" },
+    { value: "MSc-CS", label: "M.Sc in Computer Science" },
+    { value: "B.Tech-IT", label: "B.Tech / B.E. in IT" },
+    { value: "B.Tech-AIML", label: "B.Tech / B.E. in AI & ML" },
+    { value: "Diploma-IT", label: "Diploma in IT" },
+  ];
+
+
+
+  const filteredSkills = skillsOptions.filter((skill) =>
     skill.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <>
-      <div className="text-black px-3 rounded-lg w-full h-auto  my-5  mx-auto border border-gray-300">
-        <div>
-          <InternshipTabs />
-        </div>
-        <form>
-          <div className="p-[10px] border rounded-md w-full  shadow h-full ">
-            <h2 className="text-sm font-semibold text-gray-600 mb-2">Skills</h2>
-            <div className="flex items-center border rounded-md px-3 py-2 mb-4">
-              <svg className="w-5 h-5 text-gray-400 mr-2" fill="none" stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24">
+    <div className="px-3 rounded-lg w-full h-auto py-6 my-5 mx-auto border border-gray-300">
+      <div>
+        <InternshipTabs />
+      </div>
+
+      <form onSubmit={handleSubmit} className="mt-6">
+
+        <div className="flex flex-col w-full mb-6">
+          <label className="text-sm font-semibold text-[#051B44] mb-2">
+            Skills
+          </label>
+
+          <div className="relative w-full mb-3">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  strokeWidth={2}
                   d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
-              <input
-                type="text" placeholder="Search by name or email" className="w-full outline-none h-6  text-sm" value={search}
-                onChange={(e) => setSearch(e.target.value)} />
-            </div>
-
-            <div className="grid grid-cols-4 gap-3">
-              {filteredSkills.map((skill, index) => (
-                <label key={index} className="flex items-center space-x-2 text-base ">
-                  <input
-                    type="checkbox"
-                    checked={selectedSkills.includes(skill)}
-                    onChange={() => handleCheckboxChange(skill)}
-                    className="w-4 h-4" />
-                  <span className="text-gray-700">{skill}</span>
-                </label>
-              ))}
-            </div>
+            </span>
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by name or email"
+              className="w-full h-[40px] pl-10 pr-3 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-gray-400" />
           </div>
 
-          <div className=" h-[82px] mt-5 flex flex-wrap ">
-            <p className="text-sm font-semibold text-gray-600 mb-[10px] w-full">GPA</p>
-            <MultiSelectDropdown />
+          <div className="grid grid-cols-3 gap-4 border rounded-md p-4 max-h-60 overflow-y-auto bg-white">
+            {filteredSkills.map((skill, index) => (
+              <label key={index} className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={formData.skills.includes(skill)}
+                  onChange={(e) => {
+                    if (e.target.checked) {
+                      handleChange("skills", [...formData.skills, skill]);
+                    } else {
+                      handleChange(
+                        "skills",
+                        formData.skills.filter((s) => s !== skill)
+                      );
+                    }
+                  }} />
+                {skill}
+              </label>
+            ))}
           </div>
-          <div className=" h-[82px] mt-5 flex flex-wrap ">
-            <p className="text-sm font-semibold  text-gray-600k mb-[10px] w-full">Qualification</p>
-            <QualificationDropdown />
-          </div>
+        </div>
 
-          <div className=" mt-5 flex flex-wrap mb-5 ">
-            <p className="text-sm font-semibold  text-gray-600k mb-[10px] w-full h-4">Description</p>
-            <div className="py-[10px] px-4 border border-gray-300 rounded-md">
-              <div className="flex flex-col text-sm text-black gap-[10px] font-light ">
-                <p>We are looking for a passionate Java Developer to design, develop and maintain enterprise-level applications. You will work alongside senior developers, participate in code reviews, and build scalable backend systems.</p>
-                <p>Java Developer (Intern / Entry-Level)  </p>
-                <p>Engineering / Development</p>
-                <p>3 to 6 months (extendable or PPO based on performance)</p>
+        <div className="flex flex-col w-full mb-6">
+          <label className="text-sm font-semibold text-[#051B44] mb-2">
+            GPA
+          </label>
+          <MultiSelectDropdown
+            options={gpaOptions}
+            placeholder="Select "
+            value={formData.gpa}
+            onChange={(val) => handleChange("gpa", val)} />
+        </div>
 
-              </div>
-            </div>
-          </div>
-          <div className="mt-32 p-5">
-            <Button
-              title1="Cancel"
-              title2="Next"
-              onClick1={() => navigate("/internship-details")}
-              onClick2={() => navigate("/internship-role")} 
-              isSubmit={false} 
-              />
+        <div className="flex flex-col w-full mb-6">
+          <label className="text-sm font-semibold text-[#051B44] mb-2">
+            Qualification
+          </label>
+          <MultiSelectDropdown
+            options={qualificationOptions}
+            placeholder="Select "
+            value={formData.qualification}
+            onChange={(val) => handleChange("qualification", val)} />
+        </div>
+
+        <div className="flex flex-col w-full mb-6">
+          <label className="text-sm font-semibold text-[#051B44] mb-2">
+            Description
+          </label>
+          <textarea
+            value={formData.description}
+            onChange={(e) => handleChange("description", e.target.value)}
+            placeholder="Enter description..."
+            className="w-full h-[100px] px-4 py-2 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-gray-400" />
+        </div>
+
+        <div className="p-5 mt-10">
+          <Button
+            title1="Back"
+            title2="Next"
+            onClick1={() => navigate("/internship-details")} 
+             bg2="bg-gray-200"
+            isSubmit={true}/>
+   
+        </div>
 
 
-          </div>
-        </form>
-      </div>
-    </>
+
+      </form>
+    </div>
   );
 }
