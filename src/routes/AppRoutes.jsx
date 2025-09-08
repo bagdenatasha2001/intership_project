@@ -12,7 +12,7 @@ import ApplicationTable from '../pages/application/ApplicationTable';
 import InternshipCriteria from '../pages/internship/InternshipCriteria';
 import InternshipRoles from '../pages/internship/InternshipRoles';
 import InternshipExpectations from '../pages/internship/InternshipExpectations';
-import InternshipExpectations_2 from '../pages/internship/InternshipExpectations_2';
+
 
 
 
@@ -30,8 +30,6 @@ export default function AppRoutes() {
                 <Route path="/internship-criteria" element={<InternshipCriteria />} />
                 <Route path="/internship-role" element={<InternshipRoles />} />
                 <Route path="/internship-expectation" element={<InternshipExpectations />} />
-                <Route path="/internship-pop-up" element={<InternshipExpectations_2 />} />
-
 
                 <Route path="/application-table" element={<ApplicationTable />} />
             </Route>
