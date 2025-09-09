@@ -15,8 +15,8 @@ export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
           value={value}
           onChange={(e) => onChangeHours(Number(e.target.value))}
           placeholder="40"
-          className="w-20 p-3 focus:outline-none" />
-        <div className="absolute right-0">
+          className="w-20 p-3  border-none focus:outline-none" />
+        <div className="absolute right-0 ">
           <Dropdown
             value={unit}
             onChange={onChangeUnit}

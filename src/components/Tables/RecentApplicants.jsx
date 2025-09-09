@@ -1,12 +1,12 @@
 import React from "react";
 import { FiEye } from "react-icons/fi";
-import img1 from '../../assets/images/t-1.svg';
-import img2 from '../../assets/images/t-2.svg';
-import img3 from '../../assets/images/t-3.svg';
-import img4 from '../../assets/images/t-4.svg';
-import img5 from '../../assets/images/t-5.svg';
-import img6 from '../../assets/images/t-6.svg';
-import img7 from '../../assets/images/t-7.svg';
+import img1 from '../../assets/images/appli_1.jpg';
+import img2 from '../../assets/images/appli_2.jpg';
+import img3 from '../../assets/images/appli_3.jpg';
+import img4 from '../../assets/images/appli_4.jpg';
+import img5 from '../../assets/images/appli_5.jpg';
+import img6 from '../../assets/images/appli_6.jpg';
+import img7 from '../../assets/images/appli_7.jpg';
 
 export default function RecentApplicants() {
 

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import UserIcon from "../../assets/images/user.svg?react";
 import LockIcon from "../../assets/images/lock.svg?react";
-import SearchIcon from "../../assets/images/search.svg?react";
+import SearchIcon from "../../assets/images/Search.svg?react";
 import TargetIcon from "../../assets/images/Target.svg?react";
 
 export default function InternshipTabs() {
