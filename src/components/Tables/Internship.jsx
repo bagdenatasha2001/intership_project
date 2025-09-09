@@ -4,20 +4,26 @@ import { BsCalendar3 } from "react-icons/bs";
 export default function Internship() {
 
   const internships = [
-    { title: "Java", openings: 12, applicants: 12, selected: 3 },
-    { title: "UI UX Designer", openings: 20, applicants: 20, selected: 20 },
-    { title: "PHP", openings: 24, applicants: 24, selected: 24 },
-    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16 },
-    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16 },
-    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16 },
-    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16 },
+    { title: "Java", openings: 12, applicants: 12, selected: 3, Status: "Open" },
+    { title: "UI UX Designer", openings: 20, applicants: 20, selected: 20, Status: "Open" },
+    { title: "PHP", openings: 24, applicants: 24, selected: 24, Status: "Open" },
+    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16, Status: "Open" },
+    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16, Status: "Open" },
+    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16, Status: "Open" },
+    { title: "Sales Executive", openings: 16, applicants: 16, selected: 16, Status: "Open" },
   ];
 
   return (
     <div className="bg-white p-3  shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
       <div className="flex justify-between items-center mb-4 px-3">
-        <h2 className="text-lg font-semibold">Internships</h2>
-        <a href="#" className="text-blue-500 text-sm hover:underline">
+
+       
+        <div className="flex  gap-2">
+          <h2 className="text-md font-semibold">Internships</h2>
+        <span className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-2 py-1 rounded-full ">128 New Applicants</span>
+        </div>
+
+        <a href="/internship-table" className="hover:text-blue-500 text-sm underline">
           View All
         </a>
       </div>
@@ -47,13 +53,14 @@ export default function Internship() {
                 </td>
                 <td className=" text-[12px] px-6 py-1 ">{item.openings}</td>
                 <td className="text-[12px] px-6 py-1 ">{item.applicants}</td>
-                <td className=" text-[#667085] font-medium text-[12px] px-6 py-1">  {item.selected}</td>
-                <td className="  py-3 px-2 ">
-                  <span className="inline-flex items-center gap-2 text-green-600 bg-green-100 px-1 rounded-full text-[12px]">
-                    <span className="w-2 h-2 rounded-full bg-[#12B76A]"></span>
-                    Open
+                <td className=" text-[rgb(102,112,133)] font-medium text-[12px] px-6 py-1">  {item.selected}</td>
+                <td className="py-3 px-1 text-center">
+                  <span className="inline-flex items-center gap-2 text-green-600 bg-green-100 px-2 rounded-full text-[12px]">
+                    <span className="w-2 h-2 rounded-full bg-[#12B76A] inline-block"></span>
+                    {item.Status}
                   </span>
                 </td>
+
               </tr>
             ))}
           </tbody>

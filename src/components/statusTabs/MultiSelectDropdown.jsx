@@ -18,10 +18,15 @@ export default function MultiSelectDropdown({
       isSearchable={isSearchable}
       className="w-full"
       styles={{
-        control: (provided) => ({
+        control: (provided, state) => ({
           ...provided,
           borderRadius: "8px",
           padding: "2px",
+          borderColor: state.isFocused ? "#D1D5DB" : provided.borderColor,
+          boxShadow: state.isFocused ? "0 0 0 1px #D1D5DB" : provided.boxShadow,
+          "&:hover": {
+            borderColor: "#D1D5DB"
+          }
         }),
         multiValue: (provided) => ({
           ...provided,

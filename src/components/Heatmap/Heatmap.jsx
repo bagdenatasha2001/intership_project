@@ -1,14 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import {
-  Chart as ChartJS,
-  Tooltip,
-  Legend,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
+import { Chart as ChartJS, Tooltip, Legend, CategoryScale, LinearScale, } from "chart.js";
 import { MatrixController, MatrixElement } from "chartjs-chart-matrix";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Chart } from "react-chartjs-2";
+import MultiSelectDropdown from '../statusTabs/MultiSelectDropdown';
 
 ChartJS.register(
   MatrixController,
@@ -58,10 +53,16 @@ const colorScale = [
 ];
 
 export default function Heatmap() {
-  const [selectedCity, setSelectedCity] = useState("");
+  const [selectedCities, setSelectedCities] = useState([]);
+
+  const cityOptions = cities.map(city => ({ value: city, label: city }));
+
+  const handleCityChange = (selectedOptions) => {
+    setSelectedCities(selectedOptions.map(opt => opt.value));
+  };
 
   const heatmapData = useMemo(() => {
-    let filteredCities = selectedCity ? [selectedCity] : cities;
+    const filteredCities = selectedCities.length > 0 ? selectedCities : cities;
     let data = [];
     filteredCities.forEach((city) => {
       const cityIdx = cities.indexOf(city);
@@ -74,7 +75,7 @@ export default function Heatmap() {
       });
     });
     return data;
-  }, [selectedCity]);
+  }, [selectedCities]);
 
   const data = {
     datasets: [
@@ -89,7 +90,7 @@ export default function Heatmap() {
         borderWidth: 1,
         borderColor: 'transparent',
         width: ({ chart }) => (chart.chartArea || {}).width / ranges.length,
-        height: ({ chart }) => (chart.chartArea || {}).height / (selectedCity ? 1 : cities.length)
+        height: ({ chart }) => (chart.chartArea || {}).height / (selectedCities.length > 0 ? selectedCities.length : cities.length)
       }
     ]
   };
@@ -122,7 +123,7 @@ export default function Heatmap() {
       },
       y: {
         type: "category",
-        labels: selectedCity ? [selectedCity] : cities,
+        labels: selectedCities.length > 0 ? selectedCities : cities,
         grid: {
           drawBorder: false,
           drawOnChartArea: false
@@ -133,23 +134,22 @@ export default function Heatmap() {
   };
 
   return (
-    <div className='h-[500px] p-2 mb-4 w-full shadow rounded-2xl  mt-4 border border-gray-33'>
+    <div className='h-[500px] p-2 mb-4 w-full shadow rounded-2xl mt-4 border border-gray-33'>
       <div className='flex justify-between items-center mb-3'>
         <h3 className='font-bold text-lg'>Applicants Footprints By Location</h3>
-        <select
-          className='border px-3 py-1 rounded'
-          value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}>
-          <option value="">Select City</option>
-          {cities.map((city) => (
-            <option key={city} value={city}>{city}</option>
-          ))}
-        </select>
+        <div className='w-[300px] '>
+          <MultiSelectDropdown
+            options={cityOptions}
+            value={cityOptions.filter(option => selectedCities.includes(option.value))}
+            onChange={handleCityChange}
+            placeholder="Select City"
+          />
+        </div>
       </div>
+
       <div className='h-[400px] w-full'>
         <Chart type="matrix" data={data} options={options} />
       </div>
     </div>
   );
 }
-

@@ -7,6 +7,7 @@ import img4 from '../../assets/images/appli_4.jpg';
 import img5 from '../../assets/images/appli_5.jpg';
 import img6 from '../../assets/images/appli_6.jpg';
 import img7 from '../../assets/images/appli_7.jpg';
+import { Link } from "react-router-dom";
 
 export default function RecentApplicants() {
 
@@ -22,12 +23,14 @@ export default function RecentApplicants() {
 
   return (
     <div className="bg-white p-3  shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
-      <div className="flex justify-between items-center mb-4 px-3">
-        <h2 className="text-md font-semibold">Recent Applicants</h2>
-        <button className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-3 py-1 rounded-full mr-6">128 New Applicants</button>
-        <a href="#" className="text-blue-500 text-sm hover:underline">
+      <div className="flex justify-between items-center mb-4 px-3 ">
+        <div className="flex  gap-2">
+          <h2 className="text-md font-semibold">Recent Applicants</h2>
+        <span className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-2 py-1 rounded-full ">128 New Applicants</span>
+        </div>
+        <Link to ="/internship-table" className="hover:text-blue-500 text-sm underline">
           View All
-        </a>
+        </Link>
       </div>
       <div className="overflow-y-auto flex-1 min-h-0"
       style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}>
