@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import Button from "../../components/statusTabs/Button";
-import successIcon from '../../assets/images/success_img.png';
+import successIcon from '../../assets/images/Success_img.png';
 
 export default function InternshipExpectations() {
     const navigate = useNavigate();
