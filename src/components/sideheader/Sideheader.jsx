@@ -9,19 +9,15 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 export default function Sideheader({ open }) {
   const location = useLocation();
 
-
   const isActivePrefix = (path) => location.pathname.startsWith(path);
 
   return (
-    <div
-      className={`flex flex-col font-inter transition-all duration-300 bg-[#D1DDDD] max-w-60 p-6
-      ${open ? 'w-60 md:w-60' : 'w-0'} md:w-60 overflow-hidden relative h-full`}>
+    <div className="flex flex-col font-inter transition-all duration-300 bg-[#D1DDDD] p-6 overflow-hidden relative h-full w-full">
 
-      <div className="flex flex-col  gap-5  h-[272px] w-full ">
+      <div className="flex flex-col gap-5 h-[272px] w-full">
         <Link to="/dashboard" className="cursor-pointer py-2">
           <img src={logo} alt="GoGrand Logo" className="w-[161px] h-[44px]" />
         </Link>
-
 
         <NavLink
           to="/dashboard"
@@ -39,7 +35,6 @@ export default function Sideheader({ open }) {
           )}
         </NavLink>
 
-
         <NavLink
           to="/internship-table"
           className={() =>
@@ -53,8 +48,6 @@ export default function Sideheader({ open }) {
             <span className="text-base font-medium">Internship</span>
           </>
         </NavLink>
-
-
 
         <NavLink
           to="/application-table"
@@ -75,15 +68,14 @@ export default function Sideheader({ open }) {
         </NavLink>
       </div>
 
-
-      <div className="absolute bottom-3 w-full flex ">
+      <div className="absolute bottom-3 w-full flex">
         <button
           className="flex items-center justify-center border border-[#006666] hover:bg-[#006666] group rounded-xl space-x-3 w-[192px] h-[48px]">
           <Link to="/" className="font-bold group-hover:text-white">Logout</Link>
           <img src={logout} alt="logout" className="w-5 filter group-hover:invert transition" />
         </button>
       </div>
+
     </div>
   );
 }
-

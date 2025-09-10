@@ -181,7 +181,7 @@ export default function InternshipCriteria() {
             title1="Back"
             title2="Next"
             onClick1={() => navigate("/internship-details")} 
-             bg2="bg-gray-200"
+             bg2="bg-gray-300"
             isSubmit={true}/>
    
         </div>

@@ -223,7 +223,7 @@ export default function InternshipDetails() {
             title1="Cancel"
             title2="Next"
             onClick1={() => navigate("/internship-table")}
-            bg2="bg-gray-200"
+            bg2="bg-gray-300"
             isSubmit={true} />
         </div>
       </form>

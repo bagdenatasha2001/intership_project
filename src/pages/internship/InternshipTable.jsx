@@ -23,7 +23,7 @@ export default function InterngitshipTable() {
 
   return (
     <>
-      <div className="h-auto my-5 w-full  rounded-xl border border-gray-33">
+      <div className="h-auto my-5  w-full  rounded-xl border border-gray-33">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-xl font-bold text-black py-1">Internship</h2>
@@ -110,7 +110,7 @@ export default function InterngitshipTable() {
                             )}
                           </span>
                           {item.Status === "Closed" && (
-                            <div className="absolute mt-6 bg-[#EFEFEF] text-black text-sm px-3 py-2 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute mt-1 bg-[#EFEFEF] text-black text-sm px-1 py-1 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                               This vacancy has been closed by <br />the admin.
                             </div>
                           )}

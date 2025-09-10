@@ -60,7 +60,7 @@ export default function InternshipRoles() {
                             title2="Next"
                             onClick1={() => navigate("/internship-criteria")}
                             onClick2={handleNext}
-                            bg2="bg-gray-200"
+                            bg2="bg-gray-300"
                             isSubmit={false}
                         />
                     </div>
