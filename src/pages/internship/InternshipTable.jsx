@@ -23,7 +23,8 @@ export default function InterngitshipTable() {
 
   return (
     <>
-      <div className="h-auto my-5  w-full  rounded-xl border border-gray-33">
+      <div className="h-auto my-5 w-full rounded-xl border border-gray-33">
+
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-xl font-bold text-black py-1">Internship</h2>
@@ -32,16 +33,17 @@ export default function InterngitshipTable() {
 
           <button
             onClick={() => navigate("/internship-details")}
-            className="bg-[#006666] text-white px-4 py-[10px] rounded-lg hover:bg-[#042424] transition" >
+            className="bg-[#006666] text-white px-4 py-[10px] rounded-lg hover:bg-[#042424] transition">
             Add New Internship
           </button>
         </div>
-        <div>
-          <div className="bg-white p-3 py-3 w-full h-full flex flex-col">
-            <div
-              className="overflow-y-auto flex-1 min-h-0 space-x-2"
-              style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }} >
-              <table className="text-base text-left w-full">
+
+
+        <div className="bg-white p-3 py-3 w-full h-full flex flex-col">
+
+          <div className="overflow-x-auto w-full">
+            <div className="overflow-y-auto min-h-0">
+              <table className="min-w-[800px] text-base text-left w-full">
                 <thead>
                   <tr className="text-gray-400 border-b text-[12px]">
                     <th>Internship</th>
@@ -58,18 +60,18 @@ export default function InterngitshipTable() {
                 <tbody>
                   {internships.map((item, index) => (
                     <tr key={index} className="border-b border-gray-200 gap-3">
-                      <td className="py-5 text-[14px] font-normal">{item.title}</td>
-                      <td className="text-[12px] text-gray-400">{item.InternshipID}</td>
-                      <td className="text-[12px] text-gray-400">{item.Duration}</td>
+                      <td className="whitespace-nowrap py-5 text-[14px] font-normal">{item.title}</td>
+                      <td className="whitespace-nowrap text-[12px] text-gray-400">{item.InternshipID}</td>
+                      <td className="whitespace-nowrap text-[12px] text-gray-400">{item.Duration}</td>
                       <td>
-                        <span className="px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.StartDate}</span>
+                        <span className="whitespace-nowrap px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.StartDate}</span>
                       </td>
                       <td>
-                        <span className="px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.EndDate}</span>
+                        <span className="whitespace-nowrap px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.EndDate}</span>
                       </td>
                       <td>
                         <span
-                          className={`px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote"
+                          className={`whitespace-nowrap px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote"
                               ? "bg-blue-100 text-blue-600"
                               : "bg-orange-100 text-orange-600"
                             }`}
@@ -78,19 +80,19 @@ export default function InterngitshipTable() {
                         </span>
                       </td>
                       <td>
-
-                        <div className="relative inline-block  group ">
+                        <div className="relative inline-block group">
                           <span
-                            className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center   ${item.Status === "Open"
+                            className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center ${item.Status === "Open"
                                 ? "text-green-600 bg-green-100"
                                 : item.Status === "On Hold"
-                                  ? "text-yellow-600 bg-yellow-100 "
+                                  ? "text-yellow-600 bg-yellow-100"
                                   : item.Status === "Closed"
                                     ? "text-red-600 bg-red-100"
                                     : "text-gray-600 bg-gray-100"
-                              }`}>
+                              }`}
+                          >
                             <span
-                              className={`w-2 h-2 rounded-full  ${item.Status === "Open"
+                              className={`w-2 h-2 rounded-full ${item.Status === "Open"
                                   ? "bg-green-500"
                                   : item.Status === "On Hold"
                                     ? "bg-yellow-500"
@@ -104,7 +106,7 @@ export default function InterngitshipTable() {
                             {item.Status === "Closed" && (
                               <img
                                 src={Danger}
-                                className="ml-1 cursor-pointer "
+                                className="ml-1 cursor-pointer size-[10px]"
                                 alt="danger"
                               />
                             )}
@@ -116,7 +118,8 @@ export default function InterngitshipTable() {
                           )}
                         </div>
                       </td>
-                      <td className="flex items-center justify-center py-5 gap-1">
+
+                      <td className="flex items-center py-5 gap-1">
                         <button className="text-blue-500">
                           <img src={eye} alt="view" />
                         </button>
