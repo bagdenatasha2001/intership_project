@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState}from "react";
 import StatusTabs from "../../components/statusTabs/StatusTabs"
 import eye from "../../assets/images/eye_icon.png";
 import pencil from "../../assets/images/pencil_icon.png";
@@ -6,9 +6,15 @@ import trash from "../../assets/images/trash_icon.png";
 import Danger from "../../assets/images/DangerCircle.svg";
 import Pagination from "../../components/statusTabs/Pagination";
 import { useNavigate } from "react-router-dom";
+import deleteIcon from "../../assets/images/delete_icon.jpg";
+
+
+
 
 export default function InterngitshipTable() {
   const navigate = useNavigate();
+
+   const [showPopup, setShowPopup] = useState(false);
 
   const internships = [
     { title: "UI / UX Designer", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "Remote", Status: "Open" },
@@ -20,6 +26,10 @@ export default function InterngitshipTable() {
     { title: "Frontend Intern", InternshipID: "00147825", Duration: "6 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "On-Site", Status: "Closed" },
     { title: "Back-end Intern", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "On-Site", Status: "Inactive" },
   ];
+
+    const closePopup = () => {
+        setShowPopup(false);
+    };
 
   return (
     <>
@@ -126,9 +136,9 @@ export default function InterngitshipTable() {
                         <button className="text-green-500">
                           <img src={pencil} alt="edit" />
                         </button>
-                        <button className="text-red-500">
-                          <img src={trash} alt="delete" />
-                        </button>
+                       <button className="text-red-500" onClick={() => setShowPopup(true)}>
+                       <img src={trash} alt="delete" />
+                       </button>
                       </td>
                     </tr>
                   ))}
@@ -139,6 +149,40 @@ export default function InterngitshipTable() {
           </div>
         </div>
       </div>
+
+
+      
+                  {showPopup && (
+                      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                          <div className="bg-white rounded-xl shadow-lg w-[400px] h-[268px] flex flex-col  relative p-6">
+      
+                              <button
+                                  onClick={closePopup}
+                                  className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold" >
+                                  &times;
+                              </button>
+                              <div className=" flex flex-col" >
+                                <img src={deleteIcon} alt="Success" className="size-12" />
+
+                              <div className=" font-bold leading-snug mt-5 ">
+                                <span className="text-lg font-medium">Delete Post</span>
+                                 <p className="mt-2 text-[14px] font-normal text-[#667085]">Are you sure you want to delete this post? This action cannot be undone.</p>
+                              </div>
+                              </div>
+                        
+                              <div>
+                                <div className="flex gap-3 mt-[34px]">
+                                 <button className="text-black border border-gray-300 rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold" >
+                                      Cancel
+                                   </button>
+                                    <button className=" border border-gray-300  bg-[#FF383C] text-white rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold" >
+                                      Delete
+                                   </button>
+                                 </div>
+                              </div>
+                          </div>
+                      </div>
+                  )}
     </>
   );
 }

@@ -5,7 +5,6 @@ import Dropdown from "../../components/form_fields/Dropdown";
 import Hours from "../../components/form_fields/Hours";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
 import Button from "../../components/statusTabs/Button";
 
 export default function InternshipDetails() {
