@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../components/statusTabs/Button";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 
 
