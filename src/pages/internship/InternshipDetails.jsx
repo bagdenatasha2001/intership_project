@@ -6,53 +6,39 @@ import Hours from "../../components/form_fields/Hours";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from "../../components/statusTabs/Button";
+import { FaRegCalendarAlt } from "react-icons/fa";
+import { useForm, Controller } from "react-hook-form";
 
 export default function InternshipDetails() {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
-    internshipName: "",
-    location: "",
-    duration: "",
-    positions: "",
-    compensation: "",
-    compensationAmount: "",
-    hours: 40,
-    hoursUnit: "Week",
-    startDate: null,
-    endDate: null,
-    status: "",
-    jobType: "",
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      internshipName: "",
+      location: "",
+      duration: "",
+      positions: "",
+      compensation: "",
+      compensationAmount: "",
+      hours: 40,
+      hoursUnit: "Week",
+      startDate: null,
+      endDate: null,
+      status: "",
+      jobType: "",
+    },
   });
 
-  const handleChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+  const [formData, setFormData] = useState({});
 
-  const validateForm = () => {
-    if (
-      !formData.internshipName ||
-      !formData.location ||
-      !formData.duration ||
-      !formData.positions ||
-      !formData.startDate ||
-      !formData.endDate ||
-      !formData.status ||
-      !formData.jobType
-    ) {
-      alert("Please fill the form before proceeding.");
-      return false;
-    }
-    return true;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    console.log("Form Data:", formData);
-
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+    setFormData(data);
     navigate("/internship-criteria");
   };
 
@@ -65,13 +51,7 @@ export default function InternshipDetails() {
   const durationOptions = [
     { value: "3 Months", label: "3 Months" },
     { value: "6 Months", label: "6 Months" },
-    { value: "1 Year", label: "1 Year" },
-  ];
-
-  const positionsOptions = [
-    { value: "2", label: "2" },
-    { value: "4", label: "4" },
-    { value: "6", label: "6" },
+    { value: "12 Months", label: "12 Months" },
   ];
 
   const yesNoOptions = [
@@ -79,16 +59,12 @@ export default function InternshipDetails() {
     { value: "No", label: "No" },
   ];
 
-  const amountOptions = [
-    { value: "100", label: "SAR 100.00" },
-    { value: "200", label: "SAR 200.00" },
-    { value: "300", label: "SAR 300.00" },
-  ];
-
   const statusOptions = [
     { value: "Open", label: "Open" },
     { value: "Closed", label: "Closed" },
   ];
+
+  const inputClasses = "w-full h-[56px] px-4 border rounded-md bg-white text-[#6b7280] font-normal focus:outline-none focus:border-black "
 
   return (
     <div className="px-3 rounded-lg w-full h-auto py-6 my-5 mx-auto border border-gray-300">
@@ -96,124 +72,272 @@ export default function InternshipDetails() {
         <InternshipTabs />
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+
         <div className="flex w-full justify-start gap-5">
           <div className="flex flex-col w-[728px]">
-            <label className="text-sm font-semibold text-[#051B44] mb-2">
+            <label className="text-sm font-normal text-[#051B44] mb-2">
               Internship Name
             </label>
             <input
               type="text"
-              value={formData.internshipName}
-              onChange={(e) => handleChange("internshipName", e.target.value)}
               placeholder="Java"
-              className="w-full h-[56px] px-4 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-blue-900"
+              className={inputClasses}
+              {...register("internshipName", {
+                required: "Internship Name is required",
+              })}
             />
+            {errors.internshipName && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.internshipName.message}
+              </p>
+            )}
           </div>
 
-          <div className="flex w-[362px] flex-col">
-            <Dropdown
-              label="Location"
-              options={locationOptions}
-              value={formData.location}
-              onChange={(val) => handleChange("location", val)}
+          <div className="flex flex-col w-[362px]">
+            <Controller
+              name="location"
+              control={control}
+              rules={{ required: "Location is required" }}
+              render={({ field }) => (
+                <Dropdown
+                  label="Location"
+                  options={locationOptions}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
             />
+            {errors.location && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.location.message}
+              </p>
+            )}
           </div>
         </div>
 
         <div className="flex w-full mt-[30px] gap-5 justify-between">
-          <div className="flex flex-col w-1/3">
-            <label className="text-sm font-semibold text-[#051B44] mb-2">
+          <div className="flex flex-col w-1/2">
+            <label className="text-sm font-normal text-[#051B44] mb-2">
               Job Type
             </label>
-            <div className="flex items-center gap-6 h-[56px] px-2 border rounded-md bg-white">
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="Remote"
-                  checked={formData.jobType === "Remote"}
-                  onChange={(e) => handleChange("jobType", e.target.value)}
-                />
-                Remote
-              </label>
-              <label className="flex items-center gap-2">
-                <input
-                  type="radio"
-                  value="On-Site"
-                  checked={formData.jobType === "On-Site"}
-                  onChange={(e) => handleChange("jobType", e.target.value)}
-                />
-                On-Site
-              </label>
+            <div className="flex gap-4">
+              <Controller
+                name="jobType"
+                control={control}
+                rules={{ required: "Job Type is required" }}
+                render={({ field }) => (
+                  <>
+                    <div
+                      className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "Remote"
+                          ? "bg-teal-300 text-white"
+                          : "bg-white"
+                        }`}
+                      onClick={() => field.onChange("Remote")}
+                    >
+                      Remote
+                    </div>
+                    <div
+                      className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "On-Site"
+                          ? "bg-teal-300 text-white"
+                          : "bg-white"
+                        }`}
+                      onClick={() => field.onChange("On-Site")}
+                    >
+                      On-Site
+                    </div>
+                  </>
+                )}
+              />
             </div>
+            {errors.jobType && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.jobType.message}
+              </p>
+            )}
           </div>
 
-          <div className="w-1/3">
-            <Dropdown
-              label="Duration"
-              options={durationOptions}
-              value={formData.duration}
-              onChange={(val) => handleChange("duration", val)} />
-          </div>
+          <div className="w-1/2 flex gap-5">
+            <div className="w-1/2 flex flex-col">
+              <Controller
+                name="duration"
+                control={control}
+                rules={{ required: "Duration is required" }}
+                render={({ field }) => (
+                  <Dropdown
+                    label="Duration"
+                    options={durationOptions}
+                    value={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.duration && (
+                <p className="text-red-600 text-[12px] mt-1">
+                  {errors.duration.message}
+                </p>
+              )}
+            </div>
 
-          <div className="w-1/3">
-            <Dropdown
-              label="Positions"
-              options={positionsOptions}
-              value={formData.positions}
-              onChange={(val) => handleChange("positions", val)} />
+
+            <div className="w-1/2 flex flex-col">
+              <label className="text-sm font-normal text-[#051B44] mb-2">
+                Positions
+              </label>
+              <input
+                type="number"
+                min="1"
+                className={inputClasses}
+                {...register("positions", {
+                  required: "Positions is required",
+                })}
+              />
+              {errors.positions && (
+                <p className="text-red-600 text-[12px] mt-1">
+                  {errors.positions.message}
+                </p>
+              )}
+            </div>
           </div>
         </div>
 
+
         <div className="grid grid-cols-5 gap-5 mt-[30px] p-4 rounded-md">
-          <Hours
-            value={formData.hours}
-            unit={formData.hoursUnit}
-            onChangeHours={(val) => handleChange("hours", val)}
-            onChangeUnit={(val) => handleChange("hoursUnit", val)} />
-
-          <Dropdown
-            label="Compensation"
-            options={yesNoOptions}
-            value={formData.compensation}
-            onChange={(val) => handleChange("compensation", val)} />
-
-          <Dropdown
-            label="Compensation Amount"
-            options={amountOptions}
-            value={formData.compensationAmount}
-            onChange={(val) => handleChange("compensationAmount", val)} />
-
           <div className="flex flex-col">
-            <label className="text-sm font-semibold text-[#051B44] mb-2">
-              Start Date
+            <Controller
+              name="hours"
+              control={control}
+              render={({ field }) => (
+                <Hours
+                  value={field.value}
+                  unit="Week"
+                  onChangeHours={field.onChange}
+                  onChangeUnit={() => { }}
+                />
+              )}
+            />
+          </div>
+          <div className="flex flex-col">
+            <Controller
+              name="compensation"
+              control={control}
+              rules={{ required: "Compensation is required" }}
+              render={({ field }) => (
+                <Dropdown
+                  label="Compensation"
+                  options={yesNoOptions}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            {errors.compensation && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.compensation.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col">
+            <label className="text-sm font-normal text-[#051B44] mb-2">
+              Compensation Amount
             </label>
-            <DatePicker
-              selected={formData.startDate}
-              onChange={(date) => handleChange("startDate", date)}
-              className="w-full h-[56px] border rounded-md px-4 text-gray-600"
-              placeholderText="Select" />
+            <input
+              type="number"
+              step="0.01"
+              min="0"
+              className={inputClasses}
+              {...register("compensationAmount", {
+                required: "Compensation Amount is required",
+              })}
+            />
+            {errors.compensationAmount && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.compensationAmount.message}
+              </p>
+            )}
           </div>
 
-          <div className="flex flex-col">
+
+          <div className="relative flex flex-col">
+            <label className="text-sm font-normal text-[#051B44] mb-2">
+              Start Date
+            </label>
+            <div className="relative w-full">
+              <Controller
+                name="startDate"
+                control={control}
+                rules={{ required: "Start Date is required" }}
+                render={({ field }) => (
+                  <DatePicker
+                    selected={field.value}
+                    onChange={field.onChange}
+                    className={`${inputClasses} w-full pr-10`}
+                    placeholderText="Select"
+                  />
+                )}
+              />
+              <FaRegCalendarAlt
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                style={{ pointerEvents: "none" }}
+              />
+            </div>
+            {errors.startDate && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.startDate.message}
+              </p>
+            )}
+          </div>
+
+          <div className="relative flex flex-col">
             <label className="text-sm font-semibold text-[#051B44] mb-2">
               End Date
             </label>
-            <DatePicker
-              selected={formData.endDate}
-              onChange={(date) => handleChange("endDate", date)}
-              className="w-full h-[56px] border rounded-md px-4 text-gray-600"
-              placeholderText="Select " />
+            <div className="relative w-full">
+              <Controller
+                name="endDate"
+                control={control}
+                rules={{ required: "End Date is required" }}
+                render={({ field }) => (
+                  <DatePicker
+                    selected={field.value}
+                    onChange={field.onChange}
+                    className={`${inputClasses} w-full pr-10`}
+                    placeholderText="Select"
+                  />
+                )}
+              />
+              <FaRegCalendarAlt
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+                style={{ pointerEvents: "none" }}
+              />
+            </div>
+            {errors.endDate && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.endDate.message}
+              </p>
+            )}
           </div>
         </div>
-
         <div className="flex w-full mt-[30px]">
-          <div className="w-[300px]">
-            <Dropdown
-              label="Internship Status"
-              options={statusOptions}
-              value={formData.status}
-              onChange={(val) => handleChange("status", val)} />
+          <div className="w-[300px] flex flex-col">
+            <Controller
+              name="status"
+              control={control}
+              rules={{ required: "Internship Status is required" }}
+              render={({ field }) => (
+                <Dropdown
+                  label="Internship Status"
+                  options={statusOptions}
+                  value={field.value}
+                  onChange={field.onChange}
+                />
+              )}
+            />
+            {errors.status && (
+              <p className="text-red-600 text-[12px] mt-1">
+                {errors.status.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -223,7 +347,8 @@ export default function InternshipDetails() {
             title2="Next"
             onClick1={() => navigate("/internship-table")}
             bg2="bg-gray-300"
-            isSubmit={true} />
+            isSubmit={true}
+          />
         </div>
       </form>
     </div>

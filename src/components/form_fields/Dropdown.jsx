@@ -1,4 +1,5 @@
 import React from "react";
+import { BiFontSize } from "react-icons/bi";
 import Select from "react-select";
 
 export default function Dropdown({ label, value, onChange, options }) {
@@ -8,7 +9,8 @@ export default function Dropdown({ label, value, onChange, options }) {
       minHeight: "56px",
       height: "56px",
       boxShadow: "none",
-      borderColor: state.isFocused ? "#d1d5db" : "#d1d5db",
+
+      borderColor: state.isFocused ? "#D8DAE5" : "#D8DAE5",
       "&:hover": {
         borderColor: "#9ca3af",
       },
@@ -24,6 +26,12 @@ export default function Dropdown({ label, value, onChange, options }) {
     }),
     indicatorSeparator: () => ({
       display: "none",
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      fontWeight: 500,
+      fontSize: "14px",
+      color: "#6b7280",
     }),
   };
 

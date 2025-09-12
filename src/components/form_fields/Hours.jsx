@@ -8,15 +8,17 @@ export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
         Hours (Optional)
       </label>
 
-      <div className="flex border border-gray-300 rounded-md bg-white h-[56px] relative">
+      <div className="flex rounded-md bg-white h-[56px] relative border">
         <input
           type="number"
           min="1"
           value={value}
           onChange={(e) => onChangeHours(Number(e.target.value))}
           placeholder="40"
-          className="w-20 p-3  border-none focus:outline-none" />
-        <div className="absolute right-0 ">
+          className="w-20 p-3 border-none focus:outline-none"
+        />
+
+        <div className="absolute right-0 h-full  ">
           <Dropdown
             value={unit}
             onChange={onChangeUnit}
@@ -24,6 +26,7 @@ export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
               { value: "Week", label: "Week" },
               { value: "Month", label: "Month" },
             ]}
+            className="border-none "
           />
         </div>
       </div>

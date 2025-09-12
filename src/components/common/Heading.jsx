@@ -4,7 +4,7 @@ export default function Heading({ heading1, heading2, heading3, heading4 }) {
   return (
     <div >
       {heading1 && (
-        <h2 className="text-3xl font-bold font-inter mb-[30px]">{heading1}</h2>
+        <h2 className="text-[28px] font-bold font-inter mb-[30px]">{heading1}</h2>
       )}
 
       {heading2 && (

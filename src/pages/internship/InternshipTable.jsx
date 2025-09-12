@@ -1,5 +1,8 @@
-import React ,{useState}from "react";
-import StatusTabs from "../../components/statusTabs/StatusTabs"
+
+import React, { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import StatusTabs from "../../components/statusTabs/StatusTabs";
 import eye from "../../assets/images/eye_icon.png";
 import pencil from "../../assets/images/pencil_icon.png";
 import trash from "../../assets/images/trash_icon.png";
@@ -8,13 +11,10 @@ import Pagination from "../../components/statusTabs/Pagination";
 import { useNavigate } from "react-router-dom";
 import deleteIcon from "../../assets/images/delete_icon.jpg";
 
-
-
-
 export default function InterngitshipTable() {
   const navigate = useNavigate();
 
-   const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const internships = [
     { title: "UI / UX Designer", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "Remote", Status: "Open" },
@@ -27,12 +27,20 @@ export default function InterngitshipTable() {
     { title: "Back-end Intern", InternshipID: "00147825", Duration: "3 Months", StartDate: "25 May 2025", EndDate: "25 May 2025", JobType: "On-Site", Status: "Inactive" },
   ];
 
-    const closePopup = () => {
-        setShowPopup(false);
-    };
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const handleDelete = () => {
+    setShowPopup(false);
+    toast.success("Your internship is deleted successfully!");
+
+  };
 
   return (
     <>
+      <ToastContainer position="top-right" autoClose={3000} />
+
       <div className="h-auto my-5 w-full rounded-xl border border-gray-33">
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20">
@@ -48,9 +56,7 @@ export default function InterngitshipTable() {
           </button>
         </div>
 
-
         <div className="bg-white p-3 py-3 w-full h-full flex flex-col">
-
           <div className="overflow-x-auto w-full">
             <div className="overflow-y-auto min-h-0">
               <table className="min-w-[800px] text-base text-left w-full">
@@ -80,46 +86,16 @@ export default function InterngitshipTable() {
                         <span className="whitespace-nowrap px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.EndDate}</span>
                       </td>
                       <td>
-                        <span
-                          className={`whitespace-nowrap px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote"
-                              ? "bg-blue-100 text-blue-600"
-                              : "bg-orange-100 text-orange-600"
-                            }`}
-                        >
+                        <span className={`whitespace-nowrap px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote" ? "bg-blue-100 text-blue-600" : "bg-orange-100 text-orange-600"}`}>
                           {item.JobType}
                         </span>
                       </td>
                       <td>
                         <div className="relative inline-block group">
-                          <span
-                            className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center ${item.Status === "Open"
-                                ? "text-green-600 bg-green-100"
-                                : item.Status === "On Hold"
-                                  ? "text-yellow-600 bg-yellow-100"
-                                  : item.Status === "Closed"
-                                    ? "text-red-600 bg-red-100"
-                                    : "text-gray-600 bg-gray-100"
-                              }`}
-                          >
-                            <span
-                              className={`w-2 h-2 rounded-full ${item.Status === "Open"
-                                  ? "bg-green-500"
-                                  : item.Status === "On Hold"
-                                    ? "bg-yellow-500"
-                                    : item.Status === "Closed"
-                                      ? "bg-red-500"
-                                      : "bg-gray-500"
-                                }`}
-                            ></span>
+                          <span className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center ${item.Status === "Open" ? "text-green-600 bg-green-100" : item.Status === "On Hold" ? "text-yellow-600 bg-yellow-100" : item.Status === "Closed" ? "text-red-600 bg-red-100" : "text-gray-600 bg-gray-100"}`}>
+                            <span className={`w-2 h-2 rounded-full ${item.Status === "Open" ? "bg-green-500" : item.Status === "On Hold" ? "bg-yellow-500" : item.Status === "Closed" ? "bg-red-500" : "bg-gray-500"}`}></span>
                             {item.Status}
-
-                            {item.Status === "Closed" && (
-                              <img
-                                src={Danger}
-                                className="ml-1 cursor-pointer size-[10px]"
-                                alt="danger"
-                              />
-                            )}
+                            {item.Status === "Closed" && <img src={Danger} className="ml-1 cursor-pointer size-[10px]" alt="danger" />}
                           </span>
                           {item.Status === "Closed" && (
                             <div className="absolute mt-1 bg-[#EFEFEF] text-black text-sm px-1 py-1 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
@@ -136,9 +112,9 @@ export default function InterngitshipTable() {
                         <button className="text-green-500">
                           <img src={pencil} alt="edit" />
                         </button>
-                       <button className="text-red-500" onClick={() => setShowPopup(true)}>
-                       <img src={trash} alt="delete" />
-                       </button>
+                        <button className="text-red-500" onClick={() => setShowPopup(true)}>
+                          <img src={trash} alt="delete" />
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -150,39 +126,31 @@ export default function InterngitshipTable() {
         </div>
       </div>
 
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white rounded-xl shadow-lg w-[400px] h-[268px] flex flex-col relative p-6">
+            <div className="flex flex-col">
+              <img src={deleteIcon} alt="Success" className="size-12" />
+              <div className="font-bold leading-snug mt-5">
+                <span className="text-lg font-medium">Delete Post</span>
+                <p className="mt-2 text-[14px] font-normal text-[#667085]">Are you sure you want to delete this post? This action cannot be undone.</p>
+              </div>
+            </div>
 
-      
-                  {showPopup && (
-                      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                          <div className="bg-white rounded-xl shadow-lg w-[400px] h-[268px] flex flex-col  relative p-6">
-      
-                              <button
-                                  onClick={closePopup}
-                                  className="absolute top-2 right-3 text-gray-500 hover:text-gray-800 text-2xl font-bold" >
-                                  &times;
-                              </button>
-                              <div className=" flex flex-col" >
-                                <img src={deleteIcon} alt="Success" className="size-12" />
+            <div>
+              <div className="flex gap-3 mt-[34px]">
+                <button onClick={closePopup} className="text-black border border-gray-300 rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold">
+                  Cancel
+                </button>
 
-                              <div className=" font-bold leading-snug mt-5 ">
-                                <span className="text-lg font-medium">Delete Post</span>
-                                 <p className="mt-2 text-[14px] font-normal text-[#667085]">Are you sure you want to delete this post? This action cannot be undone.</p>
-                              </div>
-                              </div>
-                        
-                              <div>
-                                <div className="flex gap-3 mt-[34px]">
-                                 <button className="text-black border border-gray-300 rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold" >
-                                      Cancel
-                                   </button>
-                                    <button className=" border border-gray-300  bg-[#FF383C] text-white rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold" >
-                                      Delete
-                                   </button>
-                                 </div>
-                              </div>
-                          </div>
-                      </div>
-                  )}
+                <button onClick={handleDelete} className="border border-gray-300 bg-[#FF383C] text-white rounded-md w-[170px] h-[44px] flex items-center justify-center font-bold">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

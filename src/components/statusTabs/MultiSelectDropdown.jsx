@@ -22,10 +22,10 @@ export default function MultiSelectDropdown({
           ...provided,
           borderRadius: "8px",
           padding: "2px",
-          borderColor: state.isFocused ? "#D1D5DB" : provided.borderColor,
+          borderColor: state.isFocused ? "#D8DAE5" : provided.borderColor,
           boxShadow: state.isFocused ? "0 0 0 1px #D1D5DB" : provided.boxShadow,
           "&:hover": {
-            borderColor: "#D1D5DB"
+            borderColor: "9ca3af"
           }
         }),
         multiValue: (provided) => ({

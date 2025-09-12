@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
-import Button from "../../components/statusTabs/Button";
+
 
 export default function InternshipRoles() {
     const navigate = useNavigate();
@@ -52,6 +52,9 @@ export default function InternshipRoles() {
                             className="w-full p-3 border-none focus:outline-none h-40 resize-none  max-w-[1084px]"
                             placeholder="Describe the role.."
                         />
+
+
+                       
                     </div>
 
                     <div className="p-5 mt-96">

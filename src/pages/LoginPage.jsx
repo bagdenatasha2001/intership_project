@@ -53,7 +53,7 @@ export default function LoginPage() {
       <div className="w-full sm:w-[90%] max-w-[565px] rounded-[30px] shadow-lg bg-white p-[26px] ">
         <form onSubmit={handleLogin} noValidate className="flex flex-col justify-between h-full">
           <div>
-            <Heading heading1="Login" className="text-[32px]" />
+            <Heading heading1="Login" className="text-[28px]" />
             <Email
               value={formData.email}
               onChange={handleEmailChange}

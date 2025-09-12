@@ -6,10 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-       fontFamily: {
-        inter: ['Inter'],
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'], 
+      },
     },
   },
-         },
   plugins: [],
 }

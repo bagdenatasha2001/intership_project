@@ -63,7 +63,7 @@ export default function InternshipExpectations() {
                         <Button
                             title1="Back"
                             title2="Create Internship"
-                            onClick1={() => navigate("/internship-role")}
+                            onClick1={() => navigate("/internship-table")}
                             onClick2={handleNext}
                             bg2="bg-teal-800 text-white"
                             isSubmit={false} />

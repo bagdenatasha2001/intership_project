@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import right from "../../assets/images/right_icon.png";
 import left from "../../assets/images/left_icon.png";
 
-export default function Pagination({ totalPages = 12, onPageChange }) {
+export default function Pagination({ totalPages = 10, onPageChange }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePrevious = () => {
@@ -42,11 +42,10 @@ export default function Pagination({ totalPages = 12, onPageChange }) {
           <button
             key={i}
             onClick={() => handlePageClick(i)}
-            className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium ${
-              currentPage === i
+            className={`w-8 h-8 flex items-center justify-center rounded-md text-sm font-medium ${currentPage === i
                 ? "bg-purple-100 text-purple-700 font-semibold"
                 : "text-gray-600 hover:text-purple-700"
-            }`}
+              }`}
           >
             {i}
           </button>
