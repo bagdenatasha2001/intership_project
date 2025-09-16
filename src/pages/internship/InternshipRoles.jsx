@@ -2,74 +2,51 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/statusTabs/Button";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
-
+import TextEditor from "../../components/form_fields/TextEditor";
 
 export default function InternshipRoles() {
     const navigate = useNavigate();
-
-    const [formData, setFormData] = useState({
-        roleDescription: "",
-    });
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
-
-    const validateForm = () => {
-        if (!formData.roleDescription.trim()) {
-            alert("Please fill the form before proceeding.");
-            return false;
-        }
-        return true;
-    };
-
-
+    const [roleDescription, setRoleDescription] = useState("");
+    const [error, setError] = useState("");
 
     const handleNext = (e) => {
         e.preventDefault();
-
-        if (validateForm()) {
-            console.log("Intership role Data:", formData);
-            navigate("/internship-expectation");
+        if (!roleDescription.trim()) {
+            setError("Please fill in the role description.");
+            return;
         }
+        setError("");
+        console.log("Role Description:", roleDescription);
+        navigate("/internship-expectation");
     };
 
     return (
-        <>
-            <div className="text-black p-3 rounded-lg w-full h-auto my-5 mx-auto border border-gray-33">
-                <div>
-                    <InternshipTabs />
+
+        <div className="text-black p-3 rounded-lg w-full h-auto my-5 mx-auto border border-gray-33">
+
+            <InternshipTabs />
+
+            <form>
+                <TextEditor
+                    value={roleDescription}
+                    onChange={(text) => setRoleDescription(text)} />
+
+                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+
+
+                <div className=" p-5 mt-5">
+                    <Button
+                        title1="Back"
+                        title2="Next"
+                        onClick1={() => navigate("/internship-criteria")}
+                        onClick2={handleNext}
+                        bg2="bg-gray-300"
+                        isSubmit={false}
+                    />
+
                 </div>
+            </form>
 
-                <form>
-                    <div className="p-2 border border-gray-300 rounded-md ml-[21px] mr-[39px] flex flex-col gap-4 text-sm text-[#696F8C]">
-                        <textarea
-                            name="roleDescription"
-                            value={formData.roleDescription}
-                            onChange={handleChange}
-                            className="w-full p-3 border-none focus:outline-none h-40 resize-none  max-w-[1084px]"
-                            placeholder="Describe the role.."
-                        />
-
-
-                       
-                    </div>
-
-                    <div className="p-5 mt-96">
-                        <Button
-                            title1="Back"
-                            title2="Next"
-                            onClick1={() => navigate("/internship-criteria")}
-                            onClick2={handleNext}
-                            bg2="bg-gray-300"
-                            isSubmit={false}
-                        />
-                    </div>
-                </form>
-            </div>
-        </>
+        </div>
     );
 }

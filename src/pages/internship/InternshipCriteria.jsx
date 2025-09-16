@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import InternshipTabs from "../../components/statusTabs/InternshipTabs";
 import Button from "../../components/statusTabs/Button";
 import MultiSelectDropdown from "../../components/statusTabs/MultiSelectDropdown";
-
+import TextEditor from "../../components/form_fields/TextEditor";
 export default function InternshipCriteria() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
@@ -27,14 +27,11 @@ export default function InternshipCriteria() {
     "File Handling",
     "Exception Handling",
     "Collections Framework",
-    "Exception Handling",
-    "Collections Framework",
-    "File Handling",
-    "Collections Framework",
-    "File Handling",
-    "Exception Handling",
     "React",
     "Node.js",
+    "Exception Handling",
+    "Collections Framework",
+    "File Handling",
   ];
 
   const gpaOptions = [
@@ -70,33 +67,20 @@ export default function InternshipCriteria() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
 
-        <div className="flex flex-col w-full mb-6">
-          <label className="text-sm font-semibold text-[#051B44] mb-2">
-            Skills
-          </label>
 
+        <div className="flex flex-col w-full mb-6">
+          <label className="text-sm font-semibold text-[#051B44] mb-2">Skills</label>
           <div className="relative w-full mb-3">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
             </span>
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search by name or email"
+              placeholder="Search by skill"
               className="w-full h-[40px] pl-10 pr-3 border rounded-md bg-white text-gray-600 font-normal focus:outline-none focus:border-gray-400"
             />
           </div>
@@ -115,9 +99,7 @@ export default function InternshipCriteria() {
                         if (e.target.checked) {
                           field.onChange([...field.value, skill]);
                         } else {
-                          field.onChange(
-                            field.value.filter((s) => s !== skill)
-                          );
+                          field.onChange(field.value.filter((s) => s !== skill));
                         }
                       }}
                     />
@@ -127,17 +109,12 @@ export default function InternshipCriteria() {
               </div>
             )}
           />
-          {errors.skills && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.skills.message}
-            </p>
-          )}
+          {errors.skills && <p className="text-red-500 text-sm mt-1">{errors.skills.message}</p>}
         </div>
 
+
         <div className="flex flex-col w-full mb-6">
-          <label className="text-sm font-semibold text-[#051B44] mb-2 ">
-            GPA
-          </label>
+          <label className="text-sm font-semibold text-[#051B44] mb-2">GPA</label>
           <Controller
             name="gpa"
             control={control}
@@ -148,21 +125,15 @@ export default function InternshipCriteria() {
                 placeholder="Select"
                 value={field.value}
                 onChange={field.onChange}
-
-
               />
             )}
           />
-          {errors.gpa && (
-            <p className="text-red-500 text-sm mt-1">{errors.gpa.message}</p>
-          )}
+          {errors.gpa && <p className="text-red-500 text-sm mt-1">{errors.gpa.message}</p>}
         </div>
 
 
         <div className="flex flex-col w-full mb-6">
-          <label className="text-sm font-semibold text-[#051B44] mb-2">
-            Qualification
-          </label>
+          <label className="text-sm font-semibold text-[#051B44] mb-2">Qualification</label>
           <Controller
             name="qualification"
             control={control}
@@ -176,32 +147,26 @@ export default function InternshipCriteria() {
               />
             )}
           />
-          {errors.qualification && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.qualification.message}
-            </p>
-          )}
+          {errors.qualification && <p className="text-red-500 text-sm mt-1">{errors.qualification.message}</p>}
         </div>
 
 
         <div className="flex flex-col w-full mb-6">
-          <label className="text-sm font-semibold text-[#051B44] mb-2">
-            Description
-          </label>
-          <textarea
-            {...register("description", {
-              required: "Description is required",
-            })}
-            placeholder="Enter description..."
-            className="w-full h-[100px] px-4 py-2 border rounded-md bg-white text-gray-600 font-medium focus:outline-none focus:border-gray-400"
-          />
-          {errors.description && (
-            <p className="text-red-500 text-sm mt-1">
-              {errors.description.message}
-            </p>
-          )}
-        </div>
+          <label className="text-sm font-semibold text-[#051B44] mb-2">Description</label>
+          <Controller
+            name="description"
+            control={control}
+            rules={{ required: "Description is required" }}
+            render={({ field }) => (
+              <TextEditor
+                value={field.value}
+                onChange={field.onChange}
 
+              />
+            )}
+          />
+          {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description.message}</p>}
+        </div>
 
         <div className="p-5 mt-10">
           <Button
