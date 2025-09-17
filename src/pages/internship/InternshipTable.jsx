@@ -61,15 +61,15 @@ export default function InterngitshipTable() {
             <div className="overflow-y-auto min-h-0">
               <table className="min-w-[800px] text-base text-left w-full">
                 <thead>
-                  <tr className="text-gray-400 border-b text-[12px]">
-                    <th>Internship</th>
-                    <th>Internship ID</th>
-                    <th>Duration</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Job Type</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                  <tr className="text-gray-400 border-b text-[14px]   bg-gray-50">
+                    <th className="py-2 px-2">Internship</th>
+                    <th className="py-2 px-2">Internship ID</th>
+                    <th className="py-2 px-2">Duration</th>
+                    <th className="py-2 px-2">Start Date</th>
+                    <th className="py-2 px-2">End Date</th>
+                    <th className="py-2 px-2">Job Type</th>
+                    <th className="py-2 px-2">Status</th>
+                    <th className="py-2 px-2">Action</th>
                   </tr>
                 </thead>
 

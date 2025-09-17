@@ -68,7 +68,7 @@ export default function InternshipCriteria() {
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
 
 
-        <div className="flex flex-col w-full mb-6">
+        <div className="flex flex-col w-full mb-6 border border-gray-200 rounded-md p-[10px]">
           <label className="text-sm font-semibold text-[#051B44] mb-2">Skills</label>
           <div className="relative w-full mb-3">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -81,7 +81,7 @@ export default function InternshipCriteria() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by skill"
-              className="w-full h-[40px] pl-10 pr-3 border rounded-md bg-white text-gray-600 font-normal focus:outline-none focus:border-gray-400"
+              className="w-full h-[56px] pl-10 pr-3 border rounded-md bg-white text-gray-600 font-normal focus:outline-none focus:border-gray-400"
             />
           </div>
           <Controller
@@ -89,7 +89,7 @@ export default function InternshipCriteria() {
             control={control}
             rules={{ required: "At least one skill is required" }}
             render={({ field }) => (
-              <div className="grid grid-cols-3 gap-4 border rounded-md p-4 max-h-60 overflow-y-auto bg-white">
+              <div className="grid grid-cols-3 gap-4  p-4 max-h-60 overflow-y-auto bg-white">
                 {filteredSkills.map((skill, index) => (
                   <label key={index} className="flex items-center gap-2 font-normal text-base">
                     <input
