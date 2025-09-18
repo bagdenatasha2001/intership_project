@@ -11,7 +11,7 @@ export default function Application_Dropdown() {
   const majorDropdownRef = useRef(null);
   const universityDropdownRef = useRef(null);
   const locationDropdownRef = useRef(null);
-   const gpaDropdownRef = useRef(null);
+  const gpaDropdownRef = useRef(null);
 
   const handleOnClickOutside = (event) => {
     if (
@@ -55,7 +55,7 @@ export default function Application_Dropdown() {
 
   const StatusOptions = ['All', 'Open', 'On-Hold', 'Closed'];
 
-  // Major dropdown
+  // Major
   const [isMajorOpen, setIsMajorOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedMajors, setSelectedMajors] = useState([]);
@@ -82,7 +82,7 @@ export default function Application_Dropdown() {
     option.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // University dropdown
+  // University 
   const [isUniversityOpen, setIsuniversityOpen] = useState(false);
   const [searchName, setSearchName] = useState('');
   const [selecteduniversity, setSelecteduniversity] = useState([]);
@@ -154,7 +154,7 @@ export default function Application_Dropdown() {
 
 
   const [isGpaOpen, setIsgpaOpen] = useState(false);
-  const [searchgpa, setSearchgpa] = useState('');
+  // const [searchgpa, setSearchgpa] = useState('');
   const [selectedgpa, setSelectedgpa] = useState([]);
 
   const GpaOptions = [
@@ -175,9 +175,9 @@ export default function Application_Dropdown() {
   };
 
  
-  const filteredGpaOptions =  GpaOptions.filter(option =>
-    option.toLowerCase().includes(searchgpa.toLowerCase())
-  );
+  // const filteredGpaOptions =  GpaOptions.filter(option =>
+  //   option.toLowerCase().includes(searchgpa.toLowerCase())
+  // );
 
 
 
@@ -187,14 +187,14 @@ export default function Application_Dropdown() {
 
   return (
     <>
-      <div className='flex rounded-lg  '>
+      <div className='flex  rounded-lg '>
 
         {/* select */}
 
         <div className='relative font-Inter' ref={statusDropdownRef}>
           <button
             onClick={() => setIsopen(!isOpen)}
-            className='flex items-center border py-3 px-3 gap-2 whitespace-nowrap'
+            className='flex items-center border py-3 px-2 gap-2 whitespace-nowrap'
           >
             <span>Select : {selectedOption}</span>
             {isOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -223,7 +223,7 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={majorDropdownRef}>
           <button
             onClick={() => setIsMajorOpen(!isMajorOpen)}
-            className='flex justify-between items-center border py-3 px-3 gap-1'
+            className='flex justify-between items-center border py-3 px-2 gap-1'
           >
             Major
             {isMajorOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -245,7 +245,7 @@ export default function Application_Dropdown() {
                   placeholder="Search by course name"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="border border-gray-400 text-left py-1 px-9 w-full mb-3 rounded mt-4 font-normal"
+                  className="border-2 border-gray-300 text-left   px-9 w-full h-[50px]  rounded-lg mb-3 mt-4 font-normal "
                 />
               </div>
 
@@ -267,11 +267,12 @@ export default function Application_Dropdown() {
 
               <div className="max-h-40 overflow-y-auto mb-4">
                 {filteredMajorOptions.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 py-1  text-gray-500 font-normal text-sm">
+                  <label key={index} className="flex items-center space-x-2 py-1  text-gray-500 font-normal text-sm mb-2">
                     <input
                       type="checkbox"
                       checked={selectedMajors.includes(option)}
                       onChange={() => toggleMajorOption(option)}
+                       className='accent-[#008080]'
                     />
                     <span>{option}</span>
                   </label>
@@ -305,7 +306,7 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={universityDropdownRef}>
           <button
             onClick={() => setIsuniversityOpen(!isUniversityOpen)}
-            className='flex justify-between items-center border py-3 px-3 gap-1'
+            className='flex justify-between items-center border py-3 px-2 gap-1'
           >
             University
             {isUniversityOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -327,7 +328,7 @@ export default function Application_Dropdown() {
                   placeholder="Search by university name"
                   value={searchName}
                   onChange={(e) => setSearchName(e.target.value)}
-                  className="border border-gray-400 text-left py-1 px-9 w-full mb-3 rounded mt-4  font-thin "
+                  className="border-2 border-gray-300 text-left   px-9 w-full h-[50px]  rounded-lg mb-3 mt-4 font-normal"
                 />
               </div>
               <span className='mb-2 text-gray-400'>Selected</span>
@@ -356,7 +357,7 @@ export default function Application_Dropdown() {
                   <label key={index} className="flex items-center space-x-2 py-2 text-gray-500 font-normal text-sm">
                     <input
                       type="checkbox"
-                      
+                       className='accent-[#008080]'
                       checked={selecteduniversity.includes(option)}
                       onChange={() => toggleUniversityOptions(option)}
                     />
@@ -396,7 +397,7 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={ locationDropdownRef}>
           <button
             onClick={() => setIslocationOpen(!isLocationOpen)}
-            className='flex justify-between items-center border py-3 px-3 gap-1'
+            className='flex justify-between items-center border py-3 px-2 gap-1'
           >
            Location
             {isLocationOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -418,7 +419,7 @@ export default function Application_Dropdown() {
                   placeholder="Search by location"
                   value={searchlocation}
                   onChange={(e) => setSearchlocation(e.target.value)}
-                  className="border border-gray-400 text-left py-1 px-9 w-full mb-3 rounded mt-4  font-thin "
+                  className="border-2 border-gray-300 text-left   px-9 w-full h-[50px]  rounded-lg mb-3 mt-4 font-normal"
                 />
               </div>
               <span className='mb-2 text-gray-400'>Selected</span>
@@ -431,7 +432,6 @@ export default function Application_Dropdown() {
                     {opt}
                     <button
                       className="ml-2 text-black"
-                     
                       onClick={() =>
                         setSelectedlocation(prev => prev.filter(o => o !== opt))
                       }
@@ -449,6 +449,7 @@ export default function Application_Dropdown() {
                       type="checkbox"
                       checked={selectedlocation.includes(option)}
                       onChange={() => toggleLocatonOptions(option)}
+                      className='accent-[#008080]'
                     />
                    
                     <span>{option}</span>
@@ -485,7 +486,7 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={gpaDropdownRef}>
           <button
             onClick={() => setIsgpaOpen(!isGpaOpen)}
-            className='flex justify-between items-center border py-3 px-3 gap-1'
+            className='flex justify-between items-center border py-3 px-2 gap-1'
           >
           GPA
             {isGpaOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -495,7 +496,7 @@ export default function Application_Dropdown() {
             <div className='absolute bg-white border mt-3 w-[328px]   rounded-md z-10 p-5 right-5'>
               <label>GPA</label>
 
-              <div className="relative flex items-center">
+              {/* <div className="relative flex items-center">
                 <span className="absolute left-2 text-gray-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
@@ -509,8 +510,8 @@ export default function Application_Dropdown() {
                   onChange={(e) => setSearchgpa(e.target.value)}
                   className="border border-gray-400 text-left py-1 px-9 w-full mb-3 rounded mt-4  font-thin "
                 />
-              </div>
-              <span className='mb-2 text-gray-400'>Selected</span>
+              </div> */}
+              <div className='mb-2 mt-2 text-gray-400'>Selected</div>
 
               <div className="flex flex-wrap gap-2 mb-3">
                  
@@ -520,7 +521,6 @@ export default function Application_Dropdown() {
                     {opt}
                     <button
                       className="ml-2 text-black"
-                     
                       onClick={() =>
                         setSelectedgpa(prev => prev.filter(o => o !== opt))
                       }
@@ -532,11 +532,11 @@ export default function Application_Dropdown() {
               </div>
 
               <div className=" max-h-80 overflow-y-scroll">
-                {filteredGpaOptions.map((option, index) => (
+                {GpaOptions.map((option, index) => (
                   <label key={index} className="flex items-center space-x-2 py-2 text-gray-500 font-normal text-sm">
                     <input
                       type="radio"
-
+                      className='accent-[#008080]'
                       checked={selectedgpa.includes(option)}
                       onChange={() => toggleGpaOptions(option)}
                     />

@@ -44,17 +44,15 @@ export default function ApplicationTable() {
           </div>
         </div>
 
-        <div className='flex px-4 py-3  gap-9'>
+        <div className='flex flex-col gap-9 mb-3 md:flex-row flex-wrap'>
 
 
-          <div className="relative flex items-center ">
+          <div className="relative flex items-center  flex-wrap ">
             <span className="absolute left-3 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
             </span>
-
-
             <input
               type="text"
               value={search}
@@ -64,7 +62,7 @@ export default function ApplicationTable() {
             />
           </div>
 
-          <div className='flex  rounded-lg w-full h-[50px] border border-gray-300 '>
+          <div className='flex  rounded-lg  h-[50px] border border-gray-300 w-fit  '>
             <Application_Dropdown />
           </div>
         </div>
@@ -108,3 +106,4 @@ export default function ApplicationTable() {
     </>
   );
 }
+
