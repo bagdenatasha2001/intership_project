@@ -12,6 +12,7 @@ import ApplicationTable from '../pages/application/ApplicationTable';
 import InternshipCriteria from '../pages/internship/InternshipCriteria';
 import InternshipRoles from '../pages/internship/InternshipRoles';
 import InternshipExpectations from '../pages/internship/InternshipExpectations';
+import ApplicationView from '../pages/application/ApplicationView';
 
 
 
@@ -32,6 +33,8 @@ export default function AppRoutes() {
                 <Route path="/internship-expectation" element={<InternshipExpectations />} />
 
                 <Route path="/application-table" element={<ApplicationTable />} />
+                
+                <Route path="/application-view" element={<ApplicationView />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
         </Routes>

@@ -3,22 +3,21 @@ import Dropdown from "../form_fields/Dropdown";
 
 export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
   return (
-    <div className="flex flex-col">
+    <>
       <label className="text-sm font-semibold text-[#051B44] mb-2">
         Hours (Optional)
       </label>
 
-      <div className="flex rounded-md bg-white h-[56px] relative border">
+      <div className="flex items-center rounded-md h-[56px] border border-gray-300 py-2">
         <input
           type="number"
           min="1"
           value={value}
           onChange={(e) => onChangeHours(Number(e.target.value))}
           placeholder="40"
-          className="w-20 p-3 border-none focus:outline-none"
+          className="flex-1 w-20 py-2 outline-none border-none bg-transparent text-center"
         />
-
-        <div className="absolute right-0 h-full  ">
+        <div className="w-28 border border-gray-300  rounded-lg">
           <Dropdown
             value={unit}
             onChange={onChangeUnit}
@@ -26,10 +25,16 @@ export default function Hours({ value, unit, onChangeHours, onChangeUnit }) {
               { value: "Week", label: "Week" },
               { value: "Month", label: "Month" },
             ]}
-            className="border-none "
+             withBorder={false}
+             
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
+
+
+
+
+

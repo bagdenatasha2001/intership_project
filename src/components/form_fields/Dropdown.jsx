@@ -1,18 +1,20 @@
 import React from "react";
-import { BiFontSize } from "react-icons/bi";
 import Select from "react-select";
 
-export default function Dropdown({ label, value, onChange, options }) {
+export default function Dropdown({ label, value, onChange, options, withBorder = true }) {
   const customStyles = {
     control: (provided, state) => ({
       ...provided,
       minHeight: "56px",
       height: "56px",
       boxShadow: "none",
-
-      borderColor: state.isFocused ? "#D8DAE5" : "#D8DAE5",
+      border: withBorder
+        ? state.isFocused
+          ? "1px solid #9ca3af"
+          : "1px solid #D8DAE5"
+        : "none",
       "&:hover": {
-        borderColor: "#9ca3af",
+        border: withBorder ? "1px solid #9ca3af" : "none",
       },
     }),
     valueContainer: (provided) => ({
@@ -49,3 +51,15 @@ export default function Dropdown({ label, value, onChange, options }) {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,24 +16,36 @@ export default function MultiSelectDropdown({
       onChange={onChange}
       placeholder={placeholder}
       isSearchable={isSearchable}
-      className="w-full "
+      className="w-full"
       styles={{
         control: (provided, state) => ({
           ...provided,
           borderRadius: "8px",
           padding: "2px",
-          height:"56px",
+          height: "56px",
           borderColor: state.isFocused ? "#D8DAE5" : provided.borderColor,
           boxShadow: state.isFocused ? "0 0 0 1px #D1D5DB" : provided.boxShadow,
           "&:hover": {
-            borderColor: "9ca3af"
-          }
+            borderColor: "#9ca3af",
+          },
+        }),
+        input: (provided) => ({
+          ...provided,
+          color: "black", 
+        }),
+        singleValue: (provided) => ({
+          ...provided,
+          color: "black", 
         }),
         multiValue: (provided) => ({
           ...provided,
           backgroundColor: "#E5E7EB",
           borderRadius: "6px",
           padding: "2px 4px",
+        }),
+        multiValueLabel: (provided) => ({
+          ...provided,
+          color: "black", 
         }),
       }}
     />

@@ -30,17 +30,20 @@ export default function InternshipExpectations() {
 
     return (
         <>
-            <div className="text-black p-3 rounded-lg w-full h-auto my-5 mx-auto border border-gray-33">
-                <InternshipTabs />
+
+            <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
+                <div>
+                    <InternshipTabs />
+                </div>
 
                 <form>
-                    {/* <div className="p-2 border border-gray-300 rounded-md ml-[21px] mr-[39px] flex flex-col gap-4 text-sm text-[#696F8C]"> */}
+
                     <TextEditor
                         value={expectations}
                         onChange={(text) => setExpectations(text)}
                     />
                     {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
-                    {/* </div> */}
+
 
                     <div className="p-5 mt-5">
                         <Button

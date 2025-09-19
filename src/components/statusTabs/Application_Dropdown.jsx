@@ -230,7 +230,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isMajorOpen && (
-            <div className='absolute bg-white border mt-2 w-[343px] rounded-md z-10 p-5 right-5'>
+            <div className='absolute bg-white border mt-3 w-[343px] rounded-md z-10 p-5 right-5'>
               <label>Major</label>
 
               <div className="relative flex items-center">

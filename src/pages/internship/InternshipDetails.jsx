@@ -30,7 +30,7 @@ export default function InternshipDetails() {
       startDate: null,
       endDate: null,
       status: "",
-      jobType: "",
+      jobType: "Remote",
     },
   });
 
@@ -64,15 +64,16 @@ export default function InternshipDetails() {
     { value: "Closed", label: "Closed" },
   ];
 
-  const inputClasses = "w-full h-[56px] px-4 border rounded-md bg-white text-[#6b7280] font-normal focus:outline-none focus:border-black "
+  const inputClasses = "w-full h-[56px] px-4 border rounded-md bg-white text-black placeholder:text-gray-400 font-normal focus:outline-none focus:border-black";
+
 
   return (
-    <div className="px-3 rounded-lg w-full h-auto py-6 my-5 mx-auto border border-gray-300">
+    <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
       <div>
         <InternshipTabs />
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className=" space-y-[30px]">
 
         <div className="flex w-full justify-start gap-5">
           <div className="flex flex-col w-[728px]">
@@ -95,6 +96,8 @@ export default function InternshipDetails() {
           </div>
 
           <div className="flex flex-col w-[362px]">
+
+
             <Controller
               name="location"
               control={control}
@@ -105,6 +108,7 @@ export default function InternshipDetails() {
                   options={locationOptions}
                   value={field.value}
                   onChange={field.onChange}
+                  withBorder={true}
                 />
               )}
             />
@@ -116,7 +120,7 @@ export default function InternshipDetails() {
           </div>
         </div>
 
-        <div className="flex w-full mt-[30px] gap-5 justify-between">
+        <div className="flex w-full  gap-5 justify-between">
           <div className="flex flex-col w-1/2">
             <label className="text-sm font-normal text-[#051B44] mb-2">
               Job Type
@@ -130,8 +134,8 @@ export default function InternshipDetails() {
                   <>
                     <div
                       className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "Remote"
-                          ? "bg-teal-300 text-white"
-                          : "bg-white"
+                        ? "bg-[rgb(152,176,175)] text-white"
+                        : "bg-white"
                         }`}
                       onClick={() => field.onChange("Remote")}
                     >
@@ -139,8 +143,8 @@ export default function InternshipDetails() {
                     </div>
                     <div
                       className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "On-Site"
-                          ? "bg-teal-300 text-white"
-                          : "bg-white"
+                        ? "bg-[rgb(146,175,173)] text-white"
+                        : "bg-white"
                         }`}
                       onClick={() => field.onChange("On-Site")}
                     >
@@ -159,6 +163,7 @@ export default function InternshipDetails() {
 
           <div className="w-1/2 flex gap-5">
             <div className="w-1/2 flex flex-col">
+
               <Controller
                 name="duration"
                 control={control}
@@ -169,16 +174,17 @@ export default function InternshipDetails() {
                     options={durationOptions}
                     value={field.value}
                     onChange={field.onChange}
+                    withBorder={true}
                   />
                 )}
               />
+
               {errors.duration && (
                 <p className="text-red-600 text-[12px] mt-1">
                   {errors.duration.message}
                 </p>
               )}
             </div>
-
 
             <div className="w-1/2 flex flex-col">
               <label className="text-sm font-normal text-[#051B44] mb-2">
@@ -201,8 +207,8 @@ export default function InternshipDetails() {
           </div>
         </div>
 
+        <div className="flex  gap-5">
 
-        <div className="grid grid-cols-5 gap-5 mt-[30px] p-4 rounded-md">
           <div className="flex flex-col">
             <Controller
               name="hours"
@@ -217,7 +223,8 @@ export default function InternshipDetails() {
               )}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-row">
+
             <Controller
               name="compensation"
               control={control}
@@ -228,6 +235,7 @@ export default function InternshipDetails() {
                   options={yesNoOptions}
                   value={field.value}
                   onChange={field.onChange}
+                  withBorder={true}
                 />
               )}
             />
@@ -256,7 +264,6 @@ export default function InternshipDetails() {
               </p>
             )}
           </div>
-
 
           <div className="relative flex flex-col">
             <label className="text-sm font-normal text-[#051B44] mb-2">
@@ -318,7 +325,7 @@ export default function InternshipDetails() {
             )}
           </div>
         </div>
-        <div className="flex w-full mt-[30px]">
+        <div className="flex w-full ">
           <div className="w-[300px] flex flex-col">
             <Controller
               name="status"
@@ -330,6 +337,7 @@ export default function InternshipDetails() {
                   options={statusOptions}
                   value={field.value}
                   onChange={field.onChange}
+                  withBorder={true}
                 />
               )}
             />

@@ -14,7 +14,7 @@ export default function InternshipTabs() {
   ];
 
   return (
-    <div className="flex  p-4 border-b border-[#D8DAE5] mb-5">
+    <div className="flex  border-b border-[#D8DAE5] mb-5">
       {tabs.map((tab, index) => {
         const Icon = tab.icon;
         return (

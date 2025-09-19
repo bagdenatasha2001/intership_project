@@ -19,6 +19,7 @@ export default function TextEditor({ value, onChange }) {
             config={config}
             tabIndex={1}
             onChange={newContent => onChange(newContent)}
+             className="rounded-lg border border-gray-300"
         />
     );
 }

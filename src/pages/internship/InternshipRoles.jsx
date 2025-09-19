@@ -22,9 +22,14 @@ export default function InternshipRoles() {
 
     return (
 
-        <div className="text-black p-3 rounded-lg w-full h-auto my-5 mx-auto border border-gray-33">
 
-            <InternshipTabs />
+
+        <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
+            <div>
+                <InternshipTabs />
+            </div>
+
+
 
             <form>
                 <TextEditor

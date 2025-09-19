@@ -105,7 +105,7 @@ export default function InterngitshipTable() {
                         </div>
                       </td>
 
-                      <td className="flex items-center py-5 gap-1">
+                      <td className="flex items-center  justify-center py-5 gap-1">
                         <button className="text-blue-500">
                           <img src={eye} alt="view" />
                         </button>
@@ -120,7 +120,8 @@ export default function InterngitshipTable() {
                   ))}
                 </tbody>
               </table>
-              <Pagination />
+              <div className="mt-6">  <Pagination /></div>
+
             </div>
           </div>
         </div>
