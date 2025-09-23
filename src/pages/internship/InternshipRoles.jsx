@@ -45,7 +45,7 @@ export default function InternshipRoles() {
                         title2="Next"
                         onClick1={() => navigate("/internship-table")}
                         onClick2={handleNext}
-                        bg2="bg-gray-300"
+                         bg2="bg-teal-800 text-white"
                         isSubmit={false}
                     />
 

@@ -36,7 +36,7 @@ export default function ApplicationTable() {
 
   return (
     <>
-      <div className=" rounded-lg w-full h-auto mt-5 mx-auto border border-gray-300">
+      <div className=" rounded-lg w-full h-auto mt-[19px] border border-gray-300 flex-wrap">
 
         <div className='flex px-6 py-5 gap-9 h-[67px]'>
           <div className="flex gap-2">
@@ -48,8 +48,8 @@ export default function ApplicationTable() {
         </div>
 
 
-        <div className='flex flex-col gap-3 h-auto md:flex-row flex-wrap items-center px-3 mb-4'>
-          <div className="relative flex items-center flex-wrap ">
+        <div className='flex flex-col gap-3 h-auto md:flex-row  mb-4 px-3 py-3 md:justify-between  '>
+          <div className="relative flex items-center flex-wrap" >
             <span className="absolute left-3 text-gray-400 ">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
@@ -60,11 +60,11 @@ export default function ApplicationTable() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name or email"
-              className="w-96 h-[50px] pl-10 pr-3 border rounded-md text-gray-600 focus:outline-gray-300"
+              className="  w-96 h-[50px] pl-10 pr-3 border rounded-md text-gray-600 focus:outline-gray-300  flex-wrap "
             />
           </div>
 
-          <div className='flex rounded-lg h-[50px] border border-gray-300 w-fit'>
+          <div className='flex rounded-lg  h-full max-h-[50px] border border-gray-300   '>
             <Application_Dropdown />
           </div>
         </div>

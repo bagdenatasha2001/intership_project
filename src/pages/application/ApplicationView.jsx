@@ -1,23 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HiArrowLongLeft } from "react-icons/hi2";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import DocumentCard from '../../components/form_fields/DocumentCard';
 
+import TextEditor from '../../components/form_fields/TextEditor';
+
 export default function ApplicationView() {
+
+    const [RejectModel, setRejectModel] = useState(false)
+
     return (
         <>
-            <div className='flex flex-col flex-wrap m-2 font-inter '>
+            <div className='flex flex-col flex-wrap m-2 font-inter  '>
 
-                <div className=' sm:flex   flex-col sm:mb-5 md:flex-row justify-between  h-auto min-h-[50px] mt-3 mb-5'>
 
-                    <div className='mb-3  sm:mb-3 flex  gap-2 items-center '>
+                <div className=' sm:flex   flex-col  md:flex-row justify-between   h-auto min-h-[50px] mb-5  '>
+
+                    <div className='  sm:mb-3 flex  gap-2 items-center justify-center my-4 '>
                         <span><HiArrowLongLeft /></span>
                         Applicant Management System/ View Applicants Details
                     </div>
 
-                    <div className='  flex gap-4 '>
-                        <button className='flex items-center gap-[10px] h-[50px] bg-red-100 py-[13px] px-5 rounded-lg text-red-400'>
+                    <div className='flex gap-4 '>
+                        <button onClick={() => setRejectModel(true)}
+                            className='flex items-center gap-[10px] h-[50px] bg-red-100 py-[13px] px-5 rounded-lg text-red-400 relative'>
                             <span><RxCross1 /></span>
                             Reject
                         </button>
@@ -26,10 +33,34 @@ export default function ApplicationView() {
                             Approved
                         </button>
                     </div>
+
                 </div>
 
 
-                <div className=' bg-gray-50  h-auto min-h-[152px] border border-gray-300 rounded-lg mb-[30px] p-5'>
+                {RejectModel && (
+                    <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[6%] rounded-lg border p-6' >
+                        <div>
+                            <div className='mb-2 text-[18px]'>Candidate Rejection</div>
+                            <div className='px-4 py-[10px] border border-gray-300 rounded text-[#696F8C] text-base '>We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again! </div>
+
+                            <div className="flex gap-3 mt-8">
+                                <button className="border rounded-md w-1/2 bg-white p-2 border-gray-300"
+                                    onClick={() => setRejectModel(false)}  > Cancel</button>
+
+                                <button className="bg-[#D92D20] text-white w-1/2 rounded-md border border-gray-300"
+                                    onClick={() => { }} >submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                )}
+
+
+
+
+
+                <div className=' bg-gray-50  h-auto min-h-[152px] border border-gray-300 rounded-lg p-5 mb-6'>
 
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Personal Information</div>
 
@@ -59,7 +90,7 @@ export default function ApplicationView() {
 
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  mb-[30px] p-5'>
+                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-6'>
 
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Education Information</div>
                     <div className='flex w-full '>
@@ -76,7 +107,7 @@ export default function ApplicationView() {
 
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg mb-[30px] p-5'>
+                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-6'>
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Internship Information</div>
 
                     <div className='flex justify-between'>
@@ -107,32 +138,91 @@ export default function ApplicationView() {
                     </div>
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[526px] border-l border-gray-300 rounded-lg mb-[30px] p-5'>
-                      <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >View All Documents</div>
-                      <div>
-                        <DocumentCard
-                         label="Pdf"
-                         title="National ID"
-                         subtitle="Passport, driving license"
-            
-                       
-                          />
-                      </div>
+                <div className=' bg-gray-50 h-auto min-h-[526px] border border-gray-300 rounded-lg mb-[30px] p-5 justify-between'>
+                    <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >View All Documents</div>
 
+                    <div className='my-6'>
+                        <div className='mb-4'>25 Jul 2025</div>
+
+                        <div className=' flex gap-4 '>
+                            <DocumentCard
+                                label="Pdf"
+                                title="National ID"
+                                subtitle="Passport, driving license"
+                                status="pending"
+
+                                className='border-l'
+                            />
+                            <DocumentCard
+                                label="Pdf"
+                                title="University Letter"
+                                subtitle="Acceptance letter"
+                                status="pending"
+                            />
+                        </div>
+                    </div>
+
+
+
+                    <div className=''>
+                        <div className='mb-4'>20 Jul 2025</div>
+
+                        <div className='flex   gap-4 '>
+                            <DocumentCard
+                                label="Pdf"
+                                title="National ID"
+                                subtitle="Passport, driving license"
+                                status="rejected"
+                            />
+                            <DocumentCard
+                                label="Pdf"
+                                title="University Letter"
+                                subtitle="Acceptance letter"
+                                status="rejected"
+                            />
+
+                            <DocumentCard
+                                label="Pdf"
+                                title="Transcript "
+                                subtitle="Your documents "
+                                status="success"
+                            />
+                            <DocumentCard
+                                label="Pdf"
+                                title="Other"
+                                subtitle="Your documents "
+                                status="success"
+                            />
+                        </div>
+                    </div>
                 </div>
 
 
+                <div className=' bg-gray-50 h-auto min-h-[248px] border border-gray-300 rounded-lg  p-5  mb-6'>
+                    <div className='mb-[26px]'>Company Documents</div>
 
+                    <div className=' flex  gap-4'>
+                        <DocumentCard
+                            label="Pdf"
+                            title="National ID"
+                            subtitle="Passport, driving license"
+                            showBorder={false}
+                        />
+                        <DocumentCard
+                            label="Pdf"
+                            title="University Letter"
+                            subtitle="Acceptance letter"
+                            showBorder={false}
+                        />
 
+                    </div>
+                </div>
 
+                <div className=' bg-gray-50 h-auto min-h-[251px]  border border-gray-300 rounded-lg  p-5  '>
+                    <div className='mb-[26px]'>Add Comments</div>
+                    <TextEditor />
 
-
-
-
-
-
-
-
+                </div>
 
             </div>
         </>

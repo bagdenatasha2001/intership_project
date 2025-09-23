@@ -133,8 +133,8 @@ export default function InternshipDetails() {
                 render={({ field }) => (
                   <>
                     <div
-                      className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "Remote"
-                        ? "bg-[rgb(152,176,175)] text-white"
+                      className={`flex items-center justify-center w-1/2 h-[56px] border border-gray-300 rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "Remote"
+                        ? "bg-[rgb(197,231,229)]  text-white"
                         : "bg-white"
                         }`}
                       onClick={() => field.onChange("Remote")}
@@ -142,8 +142,8 @@ export default function InternshipDetails() {
                       Remote
                     </div>
                     <div
-                      className={`flex items-center justify-center w-1/2 h-[56px] border rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "On-Site"
-                        ? "bg-[rgb(146,175,173)] text-white"
+                      className={`flex items-center justify-center w-1/2 h-[56px] border border-gray-300  rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "On-Site"
+                        ? "bg-[rgb(197,231,229)]  text-white "
                         : "bg-white"
                         }`}
                       onClick={() => field.onChange("On-Site")}
@@ -354,7 +354,7 @@ export default function InternshipDetails() {
             title1="Cancel"
             title2="Next"
             onClick1={() => navigate("/internship-table")}
-            bg2="bg-gray-300"
+            bg2="bg-teal-800 text-white"
             isSubmit={true}
           />
         </div>

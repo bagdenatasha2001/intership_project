@@ -16,7 +16,7 @@ export default function PrivateLayout() {
     } else if (location.pathname.startsWith('/application')) {
         pageTitle = 'Applications Management';
     } else {
-        pageTitle = 'Page';
+        pageTitle = 'Applications Management';
     }
 
     return (
