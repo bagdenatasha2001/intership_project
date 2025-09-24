@@ -180,21 +180,21 @@ export default function Application_Dropdown() {
 
   return (
     <>
-      <div className='flex  rounded-lg items-center '>
+      <div className='flex  rounded-lg text-[13px] '>
 
         {/* select */}
 
         <div className='relative font-Inter' ref={statusDropdownRef}>
           <button
             onClick={() => setIsopen(!isOpen)}
-            className='flex items-center border  whitespace-nowrap px-4 py-3 gap-2  bg-gray-100 rounded-l-lg'
+            className='flex items-center   whitespace-nowrap px-4 py-[14px] gap-2 border  bg-gray-100 rounded-l-xl'
           >
             <span>Select : {selectedOption}</span>
             {isOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
           </button>
 
           {isOpen && (
-            <div className='absolute flex flex-col border border-gray-300 p-2 right-4 mt-3 w-[204px] rounded-lg z-10 bg-white'>
+            <div className='absolute flex flex-col border border-gray-300 p-2 right-2 mt-2 w-[204px] rounded-lg z-10 bg-white'>
               {StatusOptions.map((statusOption, index) => (
                 <div
                   key={index}
@@ -216,14 +216,14 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={majorDropdownRef}>
           <button
             onClick={() => setIsMajorOpen(!isMajorOpen)}
-            className='flex justify-between items-center border  px-4 py-3 gap-2 '
+            className='flex justify-between items-center border px-3 py-[14px] gap-2 '
           >
             Major
             {isMajorOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
           </button>
 
           {isMajorOpen && (
-            <div className='absolute bg-white border mt-3 w-[343px] rounded-md z-10 p-5 right-5'>
+            <div className='absolute bg-white border mt-2 w-[343px] rounded-md z-10 p-5 right-2'>
               <label>Major</label>
 
               <div className="relative flex items-center">
@@ -299,14 +299,14 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={universityDropdownRef}>
           <button
             onClick={() => setIsuniversityOpen(!isUniversityOpen)}
-            className='flex justify-between items-center border  px-4 py-3 gap-2  '
+            className='flex justify-between items-center border  px-4 py-[14px] gap-2  '
           >
             University
             {isUniversityOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
           </button>
 
           {isUniversityOpen && (
-            <div className='absolute bg-white border mt-3 w-[443px]  rounded-md z-10 p-5 right-5'>
+            <div className='absolute bg-white  mt-2 w-[443px]  border rounded-md z-10 p-5 right-2'>
               <label>University</label>
 
               <div className="relative flex items-center">
@@ -390,14 +390,14 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={locationDropdownRef}>
           <button
             onClick={() => setIslocationOpen(!isLocationOpen)}
-            className='flex justify-between items-center border  px-4 py-3 gap-2 '
+            className='flex justify-between items-center border  px-4 py-[14px] gap-2 '
           >
             Location
             {isLocationOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
           </button>
 
           {isLocationOpen && (
-            <div className='absolute bg-white border mt-3 w-[443px]   rounded-md z-10 p-5 right-5'>
+            <div className='absolute bg-white mt-2 w-[443px] border  rounded-md z-10 p-5 right-2'>
               <label>Location</label>
 
               <div className="relative flex items-center">
@@ -479,14 +479,14 @@ export default function Application_Dropdown() {
         <div className='w-fit relative font-Inter' ref={gpaDropdownRef}>
           <button
             onClick={() => setIsgpaOpen(!isGpaOpen)}
-            className='flex justify-between items-center border  px-3 py-3 gap-2 rounded-l-lg'
+            className='flex justify-between items-center border   px-3 py-[14px] gap-2 rounded-r-xl'
           >
             GPA
             {isGpaOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
           </button>
 
           {isGpaOpen && (
-            <div className='absolute bg-white border mt-3 w-[328px]   rounded-md z-10 p-5 right-5'>
+            <div className='absolute bg-white border mt-2 w-[328px]   rounded-md z-10 p-5 right-2'>
               <label>GPA</label>
 
               {/* <div className="relative flex items-center">

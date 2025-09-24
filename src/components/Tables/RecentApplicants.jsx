@@ -22,7 +22,7 @@ export default function RecentApplicants() {
   ];
 
   return (
-    <div className="bg-white p-3 shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
+    <div className="bg-white p-3 shadow w-full h-full flex flex-col rounded-2xl border border-gray-33 mt-2">
       <div className="flex justify-between items-center mb-4 px-3">
         <div className="flex gap-2">
           <h2 className="text-md font-semibold">Recent Applicants</h2>

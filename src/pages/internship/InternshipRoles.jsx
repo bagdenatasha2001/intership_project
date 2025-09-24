@@ -24,12 +24,10 @@ export default function InternshipRoles() {
 
 
 
-        <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
+        <div className="px-5 py-4 rounded-lg w-full h-auto   my-3 mx-auto border shadow-md border-gray-300 ">
             <div>
                 <InternshipTabs />
             </div>
-
-
 
             <form>
                 <TextEditor
@@ -45,7 +43,7 @@ export default function InternshipRoles() {
                         title2="Next"
                         onClick1={() => navigate("/internship-table")}
                         onClick2={handleNext}
-                         bg2="bg-teal-800 text-white"
+                        bg2="bg-teal-800 text-white"
                         isSubmit={false}
                     />
 

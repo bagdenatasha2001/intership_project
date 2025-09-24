@@ -31,11 +31,11 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
 
   return (
     <>
-      <div className="flex justify-between rounded-xl shadow-sm bg-[#F8F7F7] overflow-hidden w-[268px] h-auto min-h-[70px] mb-4">
+      <div className="flex justify-between rounded-xl shadow-sm bg-[#F8F7F7] overflow-hidden w-[230px] h-auto min-h-[70px] mb-4">
 
     
         <div  onClick={handleLabelClick}
-          className="bg-[#006666] text-white font-medium rounded-l-xl w-[60px] text-center py-6 cursor-pointer">
+          className="bg-[#006666] text-white font-medium rounded-l-xl  flex text-center  w-auto max-w-[60px]  h-[70px]  cursor-pointer py-5 px-3 ">
           {label}
 
           
@@ -47,14 +47,14 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
           />
         </div>
 
-        <div className="flex flex-col justify-center p-2 ">
-          <h3 className="font-semibold text-gray-900">{title}</h3>
-          <p className="text-sm text-gray-500">{subtitle}</p>
+        <div className="flex flex-col  justify-center pl-2">
+          <h3 className="font-semibold text-gray-900 ">{title}</h3>
+          <p className=" text-gray-500 text-[14px]">{subtitle}</p>
         </div>
 
-        {showBorder && <div className="w-[2px] h-full bg-gray-300"></div>}
+        {showBorder && <div className="w-[2px] h-full bg-gray-300 "></div>}
 
-        <div className="flex flex-col justify-center items-center gap-2 p-1">
+        <div className="flex flex-col justify-center  gap-2">
           <div className="p-1">
             {icon1} {icon2}
           </div>

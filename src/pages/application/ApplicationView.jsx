@@ -12,14 +12,14 @@ export default function ApplicationView() {
 
     return (
         <>
-            <div className='flex flex-col flex-wrap m-2 font-inter  '>
+            <div className='flex flex-col flex-wrap  font-inter my-3 mx-2 '>
 
 
-                <div className=' sm:flex   flex-col  md:flex-row justify-between   h-auto min-h-[50px] mb-5  '>
+                <div className=' sm:flex  flex-col  md:flex-row justify-between  h-auto min-h-[50px] mb-5'>
 
-                    <div className='  sm:mb-3 flex  gap-2 items-center justify-center my-4 '>
+                    <div className='  sm:mb-3 flex  gap-2 items-center  my-3 '>
                         <span><HiArrowLongLeft /></span>
-                        Applicant Management System/ View Applicants Details
+                        Applicant Management System / View Applicants Details
                     </div>
 
                     <div className='flex gap-4 '>
@@ -38,7 +38,7 @@ export default function ApplicationView() {
 
 
                 {RejectModel && (
-                    <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[6%] rounded-lg border p-6' >
+                    <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[6%] rounded-lg border p-6 font-inter' >
                         <div>
                             <div className='mb-2 text-[18px]'>Candidate Rejection</div>
                             <div className='px-4 py-[10px] border border-gray-300 rounded text-[#696F8C] text-base '>We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again! </div>
@@ -144,7 +144,7 @@ export default function ApplicationView() {
                     <div className='my-6'>
                         <div className='mb-4'>25 Jul 2025</div>
 
-                        <div className=' flex gap-4 '>
+                        <div className=' flex gap-4  flex-wrap'>
                             <DocumentCard
                                 label="Pdf"
                                 title="National ID"
@@ -204,13 +204,13 @@ export default function ApplicationView() {
                     <div className=' flex  gap-4'>
                         <DocumentCard
                             label="Pdf"
-                            title="National ID"
-                            subtitle="Passport, driving license"
+                            title="Document 1 "
+                            subtitle="Acceptance letter"
                             showBorder={false}
                         />
                         <DocumentCard
                             label="Pdf"
-                            title="University Letter"
+                            title="Document 2"
                             subtitle="Acceptance letter"
                             showBorder={false}
                         />

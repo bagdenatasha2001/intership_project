@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Application_Dropdown from '../../components/statusTabs/Application_Dropdown';
 import Pagination from '../../components/statusTabs/Pagination';
-
 import { FiEye } from "react-icons/fi";
 import img1 from '../../assets/images/appli_1.jpg';
 import img2 from '../../assets/images/appli_2.jpg';
@@ -15,7 +14,6 @@ import img7 from '../../assets/images/appli_7.jpg';
 export default function ApplicationTable() {
 
   const navigate = useNavigate();
-
   const [search, setSearch] = useState("");
 
   const internships = [
@@ -36,21 +34,23 @@ export default function ApplicationTable() {
 
   return (
     <>
-      <div className=" rounded-lg w-full h-auto mt-[19px] border border-gray-300 flex-wrap">
+      <div className="rounded-lg w-full h-auto my-3  border shadow-md border-gray-300 flex-wrap">
 
-        <div className='flex px-6 py-5 gap-9 h-[67px]'>
-          <div className="flex gap-2">
+        <div className='flex px-6 py-4 gap-9 '>
+          <div className="flex gap-2 justify-center items-center">
             <h2 className="text-md font-semibold">Applications</h2>
-            <span className="bg-gray-100 text-[#006666] text-[14px] font-normal px-2 py-1 rounded-full">
+            <span className="bg-gray-100 text-[#006666] text-[12px] px-2 font-normal py-1 rounded-full h-6">
               1000+ Applicants
             </span>
           </div>
         </div>
 
 
-        <div className='flex flex-col gap-3 h-auto md:flex-row  mb-4 px-3 py-3 md:justify-between  '>
-          <div className="relative flex items-center flex-wrap" >
-            <span className="absolute left-3 text-gray-400 ">
+        <div className="flex flex-col md:flex-row md:justify-between gap-9 h-auto  px-3 py-2 relative ">
+
+
+          <div className="relative flex items-center w-full md:w-1/4">
+            <span className="absolute left-3 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
@@ -60,44 +60,43 @@ export default function ApplicationTable() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name or email"
-              className="  w-96 h-[50px] pl-10 pr-3 border rounded-md text-gray-600 focus:outline-gray-300  flex-wrap "
+              className="h-[50px] w-full pl-10 pr-3 border text-[14px] rounded-xl text-gray-500 focus:outline-gray-300"
             />
           </div>
 
-          <div className='flex rounded-lg  h-full max-h-[50px] border border-gray-300   '>
+          <div className="flex rounded-xl h-[50px] w-full md:w-3/4 relative">
             <Application_Dropdown />
           </div>
         </div>
 
-
-        <div className="overflow-x-auto mb-0">
-          <table className="min-w-[900px] table-auto text-[12px] text-left w-full border-collapse ">
+        <div className="overflow-x-auto ">
+          <table className="min-w-[900px] table-auto text-[12px] text-left w-full border-collapse">
             <thead>
-              <tr className="text-gray-400 border-b whitespace-nowrap text-[14px] bg-gray-50">
-                <th className="py-3 px-3">Name of Applicants</th>
-                <th className="py-3 px-3">Application ID</th>
-                <th className="py-3 px-3">Major</th>
-                <th className="py-3 px-3">Internship</th>
-                <th className="py-3 px-3">Email address</th>
-                <th className="py-3 px-3">Applied Date</th>
-                <th className="py-3 px-3">Action</th>
+              <tr className="text-gray-600 border-b whitespace-nowrap text-[12px]  bg-gray-50">
+                <th className="py-5 px-4">Name of Applicants</th>
+                <th className="py-5 px-4">Application ID</th>
+                <th className="py-5 px-4">Major</th>
+                <th className="py-5 px-4">Internship</th>
+                <th className="py-5 px-4">Email address</th>
+                <th className="py-5 px-">Applied Date</th>
+                <th className="py-5 px-4">Action</th>
               </tr>
             </thead>
             <tbody>
               {filteredInternships.map((item, index) => (
                 <tr key={index} className="border-b border-gray-200 whitespace-nowrap">
-                  <td className="py-4 flex items-center px-2 gap-3 text-[14px]">
+                  <td className="py-4 flex items-center px-1 gap-2 text-[12px]">
                     <img src={item.img} alt={item.name} className="h-[40px] w-[40px] rounded-full" />
-                    <p className="font-normal ">{item.name}</p>
+                    <p className="font-normal">{item.name}</p>
                   </td>
-                  <td className="py-4 px-6 text-[14px]">{item.ApplicationID}</td>
-                  <td className="py-4 px-6 text-[14px]">{item.Major}</td>
-                  <td className="py-4 px-6 text-[14px]">{item.Internship}</td>
-                  <td className="py-4 px-6 text-[14px]">{item.EmailAddress}</td>
-                  <td className="py-4 px-6">
-                    <span className="whitespace-nowrap px-3 py-1 rounded-full text-[#006666] text-[12px] bg-gray-100">{item.AppliedDate}</span>
+                  <td className="py-4 px-6 text-[12px]">{item.ApplicationID}</td>
+                  <td className="py-4 px-3 text-[12px]">{item.Major}</td>
+                  <td className="py-4 px-4 text-[12px]">{item.Internship}</td>
+                  <td className="py-4 px-4 text-[12px]">{item.EmailAddress}</td>
+                  <td className="py-4 px-4">
+                    <span className="whitespace-nowrap px-2 py-1 rounded-full text-[#006666] text-[11px] bg-gray-100">{item.AppliedDate}</span>
                   </td>
-                  <td className="py-4 px-6 font-bold"
+                  <td className="py-4 px-4 font-bold cursor-pointer"
                     onClick={() => navigate("/Application-view")}
                   >
                     {item.Action}
@@ -107,6 +106,7 @@ export default function ApplicationTable() {
             </tbody>
           </table>
         </div>
+
 
         <div className='p-3'>
           <Pagination />

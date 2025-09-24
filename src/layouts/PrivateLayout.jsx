@@ -38,7 +38,7 @@ export default function PrivateLayout() {
                         pageTitle={pageTitle}
                     />
                 </div>
-                <div className="flex-1 overflow-y-auto md:p-2 space-y-4"
+                <div className="flex-1 overflow-y-auto md:p-2 "
                     style={{ scrollbarWidth: "thin", scrollbarColor: "#006666 transparent" }}>
                     <Outlet />
                 </div>

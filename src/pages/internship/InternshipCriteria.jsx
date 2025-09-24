@@ -65,7 +65,8 @@ export default function InternshipCriteria() {
   return (
     <>
 
-      <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
+      <div className="px-5 py-4 rounded-lg w-full h-auto  shadow-md my-3 mx-auto border border-gray-300 ">
+
         <div>
           <InternshipTabs />
         </div>
@@ -197,7 +198,7 @@ export default function InternshipCriteria() {
               title1="Back"
               title2="Next"
               onClick1={() => navigate("/internship-table")}
-                bg2="bg-teal-800 text-white"
+              bg2="bg-teal-800 text-white"
               isSubmit={true}
             />
           </div>

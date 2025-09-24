@@ -41,9 +41,9 @@ export default function InterngitshipTable() {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
 
-      <div className="h-auto my-5 w-full rounded-xl border border-gray-33">
+      <div className="rounded-lg w-full h-auto my-3  border shadow-md border-gray-300">
 
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20 ">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-xl font-bold text-black py-1">Internship</h2>
             <StatusTabs />
@@ -61,7 +61,7 @@ export default function InterngitshipTable() {
             <div className="overflow-y-auto min-h-0">
               <table className="min-w-[800px] text-base text-left w-full">
                 <thead>
-                  <tr className="text-gray-400 border-b text-[14px]   bg-gray-50">
+                  <tr className="text-gray-600 border-b text-[12px]   bg-gray-50">
                     <th className="py-2 px-2">Internship</th>
                     <th className="py-2 px-2">Internship ID</th>
                     <th className="py-2 px-2">Duration</th>
@@ -75,45 +75,45 @@ export default function InterngitshipTable() {
 
                 <tbody>
                   {internships.map((item, index) => (
-                    <tr key={index} className="border-b border-gray-200 gap-3">
-                      <td className="whitespace-nowrap py-5 text-[14px] font-normal">{item.title}</td>
+                    <tr key={index} className="border-b border-gray-200 gap-2">
+                      <td className="whitespace-nowrap  text-[12px] font-normal">{item.title}</td>
                       <td className="whitespace-nowrap text-[12px] text-gray-400">{item.InternshipID}</td>
                       <td className="whitespace-nowrap text-[12px] text-gray-400">{item.Duration}</td>
                       <td>
-                        <span className="whitespace-nowrap px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.StartDate}</span>
+                        <span className="whitespace-nowrap px-2 py-1 rounded-full text-[11px] bg-gray-100">{item.StartDate}</span>
                       </td>
                       <td>
-                        <span className="whitespace-nowrap px-3 py-1 rounded-full text-[12px] bg-gray-100">{item.EndDate}</span>
+                        <span className="whitespace-nowrap px-2 py-1 rounded-full text-[11px] bg-gray-100">{item.EndDate}</span>
                       </td>
                       <td>
-                        <span className={`whitespace-nowrap px-3 py-1 rounded-full text-[12px] ${item.JobType === "Remote" ? "bg-blue-100 text-blue-600" : "bg-orange-100 text-orange-600"}`}>
+                        <span className={`whitespace-nowrap px-2 py-1 rounded-full text-[12px] ${item.JobType === "Remote" ? "bg-blue-100 text-blue-600" : "bg-orange-100 text-orange-600"}`}>
                           {item.JobType}
                         </span>
                       </td>
                       <td>
                         <div className="relative inline-block group">
-                          <span className={`gap-2 px-3 rounded-full text-[12px] inline-flex items-center ${item.Status === "Open" ? "text-green-600 bg-green-100" : item.Status === "On Hold" ? "text-yellow-600 bg-yellow-100" : item.Status === "Closed" ? "text-red-600 bg-red-100" : "text-gray-600 bg-gray-100"}`}>
+                          <span className={`gap-2 px-2 rounded-full text-[11px] inline-flex items-center ${item.Status === "Open" ? "text-green-600 bg-green-100" : item.Status === "On Hold" ? "text-yellow-600 bg-yellow-100" : item.Status === "Closed" ? "text-red-600 bg-red-100" : "text-gray-600 bg-gray-100"}`}>
                             <span className={`w-2 h-2 rounded-full ${item.Status === "Open" ? "bg-green-500" : item.Status === "On Hold" ? "bg-yellow-500" : item.Status === "Closed" ? "bg-red-500" : "bg-gray-500"}`}></span>
                             {item.Status}
                             {item.Status === "Closed" && <img src={Danger} className="ml-1 cursor-pointer size-[10px]" alt="danger" />}
                           </span>
                           {item.Status === "Closed" && (
-                            <div className="absolute mt-1 bg-[#EFEFEF] text-black text-sm px-1 py-1 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute mt-1 bg-[#EFEFEF] text-black text-[11px] px-1 py-1 rounded-md shadow z-10 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                               This vacancy has been closed by <br />the admin.
                             </div>
                           )}
                         </div>
                       </td>
 
-                      <td className="flex items-center  justify-center py-5 gap-1">
+                      <td className="flex items-center  py-4 gap-1">
                         <button className="text-blue-500">
-                          <img src={eye} alt="view" />
+                          <img src={eye} alt="view" className=" w-8 h-8" />
                         </button>
                         <button className="text-green-500">
-                          <img src={pencil} alt="edit" />
+                          <img src={pencil} alt="edit" className=" w-8 h-8" />
                         </button>
                         <button className="text-red-500" onClick={() => setShowPopup(true)}>
-                          <img src={trash} alt="delete" />
+                          <img src={trash} alt="delete" className=" w-8 h-8" />
                         </button>
                       </td>
                     </tr>

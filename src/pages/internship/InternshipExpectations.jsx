@@ -31,7 +31,7 @@ export default function InternshipExpectations() {
     return (
         <>
 
-            <div className="px-5 py-4 rounded-lg w-full h-auto  my-5 mx-auto border border-gray-300 ">
+            <div className="px-5 py-4 rounded-lg w-full h-auto  my-3 mx-auto border shadow-md border-gray-300 ">
                 <div>
                     <InternshipTabs />
                 </div>
