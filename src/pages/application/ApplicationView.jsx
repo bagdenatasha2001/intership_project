@@ -3,21 +3,40 @@ import { HiArrowLongLeft } from "react-icons/hi2";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import DocumentCard from '../../components/form_fields/DocumentCard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import TextEditor from '../../components/form_fields/TextEditor';
+
 
 export default function ApplicationView() {
 
+
     const [RejectModel, setRejectModel] = useState(false)
+
+
+    const Rejectiondone = () => {
+        setRejectModel(false);
+        toast.error("Rejection email has been sent successfully!");
+
+    }
+
+    function handleApprove() {
+
+        toast.success("Document Approved Successfully!");
+    }
+
+
+
 
     return (
         <>
+            <ToastContainer position="top-right" autoClose={3000} />
             <div className='flex flex-col flex-wrap  font-inter my-3 mx-2 '>
 
 
-                <div className=' sm:flex  flex-col  md:flex-row justify-between  h-auto min-h-[50px] mb-5'>
+                <div className=' sm:flex  flex-col  md:flex-row justify-between items-center  h-auto  mb-5'>
 
-                    <div className='  sm:mb-3 flex  gap-2 items-center  my-3 '>
+                    <div className='sm:mb-3 flex  gap-2 items-center py-[13px] '>
                         <span><HiArrowLongLeft /></span>
                         Applicant Management System / View Applicants Details
                     </div>
@@ -28,7 +47,9 @@ export default function ApplicationView() {
                             <span><RxCross1 /></span>
                             Reject
                         </button>
-                        <button className='flex items-center gap-[10px] h-[50px] bg-[#E5F3EB] py-[13px] px-5 rounded-lg text-teal-700'>
+                        <button
+                            onClick={handleApprove}
+                            className='flex items-center gap-[10px] h-[50px] bg-[#E5F3EB] py-[13px] px-5 rounded-lg text-teal-700'>
                             <span><FaCheck /></span>
                             Approved
                         </button>
@@ -38,7 +59,7 @@ export default function ApplicationView() {
 
 
                 {RejectModel && (
-                    <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[6%] rounded-lg border p-6 font-inter' >
+                    <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[75px] rounded-lg border p-6 font-inter' >
                         <div>
                             <div className='mb-2 text-[18px]'>Candidate Rejection</div>
                             <div className='px-4 py-[10px] border border-gray-300 rounded text-[#696F8C] text-base '>We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again! </div>
@@ -48,7 +69,7 @@ export default function ApplicationView() {
                                     onClick={() => setRejectModel(false)}  > Cancel</button>
 
                                 <button className="bg-[#D92D20] text-white w-1/2 rounded-md border border-gray-300"
-                                    onClick={() => { }} >submit</button>
+                                    onClick={Rejectiondone} >submit</button>
                             </div>
 
                         </div>
@@ -60,7 +81,10 @@ export default function ApplicationView() {
 
 
 
-                <div className=' bg-gray-50  h-auto min-h-[152px] border border-gray-300 rounded-lg p-5 mb-6'>
+
+
+
+                <div className=' bg-gray-50  h-auto  border border-gray-300 rounded-lg p-5 mb-[30px] '>
 
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Personal Information</div>
 
@@ -90,7 +114,7 @@ export default function ApplicationView() {
 
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-6'>
+                <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg  p-5 mb-[30px]'>
 
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Education Information</div>
                     <div className='flex w-full '>
@@ -107,7 +131,7 @@ export default function ApplicationView() {
 
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-6'>
+                <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-[30px]'>
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Internship Information</div>
 
                     <div className='flex justify-between'>
@@ -138,20 +162,22 @@ export default function ApplicationView() {
                     </div>
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[526px] border border-gray-300 rounded-lg mb-[30px] p-5 justify-between'>
+
+
+                <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg mb-[30px] p-5 justify-between'>
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >View All Documents</div>
 
-                    <div className='my-6'>
-                        <div className='mb-4'>25 Jul 2025</div>
 
-                        <div className=' flex gap-4  flex-wrap'>
+
+                    <div className=' bg-gray-50 h-auto  rounded-lg   mb-[26px]'>
+                        <div className='mb-[26px]'>25 Jul 2025</div>
+                        <div className=' flex  gap-4'>
                             <DocumentCard
                                 label="Pdf"
                                 title="National ID"
                                 subtitle="Passport, driving license"
                                 status="pending"
 
-                                className='border-l'
                             />
                             <DocumentCard
                                 label="Pdf"
@@ -159,21 +185,23 @@ export default function ApplicationView() {
                                 subtitle="Acceptance letter"
                                 status="pending"
                             />
+
                         </div>
                     </div>
-
 
 
                     <div className=''>
                         <div className='mb-4'>20 Jul 2025</div>
 
-                        <div className='flex   gap-4 '>
+                        <div className='flex flex-wrap gap-3 '>
+
                             <DocumentCard
                                 label="Pdf"
                                 title="National ID"
                                 subtitle="Passport, driving license"
                                 status="rejected"
                             />
+
                             <DocumentCard
                                 label="Pdf"
                                 title="University Letter"
@@ -183,22 +211,24 @@ export default function ApplicationView() {
 
                             <DocumentCard
                                 label="Pdf"
-                                title="Transcript "
-                                subtitle="Your documents "
+                                title="Transcript"
+                                subtitle="Your documents"
                                 status="success"
                             />
+
                             <DocumentCard
                                 label="Pdf"
                                 title="Other"
-                                subtitle="Your documents "
+                                subtitle="Your documents"
                                 status="success"
                             />
+
                         </div>
                     </div>
                 </div>
 
 
-                <div className=' bg-gray-50 h-auto min-h-[248px] border border-gray-300 rounded-lg  p-5  mb-6'>
+                <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg  p-5  mb-[30px]'>
                     <div className='mb-[26px]'>Company Documents</div>
 
                     <div className=' flex  gap-4'>
@@ -218,9 +248,10 @@ export default function ApplicationView() {
                     </div>
                 </div>
 
-                <div className=' bg-gray-50 h-auto min-h-[251px]  border border-gray-300 rounded-lg  p-5  '>
+                <div className=' bg-gray-50 h-auto   border border-gray-300 rounded-lg  p-5  '>
                     <div className='mb-[26px]'>Add Comments</div>
-                    <TextEditor />
+                    <textarea className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#006666] resize-none" rows={4}
+                        placeholder="Add comments" />
 
                 </div>
 
