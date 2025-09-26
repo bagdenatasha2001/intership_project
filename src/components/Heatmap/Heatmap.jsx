@@ -135,7 +135,7 @@ export default function Heatmap() {
 
   return (
     <div className='h-[500px] p-2 mb-4 w-full shadow rounded-2xl mt-4 border border-gray-33'>
-      <div className='flex justify-between items-center mb-3'>
+      <div className='flex justify-between items-center mb-3 px-2'>
         <h3 className='font-bold text-lg'>Applicants Footprints By Location</h3>
         <div className='w-[300px] '>
           <MultiSelectDropdown

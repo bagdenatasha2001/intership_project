@@ -12,22 +12,23 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
   const [acceptComment, setAcceptComment] = useState("");
   const [rejectComment, setRejectComment] = useState("");
 
-
   const handleAccept = () => {
     setAcceptModal(false);
-    toast.success("Document has been accepted successfully!");
+    setTimeout(() => {
+      toast.success("Document has been accepted successfully!");
+    }, 100);
     setAcceptComment("");
   };
 
-
   const handleReject = () => {
     if (!rejectComment.trim()) {
-      setRejectModal(false)
-      toast.error("Document is required.");
+      toast.error("Comment is required for rejection.");
       return;
     }
     setRejectModal(false);
-    toast.error("Document has been rejected!");
+    setTimeout(() => {
+      toast.error("Document has been rejected!");
+    }, 100);
     setRejectComment("");
   };
 
@@ -57,7 +58,13 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
 
   return (
     <>
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        newestOnTop={true}
+        closeOnClick
+        pauseOnHover
+      />
 
       <div className="flex justify-between rounded-xl shadow-sm bg-[#F8F7F7] overflow-hidden w-[230px] min-h-[70px] mb-4">
         <div className="bg-[#006666] text-white font-medium flex items-center justify-center rounded-l-xl w-[60px] cursor-pointer">
@@ -146,5 +153,4 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
     </>
   );
 }
-
 

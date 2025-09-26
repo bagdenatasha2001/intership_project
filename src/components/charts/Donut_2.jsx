@@ -2,6 +2,7 @@ import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 export default function Donut_2() {
@@ -14,8 +15,10 @@ export default function Donut_2() {
       borderColor: 'transparent'
     }]
   }
+
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     cutout: '67%',
     plugins: {
       legend: {
@@ -41,13 +44,11 @@ export default function Donut_2() {
       }
     }
   };
+
   return (
-    <>
-      <div className='h-100 ml-15 '>
-        <Doughnut data={data}
-          options={options} />
-      </div>
-    </>
+    <div className='w-full h-full'>
+      <Doughnut data={data} options={options} />
+    </div>
   )
 }
 

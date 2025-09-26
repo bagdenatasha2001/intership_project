@@ -6,36 +6,32 @@ import DocumentCard from '../../components/form_fields/DocumentCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 export default function ApplicationView() {
-
-
     const [RejectModel, setRejectModel] = useState(false)
 
-
-    const Rejectiondone = () => {
-        setRejectModel(false);
-        toast.error("Rejection email has been sent successfully!");
-
-    }
-
     function handleApprove() {
-
         toast.success("Document Approved Successfully!");
     }
 
-
-
+    function handleReject() {
+        setRejectModel(false);
+        setTimeout(() => {
+            toast.success("Rejection email has been sent successfully!");
+        }, 100);
+    }
 
     return (
         <>
-            <ToastContainer position="top-right" autoClose={3000} />
+            <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                newestOnTop={true}
+                closeOnClick
+                pauseOnHover
+            />
             <div className='flex flex-col flex-wrap  font-inter my-3 mx-2 '>
 
-
                 <div className=' sm:flex  flex-col  md:flex-row justify-between items-center  h-auto  mb-5'>
-
                     <div className='sm:mb-3 flex  gap-2 items-center py-[13px] '>
                         <span><HiArrowLongLeft /></span>
                         Applicant Management System / View Applicants Details
@@ -54,46 +50,36 @@ export default function ApplicationView() {
                             Approved
                         </button>
                     </div>
-
                 </div>
-
 
                 {RejectModel && (
                     <div className='bg-white flex flex-col w-[400px]   right-44 absolute mt-[75px] rounded-lg border p-6 font-inter' >
                         <div>
                             <div className='mb-2 text-[18px]'>Candidate Rejection</div>
-                            <div className='px-4 py-[10px] border border-gray-300 rounded text-[#696F8C] text-base '>We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again! </div>
+                            <div className='px-4 py-[10px] border border-gray-300 rounded text-[#696F8C] text-base '>
+                                We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again!
+                            </div>
 
                             <div className="flex gap-3 mt-8">
                                 <button className="border rounded-md w-1/2 bg-white p-2 border-gray-300"
-                                    onClick={() => setRejectModel(false)}  > Cancel</button>
+                                    onClick={() => setRejectModel(false)}> Cancel</button>
 
                                 <button className="bg-[#D92D20] text-white w-1/2 rounded-md border border-gray-300"
-                                    onClick={Rejectiondone} >submit</button>
+                                    onClick={handleReject}>submit</button>
                             </div>
-
                         </div>
                     </div>
-
                 )}
 
 
-
-
-
-
-
-
                 <div className=' bg-gray-50  h-auto  border border-gray-300 rounded-lg p-5 mb-[30px] '>
-
                     <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Personal Information</div>
-
                     <div className='flex justify-between'>
                         <div className='flex flex-col gap-4 flex-wrap'>
                             <span className='text-[12px] font-normal text-[#051B44]'>First Name</span>
                             <span className='text-[14px] font-medium text-[#696F8C]'>Alya</span>
                         </div>
-                        <div className='flex flex-col gap-4'>
+                        <div className='flex flex-col gap-4 '>
                             <span className='text-[12px] font-normal text-[#051B44]'>Last Name</span>
                             <span className='text-[14px] font-medium text-[#696F8C]'>Shaikh</span>
                         </div>
@@ -109,10 +95,12 @@ export default function ApplicationView() {
                             <span className='text-[12px] font-normal text-[#051B44]'>Email Address</span>
                             <span className='text-[14px] font-medium text-[#696F8C]'>alyashaikhl@gmail.com</span>
                         </div>
-
                     </div>
-
                 </div>
+
+
+
+
 
                 <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg  p-5 mb-[30px]'>
 
@@ -127,7 +115,6 @@ export default function ApplicationView() {
                             <div className='text-[14px] font-medium text-[#696F8C]'>80 - 89% <span>4.0</span> </div>
                         </div>
                     </div>
-
 
                 </div>
 
@@ -161,7 +148,6 @@ export default function ApplicationView() {
                         </div>
                     </div>
                 </div>
-
 
 
                 <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg mb-[30px] p-5 justify-between'>
@@ -259,4 +245,3 @@ export default function ApplicationView() {
         </>
     )
 }
-

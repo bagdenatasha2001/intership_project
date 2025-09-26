@@ -16,8 +16,10 @@ export default function DonutChart() {
       borderColor: 'transparent'
     }]
   }
+
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     cutout: '67%',
     plugins: {
       legend: {
@@ -36,7 +38,6 @@ export default function DonutChart() {
           }
         }
       },
-
       datalabels: {
         color: '#fff',
         font: { weight: 'bold', size: 18 },
@@ -44,13 +45,10 @@ export default function DonutChart() {
       }
     }
   };
+
   return (
-    <>
-      <div className='h-100 ml-15 ' >
-        <Doughnut data={data}
-          options={options} />
-      </div>
-    </>
+    <div className='w-full h-full'>
+      <Doughnut data={data} options={options} />
+    </div>
   )
 }
-
