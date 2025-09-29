@@ -20,17 +20,18 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
     setAcceptComment("");
   };
 
+
   const handleReject = () => {
-    if (!rejectComment.trim()) {
-      toast.error("Comment is required for rejection.");
-      return;
-    }
     setRejectModal(false);
     setTimeout(() => {
-      toast.error("Document has been rejected!");
+      toast.warning("Document has been rejected. Please review and resubmit.");
     }, 100);
     setRejectComment("");
   };
+
+
+
+
 
   let icon1;
   let icon2;
@@ -95,7 +96,7 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
               <textarea
                 className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#006666] resize-none mb-4"
                 rows={4}
-                placeholder="Add optional comment"
+                placeholder="Add  comment"
                 value={acceptComment}
                 onChange={(e) => setAcceptComment(e.target.value)}
               />
@@ -127,7 +128,7 @@ export default function DocumentCard({ label, title, subtitle, status, showBorde
               <textarea
                 className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none mb-2"
                 rows={4}
-                placeholder="Comment is required for rejection"
+                placeholder=" Add Comment "
                 value={rejectComment}
                 onChange={(e) => setRejectComment(e.target.value)}
               />

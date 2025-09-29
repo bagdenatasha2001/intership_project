@@ -265,7 +265,7 @@ export default function Application_Dropdown() {
                       type="checkbox"
                       checked={selectedMajors.includes(option)}
                       onChange={() => toggleMajorOption(option)}
-                      className='accent-[#008080]'
+                      className='accent-[#008080] '
                     />
                     <span>{option}</span>
                   </label>
