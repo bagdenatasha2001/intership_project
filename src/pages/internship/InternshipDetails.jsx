@@ -80,14 +80,10 @@ export default function InternshipDetails() {
             <label className="text-sm font-normal text-[#051B44] mb-2">
               Internship Name
             </label>
-            <input
-              type="text"
-              placeholder="Java"
-              className={inputClasses}
-              {...register("internshipName", {
+            <input type="text" placeholder="Java"
+              className={inputClasses} {...register("internshipName", {
                 required: "Internship Name is required",
-              })}
-            />
+              })} />
             {errors.internshipName && (
               <p className="text-red-600 text-[12px] mt-1">
                 {errors.internshipName.message}
@@ -134,7 +130,7 @@ export default function InternshipDetails() {
                   <>
                     <div
                       className={`flex items-center justify-center w-1/2 h-[56px] border border-gray-300 rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "Remote"
-                        ? "bg-[rgb(197,231,229)]  text-white"
+                        ? "bg-[#0066660f]  text-[#014e4e]"
                         : "bg-white"
                         }`}
                       onClick={() => field.onChange("Remote")}
@@ -143,7 +139,7 @@ export default function InternshipDetails() {
                     </div>
                     <div
                       className={`flex items-center justify-center w-1/2 h-[56px] border border-gray-300  rounded-md cursor-pointer text-sm text-gray-600 ${field.value === "On-Site"
-                        ? "bg-[rgb(197,231,229)]  text-white "
+                        ? "bg-[#0066660f] text-[#014e4e]"
                         : "bg-white"
                         }`}
                       onClick={() => field.onChange("On-Site")}

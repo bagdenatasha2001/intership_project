@@ -10,7 +10,7 @@ export default function ApplicationView() {
     const [RejectModel, setRejectModel] = useState(false)
 
     function handleApprove() {
-        toast.success("Document Approved Successfully!");
+        toast.success(" Internship Approved Successfully!");
     }
 
     function handleReject() {
@@ -39,13 +39,13 @@ export default function ApplicationView() {
 
                     <div className='flex gap-4 '>
                         <button onClick={() => setRejectModel(true)}
-                            className='flex items-center gap-[10px] h-[50px] bg-red-100 py-[13px] px-5 rounded-lg text-red-400 relative'>
-                            <span><RxCross1 /></span>
+                            className='flex items-center gap-[10px] h-[50px] bg-red-200 py-[13px] px-4 rounded-lg text-red-500 relative hover:bg-red-300 hover:text-red-700 hover:bg-400'>
+                            <span className=' hover:text-red-950  '><RxCross1 /></span>
                             Reject
                         </button>
                         <button
                             onClick={handleApprove}
-                            className='flex items-center gap-[10px] h-[50px] bg-[#E5F3EB] py-[13px] px-5 rounded-lg text-teal-700'>
+                            className='flex items-center gap-[10px] h-[50px] bg-[#E5F3EB] py-[13px] px-4 rounded-lg text-teal-700 hover:bg-[#d2f1df] hover:text-teal-900'>
                             <span><FaCheck /></span>
                             Approved
                         </button>
@@ -60,11 +60,11 @@ export default function ApplicationView() {
                                 We appreciate the time and effort you invested in applying with us. Although you were not selected this time, please don’t be discouraged. We wish you the very best in your journey and hope to cross paths again!
                             </div>
 
-                            <div className="flex gap-3 mt-8">
-                                <button className="border rounded-md w-1/2 bg-white p-2 border-gray-300"
+                            <div className="flex gap-3  mt-4">
+                                <button className="border rounded-lg w-1/2 bg-white p-2 border-gray-300"
                                     onClick={() => setRejectModel(false)}> Cancel</button>
 
-                                <button className="bg-[#D92D20] text-white w-1/2 rounded-md border border-gray-300"
+                                <button className="bg-[#D92D20] text-white w-1/2 rounded-lg border border-gray-300"
                                     onClick={handleReject}>submit</button>
                             </div>
                         </div>
@@ -245,3 +245,8 @@ export default function ApplicationView() {
         </>
     )
 }
+
+
+
+
+

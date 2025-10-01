@@ -34,11 +34,11 @@ export default function ApplicationTable() {
 
   return (
     <>
-      <div className="rounded-lg w-full h-auto my-3  border shadow-md border-gray-300 flex-wrap">
+      <div className="rounded-lg w-full h-auto my-3  border shadow-md border-gray-300 flex-wrap ">
 
         <div className='flex px-6 py-4 gap-9 '>
           <div className="flex gap-2 justify-center items-center">
-            <h2 className="text-md font-semibold">Applications</h2>
+            <h2 className="text-[14px] font-semibold">Applications</h2>
             <span className="bg-gray-100 text-[#006666] text-[12px] px-2 font-normal py-1 rounded-full h-6">
               1000+ Applicants
             </span>
@@ -46,28 +46,30 @@ export default function ApplicationTable() {
         </div>
 
 
-        <div className="flex flex-col md:flex-row md:justify-between gap-9 h-auto  px-3 py-2 relative ">
+        <div className="flex flex-col md:flex-row justify-between items-center h-auto w-full px-3 py-2 relative ">
 
-
-          <div className="relative flex items-center w-full md:w-1/4">
+          <div className="relative flex items-center w-full md:w-2/5">
             <span className="absolute left-3 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
               </svg>
+
             </span>
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by name or email"
-              className="h-[50px] w-full pl-10 pr-3 border text-[14px] rounded-xl text-gray-500 focus:outline-gray-300"
+              className="h-[50px] w-[80%] pl-10 pr-3 border text-[14px] rounded-xl text-gray-500 focus:outline-gray-300"
             />
           </div>
 
-          <div className="flex rounded-xl h-[50px] w-full md:w-3/4 relative">
+          <div className="flex rounded-xl h-[50px] w-full md:w-3/5 mt-2 md:mt-0">
             <Application_Dropdown />
           </div>
+
         </div>
+
 
         <div className="overflow-x-auto ">
           <table className="min-w-[900px] table-auto text-[12px] text-left w-full border-collapse">
@@ -97,8 +99,7 @@ export default function ApplicationTable() {
                     <span className="whitespace-nowrap px-2 py-1 rounded-full text-[#006666] text-[11px] bg-gray-100">{item.AppliedDate}</span>
                   </td>
                   <td className="py-4 px-4 font-bold cursor-pointer"
-                    onClick={() => navigate("/Application-view")}
-                  >
+                    onClick={() => navigate("/Application-view")} >
                     {item.Action}
                   </td>
                 </tr>

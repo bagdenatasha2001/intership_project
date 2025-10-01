@@ -180,14 +180,14 @@ export default function Application_Dropdown() {
 
   return (
     <>
-      <div className='flex  rounded-lg text-[13px] '>
+      <div className='flex  w-full  rounded-lg text-[14px] '>
 
         {/* select */}
 
-        <div className='relative font-Inter' ref={statusDropdownRef}>
+        <div className=' w-full relative font-Inter' ref={statusDropdownRef}>
           <button
             onClick={() => setIsopen(!isOpen)}
-            className='flex items-center   whitespace-nowrap px-4 py-[14px] gap-2 border  bg-gray-100 rounded-l-xl'
+            className='flex items-center  w-full  whitespace-nowrap px-4 py-[14px] gap-2 border hover:bg-gray-100 rounded-l-xl'
           >
             <span>Select : {selectedOption}</span>
             {isOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -198,7 +198,7 @@ export default function Application_Dropdown() {
               {StatusOptions.map((statusOption, index) => (
                 <div
                   key={index}
-                  className='py-2 px-3 cursor-pointer mb-3 hover:bg-gray-200 text-gray-500 font-normal text-sm'
+                  className='py-2 px-3 cursor-pointer mb-3 hover:bg-gray-100 text-gray-500 font-normal text-sm'
                   onClick={() => {
                     setSelectedOption(statusOption);
                     setIsopen(false);
@@ -213,10 +213,10 @@ export default function Application_Dropdown() {
         </div>
 
         {/* Major  */}
-        <div className='w-fit relative font-Inter' ref={majorDropdownRef}>
+        <div className='w-full relative font-Inter' ref={majorDropdownRef}>
           <button
             onClick={() => setIsMajorOpen(!isMajorOpen)}
-            className='flex justify-between items-center border px-3 py-[14px] gap-2 '
+            className='flex justify-between items-center  w-full border px-3 py-[14px] gap-2 hover:bg-gray-100'
           >
             Major
             {isMajorOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -296,10 +296,10 @@ export default function Application_Dropdown() {
         {/*University */}
 
 
-        <div className='w-fit relative font-Inter' ref={universityDropdownRef}>
+        <div className='  w-full relative font-Inter' ref={universityDropdownRef}>
           <button
             onClick={() => setIsuniversityOpen(!isUniversityOpen)}
-            className='flex justify-between items-center border  px-4 py-[14px] gap-2  '
+            className='flex justify-between items-center border  w-full  px-4 py-[14px] gap-2 hover:bg-gray-100 '
           >
             University
             {isUniversityOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -347,7 +347,7 @@ export default function Application_Dropdown() {
 
               <div className=" max-h-80 overflow-y-scroll">
                 {filtereduniverisityOptions.map((option, index) => (
-                  <label key={index} className="flex items-center space-x-2 py-2 text-gray-500 font-normal text-sm">
+                  <label key={index} className="flex items-center space-x-2 py-2 text-gray-500 font-normal text-sm ">
                     <input
                       type="checkbox"
                       className='accent-[#008080]'
@@ -387,10 +387,10 @@ export default function Application_Dropdown() {
         {/* location */}
 
 
-        <div className='w-fit relative font-Inter' ref={locationDropdownRef}>
+        <div className=' w-full  relative font-Inter' ref={locationDropdownRef}>
           <button
             onClick={() => setIslocationOpen(!isLocationOpen)}
-            className='flex justify-between items-center border  px-4 py-[14px] gap-2 '
+            className='flex justify-between items-center border w-full  px-4 py-[14px] gap-2  hover:bg-gray-100'
           >
             Location
             {isLocationOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}
@@ -476,10 +476,10 @@ export default function Application_Dropdown() {
 
 
 
-        <div className='w-fit relative font-Inter' ref={gpaDropdownRef}>
+        <div className=' w-full relative font-Inter' ref={gpaDropdownRef}>
           <button
             onClick={() => setIsgpaOpen(!isGpaOpen)}
-            className='flex justify-between items-center border   px-3 py-[14px] gap-2 rounded-r-xl'
+            className='flex justify-between items-center border w-full   px-3 py-[14px] gap-2 rounded-r-xl hover:bg-gray-100'
           >
             GPA
             {isGpaOpen ? <IoChevronUpOutline size={20} /> : <IoChevronDownOutline size={20} />}

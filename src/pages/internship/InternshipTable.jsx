@@ -33,7 +33,7 @@ export default function InterngitshipTable() {
 
   const handleDelete = () => {
     setShowPopup(false);
-    toast.success("Your internship is deleted successfully!");
+    toast.success("internship is deleted successfully!");
 
   };
 
@@ -42,7 +42,6 @@ export default function InterngitshipTable() {
       <ToastContainer position="top-right" autoClose={3000} />
 
       <div className="rounded-lg w-full h-auto my-3  border shadow-md border-gray-300">
-
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20 ">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-xl font-bold text-black py-1">Internship</h2>
