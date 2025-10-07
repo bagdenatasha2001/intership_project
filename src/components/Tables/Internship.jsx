@@ -16,7 +16,7 @@ export default function Internship() {
     <div className="bg-white p-3 shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
       <div className="flex justify-between items-center mb-4 px-3">
         <div className="flex gap-2">
-          <h2 className="text-2xl font-semibold">Internships</h2>
+          <h2 className="text-xl font-semibold">Internships</h2>
           <span className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-2 py-1 rounded-full">
             128 New Applicants
           </span>

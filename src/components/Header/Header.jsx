@@ -5,6 +5,21 @@ import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineMenu } from 'react-icons/hi';
 
 export default function Header({ onToggleSidebar,pageTitle }) {
+
+   const now = new Date();
+
+   const options = {
+    weekday:'short', 
+    day: '2-digit',   
+    month: 'short',  
+    year: 'numeric',  
+    hour: '2-digit', 
+    minute: '2-digit',
+    hour12: true  
+  };
+
+    const formattedDate = now.toLocaleString('en-US', options);
+
   return (
     <div className="sticky top-0 z-50 bg-white">
       <div className='w-[98%] mx-auto h-[53px] flex justify-between items-center p-3 mt-4'>
@@ -16,7 +31,7 @@ export default function Header({ onToggleSidebar,pageTitle }) {
           </button>
           <div>
             <span className='text-[20px]'>{pageTitle}</span>
-            <p className='text-[14px] text-gray-500 font-normal'>Tue, 14 Nov, 2022, 11.30 AM</p>
+            <p className='text-[14px] text-gray-500 font-normal'>{formattedDate}</p>
           </div>
         </div>
         <div className='mt-[-4px]'>

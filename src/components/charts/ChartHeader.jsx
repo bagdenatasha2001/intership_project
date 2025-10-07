@@ -4,7 +4,7 @@ export default function ChartHeader({ title, buttonText, onButtonClick }) {
 
   return (
     <>
-      <div className="flex justify-between items-center bg-white p-2 rounded-lg  w-full mb-5  ">
+      <div className="flex justify-between items-center bg-white p-2 rounded-lg  w-full mb-2 ">
         <h2 className="text-2xl font-bold text-black py-1">
           {title}
         </h2>

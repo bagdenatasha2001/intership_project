@@ -5,8 +5,12 @@ import { RxCross1 } from "react-icons/rx";
 import DocumentCard from '../../components/form_fields/DocumentCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function ApplicationView() {
+
+     const navigate = useNavigate();
+
     const [RejectModel, setRejectModel] = useState(false)
 
     function handleApprove() {
@@ -33,7 +37,7 @@ export default function ApplicationView() {
 
                 <div className=' sm:flex  flex-col  md:flex-row justify-between items-center  h-auto  mb-5'>
                     <div className='sm:mb-3 flex  gap-2 items-center py-[13px] '>
-                        <span><HiArrowLongLeft /></span>
+                        <span  onClick={()=>navigate("/application-table")}><HiArrowLongLeft className='cursor-pointer size-6 font-bold' /></span>
                         Applicant Management System / View Applicants Details
                     </div>
 
@@ -73,27 +77,27 @@ export default function ApplicationView() {
 
 
                 <div className=' bg-gray-50  h-auto  border border-gray-300 rounded-lg p-5 mb-[30px] '>
-                    <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Personal Information</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]' >Personal Information</div>
                     <div className='flex justify-between'>
                         <div className='flex flex-col gap-4 flex-wrap'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>First Name</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>Alya</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>First Name</span>
+                            <span className='text-base font-medium text-[#696F8C]'>Alya</span>
                         </div>
                         <div className='flex flex-col gap-4 '>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Last Name</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>Shaikh</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Last Name</span>
+                            <span className='text-base font-medium text-[#696F8C]'>Shaikh</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Applied Date</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>25 May 2025</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Applied Date</span>
+                            <span className='text-base font-medium text-[#696F8C]'>25/05/ 2025</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Mobile Number</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>+966 50 123 4567</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Mobile Number</span>
+                            <span className='text-base font-medium text-[#696F8C]'>+966 50 123 4567</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Email Address</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>alyashaikhl@gmail.com</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Email Address</span>
+                            <span className='text-base font-medium text-[#696F8C]'>alyashaikhl@gmail.com</span>
                         </div>
                     </div>
                 </div>
@@ -104,59 +108,59 @@ export default function ApplicationView() {
 
                 <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg  p-5 mb-[30px]'>
 
-                    <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Education Information</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]' >Education Information</div>
                     <div className='flex w-full '>
                         <div className='flex flex-col gap-4 w-1/2'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Course Name</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>B.Tech In Computer </span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Course Name</span>
+                            <span className='text-base font-medium text-[#696F8C]'>B.Tech In Computer </span>
                         </div>
                         <div className='flex flex-col gap-4 '>
-                            <span className='text-[12px] font-normal text-[#051B44]'>GPA</span>
-                            <div className='text-[14px] font-medium text-[#696F8C]'>80 - 89% <span>4.0</span> </div>
+                            <span className='text-[14px] font-normal text-[#051B44]'>GPA</span>
+                            <div className='text-base font-medium text-[#696F8C]'>80 - 89% <span>4.0</span> </div>
                         </div>
                     </div>
 
                 </div>
 
                 <div className=' bg-gray-50 h-auto min-h-[152px] border border-gray-300 rounded-lg  p-5  mb-[30px]'>
-                    <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >Internship Information</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]' >Internship Information</div>
 
                     <div className='flex justify-between'>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Internship</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>UI / UX Designer</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Internship</span>
+                            <span className='text-base font-medium text-[#696F8C]'>UI / UX Designer</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Internship ID</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>00147825</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Internship ID</span>
+                            <span className='text-base font-medium text-[#696F8C]'>00147825</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Duration</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>3 Months</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Duration</span>
+                            <span className='text-base font-medium text-[#696F8C]'>3 Months</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Start Date</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>25 May 2025</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Start Date</span>
+                            <span className='text-base font-medium text-[#696F8C]'>25 May 2025</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>End Date</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>25 May 2025</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>End Date</span>
+                            <span className='text-base font-medium text-[#696F8C]'>25 May 2025</span>
                         </div>
                         <div className='flex flex-col gap-4'>
-                            <span className='text-[12px] font-normal text-[#051B44]'>Job Type</span>
-                            <span className='text-[14px] font-medium text-[#696F8C]'>Remote</span>
+                            <span className='text-[14px] font-normal text-[#051B44]'>Job Type</span>
+                            <span className='text-base font-medium text-[#696F8C]'>Remote</span>
                         </div>
                     </div>
                 </div>
 
 
                 <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg mb-[30px] p-5 justify-between'>
-                    <div className='mb-[26px] text-[20px] font-medium text-[#525256]' >View All Documents</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]' >View All Documents</div>
 
 
 
                     <div className=' bg-gray-50 h-auto  rounded-lg   mb-[26px]'>
-                        <div className='mb-[26px]'>25 Jul 2025</div>
+                        <div className='mb-[26px] text-[#525256]'>25 Jul 2025</div>
                         <div className=' flex  gap-4'>
                             <DocumentCard
                                 label="Pdf"
@@ -177,7 +181,7 @@ export default function ApplicationView() {
 
 
                     <div className=''>
-                        <div className='mb-4'>20 Jul 2025</div>
+                        <div className='mb-4 text-[#525256]'>20 Jul 2025</div>
 
                         <div className='flex flex-wrap gap-3 '>
 
@@ -215,7 +219,7 @@ export default function ApplicationView() {
 
 
                 <div className=' bg-gray-50 h-auto  border border-gray-300 rounded-lg  p-5  mb-[30px]'>
-                    <div className='mb-[26px]'>Company Documents</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]'>Company Documents</div>
 
                     <div className=' flex  gap-4'>
                         <DocumentCard
@@ -235,7 +239,7 @@ export default function ApplicationView() {
                 </div>
 
                 <div className=' bg-gray-50 h-auto   border border-gray-300 rounded-lg  p-5  '>
-                    <div className='mb-[26px]'>Add Comments</div>
+                    <div className='mb-[26px] text-xl font-medium text-[#525256]'>Add Comments</div>
                     <textarea className="w-full border border-gray-300 rounded-lg p-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#006666] resize-none" rows={4}
                         placeholder="Add comments" />
 

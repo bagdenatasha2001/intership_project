@@ -6,7 +6,7 @@ import InternshipTableContainer from '../components/Tables/InternshipTableContai
 
 export default function Dashboard() {
   return (
-    <div className="space-y-4 ">
+    <div className="space-y-4 overflow-x-hidden ">
       <Kpi_Container />
       <ChartContainer />
       <Heatmap />

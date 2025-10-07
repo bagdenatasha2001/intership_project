@@ -1,9 +1,12 @@
 import React from 'react'
 import DonutChart from './DonutChart'
 import Donut_2 from './Donut_2'
-import ChartHeader from './ChartHeader'
+import ChartHeader from './ChartHeader';
+import { useNavigate } from 'react-router-dom';
 
 export default function ChartContainer() {
+   const navigate = useNavigate();
+
   return (
     <>
       <div className='w-full flex flex-col lg:flex-row h-auto lg:h-[550px] justify-center items-center lg:justify-around lg:items-stretch p-3 lg:space-x-5 space-y-5 lg:space-y-0'>
@@ -12,7 +15,8 @@ export default function ChartContainer() {
           <ChartHeader
             title="Applicant Analytics"
             buttonText="More Information"
-            onButtonClick={() => console.log("first button clicked!")} />
+            onButtonClick={() =>navigate("/application-table")}
+              />
 
           <div className='w-full h-full max-h-[480px] flex flex-col items-center bg-[#FBFBFB] p-3 justify-center rounded-2xl border border-gray-33'>
             <DonutChart />
@@ -28,7 +32,7 @@ export default function ChartContainer() {
           <ChartHeader
             title="Internship"
             buttonText="More Information"
-            onButtonClick={() => console.log("second button clicked!")} />
+            onButtonClick={() =>navigate("/internship-table")} />
 
           <div className='w-full h-full max-h-[480px] flex flex-col items-center bg-[#FBFBFB] p-3 justify-center rounded-2xl border border-gray-33'>
             <Donut_2 />

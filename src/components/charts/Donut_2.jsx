@@ -46,7 +46,7 @@ export default function Donut_2() {
   };
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full p-2'>
       <Doughnut data={data} options={options} />
     </div>
   )

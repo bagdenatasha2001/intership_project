@@ -5,6 +5,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
+
 export default function DonutChart() {
 
   const data = {
@@ -47,7 +48,7 @@ export default function DonutChart() {
   };
 
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full p-2'>
       <Doughnut data={data} options={options} />
     </div>
   )

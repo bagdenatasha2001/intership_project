@@ -134,7 +134,7 @@ export default function Heatmap() {
   };
 
   return (
-    <div className='h-[500px]  w-full mx-3  shadow rounded-2xl  border border-gray-33 p-4'>
+    <div className='h-[600px] mx-3 mt-5  rounded-2xl  border border-gray-33 p-3 bg-[#FBFBFB]'>
       <div className='flex justify-between items-center mb-3'>
         <h3 className='font-bold text-2xl'>Applicants Footprints By Location</h3>
         <div className='w-[300px] '>
@@ -147,7 +147,7 @@ export default function Heatmap() {
         </div>
       </div>
 
-      <div className='h-[400px] w-full '>
+      <div className='h-[500px] w-full'>
         <Chart type="matrix" data={data} options={options} />
       </div>
     </div>

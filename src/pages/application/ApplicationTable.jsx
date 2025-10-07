@@ -34,7 +34,7 @@ export default function ApplicationTable() {
 
   return (
     <>
-      <div className="rounded-lg w-full h-auto m-3  border shadow-md border-gray-300 flex-wrap ">
+      <div className="rounded-lg w-full h-auto border shadow-md border-gray-300 flex-wrap ">
 
         <div className='flex px-6 py-4 gap-9 '>
           <div className="flex gap-2 justify-center items-center">
@@ -106,13 +106,10 @@ export default function ApplicationTable() {
             </tbody>
           </table>
         </div>
-
-
-        <div className='p-3'>
+      </div>
+       <div className='my-6'>
           <Pagination />
         </div>
-
-      </div>
     </>
   );
 }

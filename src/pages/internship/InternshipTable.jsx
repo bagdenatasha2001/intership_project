@@ -41,7 +41,7 @@ export default function InterngitshipTable() {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
 
-      <div className="rounded-lg w-full h-auto m-3  border shadow-md border-gray-300">
+      <div className="rounded-lg w-full h-auto   border shadow-md border-gray-300">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-1 p-4 w-full flex-wrap min-h-20 ">
           <div className="flex flex-col md:flex-row md:items-center gap-2">
             <h2 className="text-2xl font-bold text-black py-1">Internship</h2>
@@ -55,28 +55,28 @@ export default function InterngitshipTable() {
           </button>
         </div>
 
-        <div className="bg-white p-3 py-3 w-full h-full flex flex-col">
+        <div className="bg-white  py-3 w-full h-full flex flex-col ">
           <div className="overflow-x-auto w-full">
             <div className="overflow-y-auto min-h-0">
               <table className="min-w-[800px] text-base text-left w-full">
                 <thead>
                   <tr className="text-gray-600 border-b text-[14px]   bg-gray-50">
                     <th className="py-2 px-2">Internship</th>
-                    <th className="py-2 px-2">Internship ID</th>
-                    <th className="py-2 px-2">Duration</th>
-                    <th className="py-2 px-2">Start Date</th>
-                    <th className="py-2 px-2">End Date</th>
-                    <th className="py-2 px-2">Job Type</th>
-                    <th className="py-2 px-2">Status</th>
-                    <th className="py-2 px-2">Action</th>
+                    <th className="py-2">Internship ID</th>
+                    <th className="py-2">Duration</th>
+                    <th className="py-2">Start Date</th>
+                    <th className="py-2">End Date</th>
+                    <th className="py-2">Job Type</th>
+                    <th className="py-2">Status</th>
+                    <th className="py-2">Action</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   {internships.map((item, index) => (
-                    <tr key={index} className="border-b  4gray-200 gap-2">
-                      <td className="whitespace-nowrap text-[14px] font-normal">{item.title}</td>
-                      <td className="whitespace-nowrap text-[14px] text-gray-500">{item.InternshipID}</td>
+                    <tr key={index} className="border-b gray-200 gap-2">
+                      <td className="whitespace-nowrap text-[14px] font-normal px-2">{item.title}</td>
+                      <td className="whitespace-nowrap text-[14px] text-gray-500 p-0">{item.InternshipID}</td>
                       <td className="whitespace-nowrap text-[14px] text-gray-500 font-extralight">{item.Duration}</td>
                       <td>
                         <span className="whitespace-nowrap px-2 py-1 rounded-full text-[#006666] font-semibold text-[12px] bg-gray-100">{item.StartDate}</span>
@@ -119,12 +119,15 @@ export default function InterngitshipTable() {
                   ))}
                 </tbody>
               </table>
-              <div className="mt-6">  <Pagination /></div>
+            
 
             </div>
           </div>
+           
         </div>
       </div>
+
+       <div className="my-6">  <Pagination /></div>
 
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
