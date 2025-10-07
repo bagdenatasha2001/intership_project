@@ -134,9 +134,9 @@ export default function Heatmap() {
   };
 
   return (
-    <div className='h-[500px] p-2 mb-4 w-full shadow rounded-2xl mt-4 border border-gray-33'>
-      <div className='flex justify-between items-center mb-3 px-2'>
-        <h3 className='font-bold text-lg'>Applicants Footprints By Location</h3>
+    <div className='h-[500px]  w-full mx-3  shadow rounded-2xl  border border-gray-33 p-4'>
+      <div className='flex justify-between items-center mb-3'>
+        <h3 className='font-bold text-2xl'>Applicants Footprints By Location</h3>
         <div className='w-[300px] '>
           <MultiSelectDropdown
             options={cityOptions}
@@ -147,7 +147,7 @@ export default function Heatmap() {
         </div>
       </div>
 
-      <div className='h-[400px] w-full'>
+      <div className='h-[400px] w-full '>
         <Chart type="matrix" data={data} options={options} />
       </div>
     </div>

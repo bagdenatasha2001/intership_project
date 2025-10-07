@@ -11,7 +11,7 @@ export default function StatusTabs() {
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
-                        className={`px-5 py-2 text-sm font-medium transition-colors duration-200 ${activeTab === tab
+                        className={`px-5 py-2  font-medium transition-colors duration-200 ${activeTab === tab
                                 ? "bg-[#D0D5DD] text-blacke"
                                 : "bg-white text-gray-800 hover:bg-gray-100"
                             } ${index !== 0 ? "border-l border-gray-300" : ""}`}>

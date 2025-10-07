@@ -180,7 +180,7 @@ export default function Application_Dropdown() {
 
   return (
     <>
-      <div className='flex  w-full  rounded-lg text-[14px] '>
+      <div className='flex  w-full  rounded-lg '>
 
         {/* select */}
 
@@ -194,7 +194,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isOpen && (
-            <div className='absolute flex flex-col border border-gray-300 p-2 right-2 mt-2 w-[204px] rounded-lg z-10 bg-white'>
+            <div className='absolute flex flex-col border border-gray-300 p-2 right-2 mt-4 w-[204px] rounded-lg z-10 bg-white'>
               {StatusOptions.map((statusOption, index) => (
                 <div
                   key={index}
@@ -223,7 +223,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isMajorOpen && (
-            <div className='absolute bg-white border mt-2 w-[343px] rounded-md z-10 p-5 right-2'>
+            <div className='absolute bg-white border border-gray-300 mt-4 w-[343px] rounded-md z-10 p-5 right-2'>
               <label>Major</label>
 
               <div className="relative flex items-center">
@@ -274,13 +274,13 @@ export default function Application_Dropdown() {
 
               <div className="flex gap-3 mt-5">
                 <button
-                  className="border rounded-md w-1/2 bg-white p-2"
+                  className="border border-gray-300 rounded-md w-1/2 bg-white p-2"
                   onClick={() => setIsMajorOpen(false)}
                 >
                   Cancel
                 </button>
                 <button
-                  className="bg-[#006666] text-white w-1/2 rounded-md"
+                  className="bg-[#006666] border-gray-300 text-white w-1/2 rounded-md"
                   onClick={() => {
                     console.log('Applied Majors:', selectedMajors);
                     setIsMajorOpen(false);
@@ -306,7 +306,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isUniversityOpen && (
-            <div className='absolute bg-white  mt-2 w-[443px]  border rounded-md z-10 p-5 right-2'>
+            <div className='absolute bg-white  mt-4 w-[443px]  border border-gray-300 rounded-md z-10 p-5 right-2'>
               <label>University</label>
 
               <div className="relative flex items-center">
@@ -362,13 +362,13 @@ export default function Application_Dropdown() {
 
               <div className="flex gap-3 mt-5">
                 <button
-                  className="border rounded-md w-1/2 bg-white p-2"
+                  className="border  border-gray-300 rounded-md w-1/2 bg-white p-2"
                   onClick={() => setIsuniversityOpen(false)}
                 >
                   Cancel
                 </button>
                 <button
-                  className="bg-[#006666] text-white w-1/2 rounded-md"
+                  className="bg-[#006666] border-gray-300 text-white w-1/2 rounded-md"
                   onClick={() => {
                     console.log('Applied University:', selecteduniversity);
                     setIsuniversityOpen(false);
@@ -397,7 +397,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isLocationOpen && (
-            <div className='absolute bg-white mt-2 w-[443px] border  rounded-md z-10 p-5 right-2'>
+            <div className='absolute bg-white mt-4 w-[443px] border border-gray-300  rounded-md z-10 p-5 right-2'>
               <label>Location</label>
 
               <div className="relative flex items-center">
@@ -452,13 +452,13 @@ export default function Application_Dropdown() {
 
               <div className="flex gap-3 mt-5">
                 <button
-                  className="border rounded-md w-1/2 bg-white p-2"
+                  className="border border-gray-300 rounded-md w-1/2 bg-white p-2"
                   onClick={() => setIslocationOpen(false)}
                 >
                   Cancel
                 </button>
                 <button
-                  className="bg-[#006666] text-white w-1/2 rounded-md"
+                  className="bg-[#006666] border-gray-300 text-white w-1/2 rounded-md"
                   onClick={() => {
                     console.log('Applied Location:', selectedlocation);
                     setIslocationOpen(false);
@@ -486,7 +486,7 @@ export default function Application_Dropdown() {
           </button>
 
           {isGpaOpen && (
-            <div className='absolute bg-white border mt-2 w-[328px]   rounded-md z-10 p-5 right-2'>
+            <div className='absolute bg-white border mt-4 w-[328px]  border-gray-300  rounded-md z-10 p-5 right-2'>
               <label>GPA</label>
 
               {/* <div className="relative flex items-center">
@@ -541,13 +541,13 @@ export default function Application_Dropdown() {
 
               <div className="flex gap-3 mt-5">
                 <button
-                  className="border rounded-md w-1/2 bg-white p-2"
+                  className="border border-gray-300 rounded-md w-1/2 bg-white p-2"
                   onClick={() => setIsgpaOpen(false)}
                 >
                   Cancel
                 </button>
                 <button
-                  className="bg-[#006666] text-white w-1/2 rounded-md"
+                  className="bg-[#006666] border-gray-300 text-white w-1/2 rounded-md"
                   onClick={() => {
                     console.log('Applied GPA:', selectedgpa);
                     setIsgpaOpen(false);

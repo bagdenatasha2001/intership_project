@@ -16,13 +16,15 @@ export default function Internship() {
     <div className="bg-white p-3 shadow w-full h-full flex flex-col rounded-2xl border border-gray-33">
       <div className="flex justify-between items-center mb-4 px-3">
         <div className="flex gap-2">
-          <h2 className="text-md font-semibold">Internships</h2>
+          <h2 className="text-2xl font-semibold">Internships</h2>
           <span className="bg-gray-100 text-[#0F172A] text-[14px] font-normal px-2 py-1 rounded-full">
             128 New Applicants
           </span>
+
+
         </div>
 
-        <a href="/internship-table" className="hover:text-blue-500 text-sm underline">
+        <a href="/internship-table" className="  text-gray-600 hover:text-[#006666] text-sm underline">
           View All
         </a>
       </div>
@@ -33,7 +35,7 @@ export default function Internship() {
       >
         <table className="text-base text-left w-full">
           <thead>
-            <tr className="text-gray-400 border-b text-[12px]">
+            <tr className="text-gray-400 border-b text-[14px]">
               <th className="py-3 px-3">Internship</th>
               <th className="py-3 px-3">Opening</th>
               <th className="py-3 px-3">Applicants</th>
@@ -44,21 +46,21 @@ export default function Internship() {
 
           <tbody>
             {internships.map((item, index) => (
-              <tr key={index} className="border-b border-gray-200">
-                <td className="py-3 px-1 flex items-center text-[14px] font-normal gap-3">
+              <tr key={index} className="border-b border-gray-200 font-extralight">
+                <td className="py-3 px-1 flex items-center text-base  font-normal gap-3 ">
                   <div>
                     <p className="font-normal">{item.title}</p>
-                    <p className="text-gray-400 text-[12px] flex items-center gap-1 mt-2">
+                    <p className="text-gray-400 text-[14px] flex items-center gap-1 mt-2">
                       <BsCalendar3 className="text-black" />
                       25 May - July 04
                     </p>
                   </div>
                 </td>
-                <td className="text-[12px] px-6 py-1">{item.openings}</td>
-                <td className="text-[12px] px-6 py-1">{item.applicants}</td>
-                <td className="text-[rgb(102,112,133)] font-medium text-[12px] px-6 py-1">{item.selected}</td>
+                <td className="text-[14px] px-6 py-1">{item.openings}</td>
+                <td className="text-[14px] px-6 py-1">{item.applicants}</td>
+                <td className="text-[rgb(102,112,133)] font-medium text-[14px] px-6 py-1">{item.selected}</td>
                 <td className="py-3 px-1 text-center">
-                  <span className="inline-flex items-center gap-2 text-green-600 bg-green-100 px-2 rounded-full text-[12px]">
+                  <span className="inline-flex items-center gap-2 text-green-600 bg-green-100 px-2 rounded-full text-[14px]">
                     <span className="w-2 h-2 rounded-full bg-[#12B76A] inline-block"></span>
                     {item.Status}
                   </span>
